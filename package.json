@@ -6,11 +6,10 @@
 	"publisher": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
 	"homepage": "https://github.com/lifeart/vsc-ember-syntax",
 	"engines": {
-		"vscode": "^0.10.10"
+		"vscode": "^0.0.10"
 	},
 	"extensionDependencies": [
 		"handlebars",
-		"dzannotti.vscode-babel-coloring"
 	],
 	"contributes": {
 		"grammars": [
