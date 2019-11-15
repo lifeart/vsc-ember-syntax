@@ -1,0 +1,25 @@
+{
+	"name": "vsc-ember-syntax",
+	"displayName": "Ember Templates Syntax for VS Code",
+	"description": "Ember templates syntax",
+	"version": "0.0.2",
+	"publisher": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
+	"homepage": "https://github.com/lifeart/vsc-ember-syntax",
+	"engines": {
+		"vscode": "^0.10.10"
+	},
+	"extensionDependencies": [
+		"handlebars",
+		"dzannotti.vscode-babel-coloring"
+	],
+	"contributes": {
+		"grammars": [
+			{
+				"label": "Handlebars (Ember)",
+				"language": "handlebars",
+				"scopeName": "text.html.handlebars",
+				"path": "./syntaxes/handlebars.tmLanguage"
+			}
+		]
+	}
+}
