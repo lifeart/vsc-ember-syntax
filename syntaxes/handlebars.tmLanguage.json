@@ -354,7 +354,7 @@
     },
     "glimmer-control-expression": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)((([a-z-]+)))",
+      "begin": "({{)(([-a-z/]+)\\s)",
       "end": "(}})",
       "captures": {
         "1": {
@@ -417,6 +417,9 @@
           "include": "#boolean"
         },
         {
+          "include": "#param"
+        },
+        {
           "include": "#glimmer-parameter-name"
         },
         {
@@ -471,7 +474,7 @@
       "patterns": []
     },
     "variable": {
-      "name": "variable.other.handlebars",
+      "name": "support.function",
       "match": "\\b([a-zA-Z0-9-_]+)\\b",
       "patterns": []
     },
