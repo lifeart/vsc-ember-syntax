@@ -7,6 +7,12 @@
   ],
   "patterns": [
     {
+      "include": "#glimmer-else-block"
+    },
+    {
+      "include": "#glimmer-special-block"
+    },
+    {
       "include": "#glimmer-unescaped-expression"
     },
     {
@@ -225,6 +231,42 @@
           "include": "#attention"
         }
       ]
+    },
+    "glimmer-else-block": {
+      "name": "entity.expression.handlebars",
+      "match": "({{)(else)(}})",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "keyword.control"
+        },
+        "3": {
+          "name": "punctuation.definition.expression.handlebars"
+        }
+      }
+    },
+    "glimmer-special-block": {
+      "name": "entity.expression.handlebars",
+      "match": "({{)(yield|outlet)(}})",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "entity.name.tag.html.handlebars"
+        },
+        "3": {
+          "name": "punctuation.definition.expression.handlebars"
+        }
+      }
     },
     "glimmer-block": {
       "name": "entity.expression.handlebars",
