@@ -16,7 +16,17 @@
       "include": "#glimmer-comment-inline"
     },
     {
+      "include": "#glimmer-expression-property"
+    },
+    {
+      "include": "#glimmer-control-expression"
+    },
+    {
       "include": "#glimmer-expression"
+    },
+   
+    {
+      "include": "#glimmer-block"
     },
     {
       "include": "#html-tag"
@@ -91,7 +101,17 @@
           "match": "\\\\\""
         },
         {
+          "include": "#glimmer-expression-property"
+        },
+        {
+          "include": "#glimmer-control-expression"
+        },
+        {
           "include": "#glimmer-expression"
+        },
+       
+        {
+          "include": "#glimmer-block"
         }
       ]
     },
@@ -115,7 +135,17 @@
           "match": "\\\\'"
         },
         {
+          "include": "#glimmer-expression-property"
+        },
+        {
+          "include": "#glimmer-control-expression"
+        },
+        {
           "include": "#glimmer-expression"
+        },
+       
+        {
+          "include": "#glimmer-block"
         }
       ]
     },
@@ -129,10 +159,13 @@
       "patterns": []
     },
     "param": {
-      "match": "([@a-zA-Z0-9_/.-]+)",
+      "match": "(@|this)([a-zA-Z0-9_.-]+)",
       "captures": {
         "0": {
-          "name": "entity.other.attribute-name.handlebars"
+          "name": "support.function"
+        },
+        "1": {
+          "name": "support.function"
         }
       },
       "patterns": []
@@ -193,9 +226,9 @@
         }
       ]
     },
-    "glimmer-expression": {
+    "glimmer-block": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)(#|\/)?(([@a-zA-Z0-9_/.-]+))",
+      "begin": "({{)(#|\/)(([@a-zA-Z0-9_/.-]+))",
       "end": "(}})",
       "captures": {
         "1": {
@@ -205,7 +238,7 @@
           "name": "punctuation.definition.expression.handlebars"
         },
         "3": {
-          "name": "entity.name.tag.html.handlebars"
+          "name": "keyword.control"
         }
       },
       "patterns": [
@@ -238,6 +271,126 @@
         }
       ]
     },
+    "glimmer-expression-property": {
+      "name": "entity.expression.handlebars",
+      "begin": "({{)((@|this)([a-zA-Z0-9_.-]+))",
+      "end": "(}})",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "3": {
+          "name": "support.function"
+        },
+        "4": {
+          "name": "support.function"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#glimmer-subexp"
+        },
+        {
+          "include": "#string-single-quoted-handlebars"
+        },
+        {
+          "include": "#string-double-quoted-handlebars"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#param"
+        },
+        {
+          "include": "#glimmer-parameter-name"
+        },
+        {
+          "include": "#glimmer-parameter-value"
+        }
+      ]
+    },
+    "glimmer-expression": {
+      "name": "entity.expression.handlebars",
+      "begin": "({{)(([@a-zA-Z0-9_.-]+))",
+      "end": "(}})",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "3": {
+          "name": "support.function"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#glimmer-subexp"
+        },
+        {
+          "include": "#string-single-quoted-handlebars"
+        },
+        {
+          "include": "#string-double-quoted-handlebars"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#param"
+        },
+        {
+          "include": "#glimmer-parameter-name"
+        },
+        {
+          "include": "#glimmer-parameter-value"
+        }
+      ]
+    },
+    "glimmer-control-expression": {
+      "name": "entity.expression.handlebars",
+      "begin": "({{)((([a-z-]+)))",
+      "end": "(}})",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "3": {
+          "name": "keyword.control"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#glimmer-subexp"
+        },
+        {
+          "include": "#string-single-quoted-handlebars"
+        },
+        {
+          "include": "#string-double-quoted-handlebars"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#param"
+        },
+        {
+          "include": "#glimmer-parameter-name"
+        },
+        {
+          "include": "#glimmer-parameter-value"
+        }
+      ]
+    },
     "glimmer-subexp": {
       "name": "entity.subexpression.handlebars",
       "begin": "(\\()([@a-zA-Z0-9.-]+)",
@@ -247,7 +400,7 @@
           "name": "punctuation.definition.subexpression.handlebars"
         },
         "2": {
-          "name": "entity.name.tag.html.handlebars"
+          "name": "keyword.control"
         }
       },
       "patterns": [
@@ -272,7 +425,7 @@
       ]
     },
     "as-keyword": {
-      "name": "support.function.builtin.handlebars",
+      "name": "keyword.control",
       "match": "\\s\\b(as)\\b(?=\\s\\|)",
       "patterns": []
     },
@@ -372,7 +525,20 @@
           "include": "#glimmer-comment-inline"
         },
         {
+          "include": "#glimmer-expression-property"
+        },
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#glimmer-control-expression"
+        },
+        {
           "include": "#glimmer-expression"
+        },
+      
+        {
+          "include": "#glimmer-block"
         },
         {
           "include": "#string-double-quoted-html"
@@ -382,9 +548,6 @@
         },
         {
           "include": "#html-attribute"
-        },
-        {
-          "include": "#boolean"
         }
       ]
     },

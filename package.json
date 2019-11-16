@@ -3,14 +3,37 @@
 	"displayName": "Glimmer Templates Syntax for VS Code",
 	"description": "Glimmer templates syntax",
 	"version": "0.0.2",
-	"publisher": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
+	"autor": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
+	"license": "MIT",
+	"publisher": "lifeart",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lifeart/vsc-ember-syntax"
+	},
+	"bugs": {
+		"url": "https://github.com/lifeart/vsc-ember-syntax/issues"
+	},
 	"homepage": "https://github.com/lifeart/vsc-ember-syntax",
 	"engines": {
 		"vscode": "^0.0.10"
 	},
-	"extensionDependencies": [
-		"handlebars",
+	"categories": [
+		"Programming Languages",
+		"Themes"
 	],
+	"keywords": [
+		"Ember.js",
+		"Glimmer",
+		"Handlebars",
+		"Syntax"
+	],
+	"extensionDependencies": [
+		"handlebars"
+	],
+	"scripts": {
+		"vs:package": "vsce package --yarn",
+		"vs:publish": "vsce publish --yarn"
+	},
 	"contributes": {
 		"grammars": [
 			{
