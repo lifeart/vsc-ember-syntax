@@ -237,7 +237,7 @@
     },
     "glimmer-bools": {
       "name": "entity.expression.handlebars",
-      "match": "({{)(true|false|null|undefined|\\d+)(}})",
+      "match": "({{~?)(true|false|null|undefined|\\d+)(~?}})",
       "captures": {
         "0": {
           "name": "punctuation.definition.expression.handlebars"
@@ -255,7 +255,7 @@
     },
     "glimmer-else-block": {
       "name": "entity.expression.handlebars",
-      "match": "({{)(else)(}})",
+      "match": "({{~?)(else)(~?}})",
       "captures": {
         "0": {
           "name": "punctuation.definition.expression.handlebars"
@@ -273,7 +273,7 @@
     },
     "glimmer-special-block": {
       "name": "entity.expression.handlebars",
-      "match": "({{)(yield|outlet)(}})",
+      "match": "({{~?)(yield|outlet)(~?}})",
       "captures": {
         "0": {
           "name": "punctuation.definition.expression.handlebars"
@@ -291,8 +291,8 @@
     },
     "glimmer-block": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)(#|\/)(([@a-zA-Z0-9_/.-]+))",
-      "end": "(}})",
+      "begin": "({{~?)(#|\/)(([@a-zA-Z0-9_/.-]+))",
+      "end": "(~?}})",
       "captures": {
         "1": {
           "name": "punctuation.definition.expression.handlebars"
@@ -336,8 +336,8 @@
     },
     "glimmer-expression-property": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)((@|this)([a-zA-Z0-9_.-]+))",
-      "end": "(}})",
+      "begin": "({{~?)((@|this)([a-zA-Z0-9_.-]+))",
+      "end": "(~?}})",
       "captures": {
         "1": {
           "name": "punctuation.definition.expression.handlebars"
@@ -378,8 +378,8 @@
     },
     "glimmer-expression": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)(([@a-zA-Z0-9_.-]+))",
-      "end": "(}})",
+      "begin": "({{~?)(([@a-zA-Z0-9_.-]+))",
+      "end": "(~?}})",
       "captures": {
         "1": {
           "name": "punctuation.definition.expression.handlebars"
@@ -417,8 +417,8 @@
     },
     "glimmer-control-expression": {
       "name": "entity.expression.handlebars",
-      "begin": "({{)(([-a-z/]+)\\s)",
-      "end": "(}})",
+      "begin": "({{~?)(([-a-z/]+)\\s)",
+      "end": "(~?}})",
       "captures": {
         "1": {
           "name": "punctuation.definition.expression.handlebars"
