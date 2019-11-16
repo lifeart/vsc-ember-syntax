@@ -551,6 +551,12 @@
         },
         {
           "include": "#html-attribute"
+        },
+        {
+          "include": "#as-keyword"
+        },
+        {
+          "include": "#as-params"
         }
       ]
     },

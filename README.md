@@ -1,5 +1,8 @@
 # README
-VsCode Ember Syntax Extension.
+
+VsCode Ember/Glimmer Syntax Extension.
+
+![preview](assets/preview.png)
 
 Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 
