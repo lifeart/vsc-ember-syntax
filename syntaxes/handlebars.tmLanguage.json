@@ -10,6 +10,9 @@
       "include": "#glimmer-else-block"
     },
     {
+      "include": "#glimmer-bools"
+    },
+    {
       "include": "#glimmer-special-block"
     },
     {
@@ -156,7 +159,7 @@
       ]
     },
     "boolean": {
-      "match": "true|false|undefined|null",
+      "match": "true|false|undefined|null|\\d+",
       "captures": {
         "0": {
           "name": "constant.language.handlebars"
@@ -231,6 +234,24 @@
           "include": "#attention"
         }
       ]
+    },
+    "glimmer-bools": {
+      "name": "entity.expression.handlebars",
+      "match": "({{)(true|false|null|undefined|\\d+)(}})",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.expression.handlebars"
+        },
+        "2": {
+          "name": "constant.language.handlebars"
+        },
+        "3": {
+          "name": "punctuation.definition.expression.handlebars"
+        }
+      }
     },
     "glimmer-else-block": {
       "name": "entity.expression.handlebars",
@@ -560,6 +581,9 @@
         }
       },
       "patterns": [
+        {
+          "include": "#glimmer-bools"
+        },
         {
           "include": "#glimmer-unescaped-expression"
         },
