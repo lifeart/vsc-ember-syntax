@@ -1,7 +1,7 @@
 {
-	"name": "vsc-ember-syntax",
-	"displayName": "Ember Templates Syntax for VS Code",
-	"description": "Ember templates syntax",
+	"name": "vscode-glimmer-syntax",
+	"displayName": "Glimmer Templates Syntax for VS Code",
+	"description": "Glimmer templates syntax",
 	"version": "0.0.2",
 	"publisher": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
 	"homepage": "https://github.com/lifeart/vsc-ember-syntax",
@@ -16,7 +16,7 @@
 			{
 				"label": "Handlebars (Ember)",
 				"language": "handlebars",
-				"scopeName": "text.html.handlebars",
+				"scopeName": "source.handlebars",
 				"path": "./syntaxes/handlebars.tmLanguage.json"
 			}
 		]
