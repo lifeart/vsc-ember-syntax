@@ -50,6 +50,14 @@
     }
   ],
   "repository": {
+    "glimmer-component-path": {
+      "match": "(::|\\.)",
+      "captures": {
+        "1": {
+          "name":"punctuation.definition.tag"
+        }
+      }
+    },
     "string-double-quoted-handlebars": {
       "name": "string.quoted.double.handlebars",
       "begin": "\"",
@@ -291,7 +299,7 @@
           "name": "keyword.operator"
         },
         "2": {
-          "name": "entity.name.tag.html.handlebars"
+          "name": "keyword.control"
         },
         "3": {
           "name": "keyword.operator"
@@ -314,10 +322,10 @@
       "end": "(~?}})",
       "captures": {
         "1": {
-          "name": "keyword.operator"
+          "name": "punctuation.definition.tag"
         },
         "2": {
-          "name": "keyword.operator"
+          "name": "punctuation.definition.tag"
         },
         "3": {
           "name": "keyword.control"
@@ -562,7 +570,10 @@
           "name": "punctuation.definition.tag"
         },
         "2": {
-          "name": "entity.name.type"
+          "name": "entity.name.type",
+          "patterns": [{
+            "include": "#glimmer-component-path"
+          }]
         }
       },
       "end": "(\\/?)(>)",
