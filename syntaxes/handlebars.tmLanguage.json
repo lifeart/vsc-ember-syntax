@@ -189,7 +189,7 @@
           "patterns": [
             {
               "name": "markup.bold",
-              "match": "(@)"
+              "match": "(@|this)"
             },
             {
               "name": "punctuation.definition.tag",
@@ -378,7 +378,7 @@
           "patterns": [
             {
               "name": "markup.bold",
-              "match": "(@)"
+              "match": "(@|this)"
             },
             {
               "name": "punctuation.definition.tag",
@@ -624,6 +624,9 @@
           "name": "entity.name.type",
           "patterns": [{
             "include": "#glimmer-component-path"
+          }, {
+            "name": "markup.bold",
+            "match": "(@|:)"
           }]
         }
       },
