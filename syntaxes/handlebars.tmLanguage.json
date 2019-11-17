@@ -179,7 +179,7 @@
           "name": "support.function"
         },
         "1": {
-          "name": "punctuation.definition.tag"
+          "name": "support.function"
         }
       },
       "patterns": []
@@ -195,7 +195,7 @@
       "end": "}}}",
       "captures": {
         "0": {
-          "name": "punctuation.definition.block.unescaped.handlebars"
+          "name": "keyword.operator"
         }
       },
       "patterns": [
@@ -207,6 +207,9 @@
         },
         {
           "include": "#glimmer-subexp"
+        },
+        {
+          "include": "#param"
         }
       ]
     },
@@ -351,7 +354,7 @@
           "name": "keyword.operator"
         },
         "3": {
-          "name": "punctuation.definition.tag"
+          "name": "support.function"
         },
         "4": {
           "name": "support.function"
@@ -570,7 +573,7 @@
       "begin": "(<\\/?)(([.@a-zA-Z0-9:-]+))\\b",
       "beginCaptures": {
         "1": {
-          "name": "punctuation.definition.tag.html.handlebars"
+          "name": "keyword.operator.html.handlebars"
         },
         "2": {
           "name": "entity.name.tag.html.handlebars"
@@ -579,10 +582,10 @@
       "end": "(\\/?)(>)",
       "endCaptures": {
         "1": {
-          "name": "punctuation.definition.tag.html.handlebars"
+          "name": "keyword.operator.html.handlebars"
         },
         "2": {
-          "name": "punctuation.definition.tag.html.handlebars"
+          "name": "keyword.operator.html.handlebars"
         }
       },
       "patterns": [
