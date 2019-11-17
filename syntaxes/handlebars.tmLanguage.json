@@ -110,6 +110,9 @@
           "match": "\\\\\""
         },
         {
+          "include": "#glimmer-bools"
+        },
+        {
           "include": "#glimmer-expression-property"
         },
         {
@@ -118,7 +121,6 @@
         {
           "include": "#glimmer-expression"
         },
-       
         {
           "include": "#glimmer-block"
         }
@@ -142,6 +144,9 @@
         {
           "name": "constant.character.escape.handlebars",
           "match": "\\\\'"
+        },
+        {
+          "include": "#glimmer-bools"
         },
         {
           "include": "#glimmer-expression-property"
@@ -168,13 +173,13 @@
       "patterns": []
     },
     "param": {
-      "match": "(@|this)([a-zA-Z0-9_.-]+)",
+      "match": "(@|this.)([a-zA-Z0-9_.-]+)",
       "captures": {
         "0": {
           "name": "support.function"
         },
         "1": {
-          "name": "support.function"
+          "name": "punctuation.definition.tag"
         }
       },
       "patterns": []
@@ -240,16 +245,16 @@
       "match": "({{~?)(true|false|null|undefined|\\d+)(~?}})",
       "captures": {
         "0": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
           "name": "constant.language.handlebars"
         },
         "3": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         }
       }
     },
@@ -258,16 +263,16 @@
       "match": "({{~?)(else)(~?}})",
       "captures": {
         "0": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
           "name": "keyword.control"
         },
         "3": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         }
       }
     },
@@ -276,16 +281,16 @@
       "match": "({{~?)(yield|outlet)(~?}})",
       "captures": {
         "0": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
           "name": "entity.name.tag.html.handlebars"
         },
         "3": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         }
       }
     },
@@ -295,10 +300,10 @@
       "end": "(~?}})",
       "captures": {
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "3": {
           "name": "keyword.control"
@@ -336,17 +341,17 @@
     },
     "glimmer-expression-property": {
       "name": "entity.expression.handlebars",
-      "begin": "({{~?)((@|this)([a-zA-Z0-9_.-]+))",
+      "begin": "({{~?)((@|this.)([a-zA-Z0-9_.-]+))",
       "end": "(~?}})",
       "captures": {
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "3": {
-          "name": "support.function"
+          "name": "punctuation.definition.tag"
         },
         "4": {
           "name": "support.function"
@@ -382,10 +387,10 @@
       "end": "(~?}})",
       "captures": {
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "3": {
           "name": "support.function"
@@ -421,10 +426,10 @@
       "end": "(~?}})",
       "captures": {
         "1": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "2": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "keyword.operator"
         },
         "3": {
           "name": "keyword.control"
@@ -460,7 +465,7 @@
       "end": "(\\))",
       "captures": {
         "1": {
-          "name": "punctuation.definition.subexpression.handlebars"
+          "name": "keyword.other"
         },
         "2": {
           "name": "keyword.control"
@@ -562,7 +567,7 @@
     },
     "html-tag": {
       "name": "meta.tag.any.handlebars",
-      "begin": "(<\\/?)(([@a-zA-Z0-9:-]+))\\b",
+      "begin": "(<\\/?)(([.@a-zA-Z0-9:-]+))\\b",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.html.handlebars"
