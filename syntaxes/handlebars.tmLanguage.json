@@ -185,10 +185,26 @@
       "match": "(@|this.)([a-zA-Z0-9_.-]+)",
       "captures": {
         "0": {
-          "name": "support.function"
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "markup.bold",
+              "match": "(@)"
+            },
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         },
         "1": {
-          "name": "support.function"
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         }
       },
       "patterns": []
@@ -275,16 +291,16 @@
       "match": "({{~?)(else)(~?}})",
       "captures": {
         "0": {
-          "name": "keyword.operator"
+          "name": "punctuation.definition.tag"
         },
         "1": {
-          "name": "keyword.operator"
+          "name": "punctuation.definition.tag"
         },
         "2": {
           "name": "keyword.control"
         },
         "3": {
-          "name": "keyword.operator"
+          "name": "punctuation.definition.tag"
         }
       }
     },
@@ -328,7 +344,13 @@
           "name": "punctuation.definition.tag"
         },
         "3": {
-          "name": "keyword.control"
+          "name": "keyword.control",
+          "patterns": [
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         }
       },
       "patterns": [
@@ -352,10 +374,26 @@
           "name": "keyword.operator"
         },
         "3": {
-          "name": "support.function"
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "markup.bold",
+              "match": "(@)"
+            },
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         },
         "4": {
-          "name": "support.function"
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         }
       },
       "patterns": [
@@ -376,7 +414,14 @@
           "name": "keyword.operator"
         },
         "3": {
-          "name": "support.function"
+          "name": "support.function",
+          
+          "patterns": [
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         }
       },
       "patterns": [
@@ -478,13 +523,19 @@
       "match": "\\b([a-zA-Z0-9:_.-]+)\\b(?!=)",
       "captures": {
         "1": {
-          "name": "support.function"
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
         }
       },
       "patterns": []
     },
     "glimmer-parameter-name": {
-      "match": "\\b([a-zA-Z0-9:_.-]+)(\\s?=)",
+      "match": "\\b([a-zA-Z0-9_-]+)(\\s?=)",
       "captures": {
         "1": {
           "name": "variable.parameter.name.handlebars"
@@ -621,7 +672,17 @@
       "match": "\\s([@a-zA-Z0-9:_.-]+)(=)?",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.handlebars"
+          "name": "entity.other.attribute-name.handlebars",
+          "patterns": [
+            {
+              "name": "markup.italic",
+              "match": "(@)"
+            },
+            {
+              "name": "markup.bold",
+              "match": "(\\.\\.\\.attributes)"
+            }
+          ]
         },
         "2": {
           "name": "punctuation.separator.key-value.html.handlebars"
