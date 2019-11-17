@@ -573,7 +573,7 @@
       "begin": "(<\\/?)(([.@a-zA-Z0-9:-]+))\\b",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.html.handlebars"
+          "name": "punctuation.definition.tag"
         },
         "2": {
           "name": "entity.name.tag.html.handlebars"
@@ -582,10 +582,10 @@
       "end": "(\\/?)(>)",
       "endCaptures": {
         "1": {
-          "name": "keyword.operator.html.handlebars"
+          "name": "punctuation.definition.tag"
         },
         "2": {
-          "name": "keyword.operator.html.handlebars"
+          "name": "punctuation.definition.tag"
         }
       },
       "patterns": [
