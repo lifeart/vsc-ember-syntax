@@ -33,12 +33,14 @@
     {
       "include": "#glimmer-expression"
     },
-   
     {
       "include": "#glimmer-block"
     },
     {
       "include": "#html-tag"
+    },
+    {
+      "include": "#component-tag"
     },
     {
       "include": "#html-comment"
@@ -157,7 +159,6 @@
         {
           "include": "#glimmer-expression"
         },
-       
         {
           "include": "#glimmer-block"
         }
@@ -297,6 +298,16 @@
         }
       }
     },
+    "glimmer-as-stuff": {
+      "patterns": [
+        {
+          "include": "#as-keyword"
+        },
+        {
+          "include": "#as-params"
+        }
+      ]
+    },
     "glimmer-block": {
       "name": "entity.expression.handlebars",
       "begin": "({{~?)(#|\/)(([@a-zA-Z0-9_/.-]+))",
@@ -314,31 +325,10 @@
       },
       "patterns": [
         {
-          "include": "#as-keyword"
+          "include": "#glimmer-as-stuff"
         },
         {
-          "include": "#as-params"
-        },
-        {
-          "include": "#glimmer-subexp"
-        },
-        {
-          "include": "#string-single-quoted-handlebars"
-        },
-        {
-          "include": "#string-double-quoted-handlebars"
-        },
-        {
-          "include": "#boolean"
-        },
-        {
-          "include": "#param"
-        },
-        {
-          "include": "#glimmer-parameter-name"
-        },
-        {
-          "include": "#glimmer-parameter-value"
+          "include": "#glimmer-supexp-content"
         }
       ]
     },
@@ -362,25 +352,7 @@
       },
       "patterns": [
         {
-          "include": "#glimmer-subexp"
-        },
-        {
-          "include": "#string-single-quoted-handlebars"
-        },
-        {
-          "include": "#string-double-quoted-handlebars"
-        },
-        {
-          "include": "#boolean"
-        },
-        {
-          "include": "#param"
-        },
-        {
-          "include": "#glimmer-parameter-name"
-        },
-        {
-          "include": "#glimmer-parameter-value"
+          "include": "#glimmer-supexp-content"
         }
       ]
     },
@@ -399,6 +371,13 @@
           "name": "support.function"
         }
       },
+      "patterns": [
+        {
+          "include": "#glimmer-supexp-content"
+        }
+      ]
+    },
+    "glimmer-supexp-content": {
       "patterns": [
         {
           "include": "#glimmer-subexp"
@@ -440,25 +419,7 @@
       },
       "patterns": [
         {
-          "include": "#glimmer-subexp"
-        },
-        {
-          "include": "#string-single-quoted-handlebars"
-        },
-        {
-          "include": "#string-double-quoted-handlebars"
-        },
-        {
-          "include": "#boolean"
-        },
-        {
-          "include": "#param"
-        },
-        {
-          "include": "#glimmer-parameter-name"
-        },
-        {
-          "include": "#glimmer-parameter-value"
+          "include": "#glimmer-supexp-content"
         }
       ]
     },
@@ -476,25 +437,7 @@
       },
       "patterns": [
         {
-          "include": "#glimmer-subexp"
-        },
-        {
-          "include": "#string-single-quoted-handlebars"
-        },
-        {
-          "include": "#string-double-quoted-handlebars"
-        },
-        {
-          "include": "#boolean"
-        },
-        {
-          "include": "#param"
-        },
-        {
-          "include": "#glimmer-parameter-name"
-        },
-        {
-          "include": "#glimmer-parameter-value"
+          "include": "#glimmer-supexp-content"
         }
       ]
     },
@@ -527,13 +470,13 @@
       "match": "\\b([a-zA-Z0-9:_.-]+)\\b(?!=)",
       "captures": {
         "1": {
-          "name": "variable.parameter.value.handlebars"
+          "name": "support.function"
         }
       },
       "patterns": []
     },
     "glimmer-parameter-name": {
-      "match": "\\b([a-zA-Z0-9:_.-]+)(=)",
+      "match": "\\b([a-zA-Z0-9:_.-]+)(\\s?=)",
       "captures": {
         "1": {
           "name": "variable.parameter.name.handlebars"
@@ -568,26 +511,7 @@
         }
       ]
     },
-    "html-tag": {
-      "name": "meta.tag.any.handlebars",
-      "begin": "(<\\/?)(([.@a-zA-Z0-9:-]+))\\b",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag"
-        },
-        "2": {
-          "name": "entity.name.tag.html.handlebars"
-        }
-      },
-      "end": "(\\/?)(>)",
-      "endCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag"
-        },
-        "2": {
-          "name": "punctuation.definition.tag"
-        }
-      },
+    "tag-like-content": {
       "patterns": [
         {
           "include": "#glimmer-bools"
@@ -613,7 +537,6 @@
         {
           "include": "#glimmer-expression"
         },
-      
         {
           "include": "#glimmer-block"
         },
@@ -624,13 +547,62 @@
           "include": "#string-single-quoted-html"
         },
         {
+          "include": "#glimmer-as-stuff"
+        },
+        {
           "include": "#html-attribute"
+        }
+      ]
+    },
+    "component-tag": {
+      "name": "meta.tag.any.handlebars",
+      "begin": "(<\\/?)([@a-zA-Z0-9-:\\.]+)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag"
         },
-        {
-          "include": "#as-keyword"
+        "2": {
+          "name": "entity.name.type"
+        }
+      },
+      "end": "(\\/?)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag"
         },
+        "2": {
+          "name": "punctuation.definition.tag"
+        }
+      },
+      "patterns": [
         {
-          "include": "#as-params"
+          "include": "#tag-like-content"
+        }
+      ]
+    },
+    "html-tag": {
+      "name": "meta.tag.any.handlebars",
+      "begin": "(<\\/?)([a-z0-9-]+)(?!\\.|:)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "entity.name.tag.html.handlebars"
+        }
+      },
+      "end": "(\\/?)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "punctuation.definition.tag"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag-like-content"
         }
       ]
     },
