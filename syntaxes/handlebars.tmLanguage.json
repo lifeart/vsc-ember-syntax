@@ -54,7 +54,7 @@
       "match": "(::|\\.)",
       "captures": {
         "1": {
-          "name":"punctuation.definition.tag"
+          "name": "punctuation.definition.tag"
         }
       }
     },
@@ -288,7 +288,7 @@
     },
     "glimmer-else-block": {
       "name": "entity.expression.handlebars",
-      "match": "({{~?)(else)(~?}})",
+      "match": "({{~?)(else\\s[a-z]+\\s|else)([()@a-zA-Z0-9\\.\\s\\b]+)?(~?}})",
       "captures": {
         "0": {
           "name": "punctuation.definition.tag"
@@ -300,6 +300,32 @@
           "name": "keyword.control"
         },
         "3": {
+          "name": "keyword.control",
+          "patterns": [
+            {
+              "include": "#glimmer-subexp"
+            },
+            {
+              "include": "#string-single-quoted-handlebars"
+            },
+            {
+              "include": "#string-double-quoted-handlebars"
+            },
+            {
+              "include": "#boolean"
+            },
+            {
+              "include": "#param"
+            },
+            {
+              "include": "#glimmer-parameter-name"
+            },
+            {
+              "include": "#glimmer-parameter-value"
+            }
+          ]
+        },
+        "4": {
           "name": "punctuation.definition.tag"
         }
       }
@@ -415,7 +441,6 @@
         },
         "3": {
           "name": "support.function",
-          
           "patterns": [
             {
               "name": "punctuation.definition.tag",
@@ -622,12 +647,15 @@
         },
         "2": {
           "name": "entity.name.type",
-          "patterns": [{
-            "include": "#glimmer-component-path"
-          }, {
-            "name": "markup.bold",
-            "match": "(@|:)"
-          }]
+          "patterns": [
+            {
+              "include": "#glimmer-component-path"
+            },
+            {
+              "name": "markup.bold",
+              "match": "(@|:)"
+            }
+          ]
         }
       },
       "end": "(\\/?)(>)",
