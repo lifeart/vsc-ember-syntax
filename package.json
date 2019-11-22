@@ -41,8 +41,19 @@
 			{
 				"label": "Handlebars (Ember)",
 				"language": "handlebars",
-				"scopeName": "source.handlebars",
+				"scopeName": "text.html.handlebars",
 				"path": "./syntaxes/handlebars.tmLanguage.json"
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.ts"
+				],
+				"scopeName": "inline.hbs",
+				"path": "./syntaxes/inline-hbs.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.html": "text.html.handlebars"
+				}
 			}
 		]
 	}

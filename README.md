@@ -5,7 +5,6 @@ VSCode Ember/Glimmer Syntax Extension.
 Best with:
 * [Unstable Ember Language Server](https://marketplace.visualstudio.com/items?itemName=lifeart.vscode-ember-unstable)
 * [Prettier for Handlebars](https://marketplace.visualstudio.com/items?itemName=Alonski.prettier-for-handlebars-vscode)
-* [VSCode Glimmer](https://marketplace.visualstudio.com/items?itemName=chiragpat.vscode-glimmer)
 
 ![preview](assets/preview.png)
 
@@ -16,4 +15,4 @@ Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 
 Thanks to:
 * [Ember Syntax](https://marketplace.visualstudio.com/items?itemName=dhedgecock.ember-syntax)
-
+* [VSCode Glimmer](https://marketplace.visualstudio.com/items?itemName=chiragpat.vscode-glimmer)
