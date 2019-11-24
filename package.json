@@ -2,7 +2,7 @@
 	"name": "vscode-glimmer-syntax",
 	"displayName": "Glimmer Templates Syntax for VS Code",
 	"description": "Glimmer templates syntax",
-	"version": "0.0.17",
+	"version": "0.0.18",
 	"autor": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
 	"license": "MIT",
 	"publisher": "lifeart",
@@ -17,7 +17,7 @@
 	},
 	"homepage": "https://github.com/lifeart/vsc-ember-syntax",
 	"engines": {
-		"vscode": "^0.0.10"
+		"vscode": "^1.31.0"
 	},
 	"categories": [
 		"Programming Languages",
@@ -29,13 +29,11 @@
 		"Handlebars",
 		"Syntax"
 	],
-	"extensionDependencies": [
-		"handlebars"
-	],
 	"scripts": {
 		"vs:package": "vsce package --yarn",
 		"vs:publish": "vsce publish --yarn"
 	},
+	"extensionKind": "ui",
 	"contributes": {
 		"grammars": [
 			{
