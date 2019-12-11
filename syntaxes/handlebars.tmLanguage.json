@@ -51,7 +51,7 @@
   ],
   "repository": {
     "glimmer-component-path": {
-      "match": "(::|\\.)",
+      "match": "(::|\\$|\\.)",
       "captures": {
         "1": {
           "name": "punctuation.definition.tag"
@@ -360,7 +360,7 @@
     },
     "glimmer-block": {
       "name": "entity.expression.handlebars",
-      "begin": "({{~?)(#|\/)(([@a-zA-Z0-9_/.-]+))",
+      "begin": "({{~?)(#|\/)(([@\\$a-zA-Z0-9_/.-]+))",
       "end": "(~?}})",
       "captures": {
         "1": {
@@ -372,6 +372,13 @@
         "3": {
           "name": "keyword.control",
           "patterns": [
+            {
+              "include": "#glimmer-component-path"
+            },
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\/)+"
+            },
             {
               "name": "punctuation.definition.tag",
               "match": "(\\.)+"
@@ -640,7 +647,7 @@
     },
     "component-tag": {
       "name": "meta.tag.any.handlebars",
-      "begin": "(<\\/?)([@a-zA-Z0-9-:\\.]+)\\b",
+      "begin": "(<\\/?)([@a-zA-Z0-9-\\$:\\.]+)\\b",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
@@ -653,7 +660,7 @@
             },
             {
               "name": "markup.bold",
-              "match": "(@|:)"
+              "match": "(@|:|\\$)"
             }
           ]
         }
