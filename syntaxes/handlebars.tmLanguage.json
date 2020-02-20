@@ -255,6 +255,9 @@
       },
       "patterns": [
         {
+          "include": "#script"
+        },
+        {
           "include": "#attention"
         }
       ]
@@ -269,6 +272,9 @@
         }
       },
       "patterns": [
+        {
+          "include": "#script"
+        },
         {
           "include": "#attention"
         }
