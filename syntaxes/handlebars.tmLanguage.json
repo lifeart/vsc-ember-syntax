@@ -182,7 +182,7 @@
       "match": "true|false|undefined|null|\\d+",
       "captures": {
         "0": {
-          "name": "constant.language.handlebars"
+          "name": "string.regexp"
         }
       },
       "patterns": []
@@ -291,7 +291,7 @@
           "name": "keyword.operator"
         },
         "2": {
-          "name": "constant.language.handlebars"
+          "name": "string.regexp"
         },
         "3": {
           "name": "keyword.operator"
