@@ -2,7 +2,7 @@
 	"name": "vscode-glimmer-syntax",
 	"displayName": "Glimmer Templates Syntax for VS Code",
 	"description": "Glimmer templates syntax",
-	"version": "0.0.23",
+	"version": "0.0.24",
 	"author": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
 	"license": "MIT",
 	"publisher": "lifeart",
@@ -35,17 +35,19 @@
 	},
 	"extensionKind": "ui",
 	"contributes": {
-		"languages": [{
-			"id": "handlebars",
-			"extensions": [
-				".hbs"
-			],
-			"aliases": [
-				"handlebars",
-				"hbs"
-			],
-			"configuration": "./handlebars.configuration.json"
-		}],
+		"languages": [
+			{
+				"id": "handlebars",
+				"extensions": [
+					".hbs"
+				],
+				"aliases": [
+					"handlebars",
+					"hbs"
+				],
+				"configuration": "./handlebars.configuration.json"
+			}
+		],
 		"grammars": [
 			{
 				"label": "Handlebars (Ember)",
