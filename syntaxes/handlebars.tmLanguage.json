@@ -179,9 +179,15 @@
       ]
     },
     "boolean": {
-      "match": "true|false|undefined|null|\\d+",
+      "match": "true|false|undefined|null|\\d*(\\.)?\\d+",
       "captures": {
         "0": {
+          "name": "string.regexp"
+        },
+        "1": {
+          "name": "string.regexp"
+        },
+        "2": {
           "name": "string.regexp"
         }
       },
@@ -282,7 +288,7 @@
     },
     "glimmer-bools": {
       "name": "entity.expression.handlebars",
-      "match": "({{~?)(true|false|null|undefined|\\d+)(~?}})",
+      "match": "({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})",
       "captures": {
         "0": {
           "name": "keyword.operator"
@@ -294,6 +300,9 @@
           "name": "string.regexp"
         },
         "3": {
+          "name": "string.regexp"
+        },
+        "4": {
           "name": "keyword.operator"
         }
       }
