@@ -33,7 +33,7 @@
 		"vs:package": "vsce package --yarn",
 		"vs:publish": "vsce publish --yarn"
 	},
-	"extensionKind": "ui",
+	"extensionKind": ["ui"],
 	"contributes": {
 		"languages": [
 			{
