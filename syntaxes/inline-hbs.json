@@ -43,7 +43,7 @@
         ]
       },
       {
-        "begin": "((createTemplate|hbs))(\\()",
+        "begin": "((createTemplate|hbs|precompileTemplate))(\\()",
         "beginCaptures": {
           "1": {
             "name": "entity.name.function.ts"
