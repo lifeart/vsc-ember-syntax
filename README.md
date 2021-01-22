@@ -4,12 +4,11 @@ VSCode Ember/Glimmer Syntax Extension.
 
 Best with:
 * [Unstable Ember Language Server](https://marketplace.visualstudio.com/items?itemName=lifeart.vscode-ember-unstable)
-* [Prettier for Handlebars](https://marketplace.visualstudio.com/items?itemName=Alonski.prettier-for-handlebars-vscode)
+* [Prettier for Handlebars](https://marketplace.visualstudio.com/items?itemName=EmberTooling.prettier-for-handlebars-vscode)
 
 ![preview](assets/preview.png)
 
 Change Theme: `Shift+CMD+P` -> Search `Preferences: Color Theme` -> Switch to `Dark+ (default dark)`
-
 
 Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 
