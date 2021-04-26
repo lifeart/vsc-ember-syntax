@@ -10,6 +10,8 @@ Best with:
 
 Change Theme: `Shift+CMD+P` -> Search `Preferences: Color Theme` -> Switch to `Dark+ (default dark)`
 
+The [Community Material Theme](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-community-material-theme) also supports the syntax.
+
 Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 
 Thanks to:
