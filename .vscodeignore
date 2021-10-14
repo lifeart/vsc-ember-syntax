@@ -1,1 +1,14 @@
 vscode-glimmer-syntax*
+.github
+.vscode
+src
+.gitignore
+webpack.config.js
+**/*.map
+**/*.d.ts
+node_modules/**/*.md
+node_modules/**/.*.json
+node_modules/**/*.test.js
+node_modules/**/.vscode
+node_modules/**/.travis.yml
+node_modules/**/azure-pipelines.yml

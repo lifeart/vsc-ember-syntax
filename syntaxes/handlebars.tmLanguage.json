@@ -179,7 +179,7 @@
       ]
     },
     "boolean": {
-      "match": "true|false|undefined|null|\\d*(\\.)?\\d+",
+      "match": "true|false|undefined|null",
       "captures": {
         "0": {
           "name": "string.regexp"
@@ -193,6 +193,21 @@
       },
       "patterns": []
     },
+    "digit": {
+      "match": "\\d*(\\.)?\\d+",
+      "captures": {
+        "0": {
+          "name": "constant.numeric"
+        },
+        "1": {
+          "name": "constant.numeric"
+        },
+        "2": {
+          "name": "constant.numeric"
+        }
+      },
+      "patterns": []
+    },
     "param": {
       "match": "(@|this.)([a-zA-Z0-9_.-]+)",
       "captures": {
@@ -200,7 +215,7 @@
           "name": "support.function",
           "patterns": [
             {
-              "name": "markup.bold",
+              "name": "variable.language",
               "match": "(@|this)"
             },
             {
@@ -336,6 +351,9 @@
               "include": "#boolean"
             },
             {
+              "include": "#digit"
+            },
+            {
               "include": "#param"
             },
             {
@@ -431,7 +449,7 @@
           "name": "support.function",
           "patterns": [
             {
-              "name": "markup.bold",
+              "name": "variable.language",
               "match": "(@|this)"
             },
             {
@@ -507,6 +525,9 @@
         },
         {
           "include": "#boolean"
+        },
+        {
+          "include": "#digit"
         },
         {
           "include": "#param"
@@ -899,6 +920,9 @@
           "include": "#boolean"
         },
         {
+          "include": "#digit"
+        },
+        {
           "include": "#glimmer-control-expression"
         },
         {
@@ -923,12 +947,25 @@
     },
     "component-tag": {
       "name": "meta.tag.any.handlebars",
-      "begin": "(<\\/?)([@a-zA-Z0-9-\\$:\\.]+)\\b",
+      "begin": "(<\\/?)(@|this.)?([a-zA-Z0-9-\\$:\\.]+)\\b",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
         },
         "2": {
+          "name": "support.function",
+          "patterns": [
+            {
+              "name": "variable.language",
+              "match": "(@|this)"
+            },
+            {
+              "name": "punctuation.definition.tag",
+              "match": "(\\.)+"
+            }
+          ]
+        },
+        "3": {
           "name": "entity.name.type",
           "patterns": [
             {

@@ -12,8 +12,26 @@ Change Theme: `Shift+CMD+P` -> Search `Preferences: Color Theme` -> Switch to `D
 
 Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 
-Thanks to:
+
+## Features
+* Syntax highlighting of inline hbs blocks.
+* IntelliSense for hbs tags and attributes.
+* Quick info hovers on tags.
+* Auto closing tags.
+* Folding html.
+* CSS completions in style blocks.
+* Works with literal hbs strings that contain placeholders.
+
+## Usage
+The vsc-ember-syntax extension adds highlighting and IntelliSense for hbs template strings in JavaScript and TypeScript. It works out of the box when you use VS Code's built-in version of TypeScript.
+
+If you are using VS Code 1.30 or older and are using a workspace version of typescript, you must currently configure the TS Server plugin manually by following these instructions
+## Thanks to:
+* [vscode-lit-html](https://github.com/mjbvz/vscode-lit-html)
 * [Ember Syntax](https://marketplace.visualstudio.com/items?itemName=dhedgecock.ember-syntax)
 * [VSCode Glimmer](https://marketplace.visualstudio.com/items?itemName=chiragpat.vscode-glimmer)
+* [Grammar](https://macromates.com/manual/en/language_grammars)
 
 How to publish: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
+
