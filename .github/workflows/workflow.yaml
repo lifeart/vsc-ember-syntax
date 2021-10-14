@@ -19,15 +19,15 @@ jobs:
         run: git fetch --prune --unshallow
 
       - name: install gitversion tool
-        uses: gittools/actions/gitversion/setup@0
+        uses: gittools/actions/gitversion/setup@v0.9
         with:
-            versionSpec: '5.1.x'
+            versionSpec: '5.7.x'
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
       - name: execute gitversion
         id: gitversion # step id used as reference for output values
-        uses: gittools/actions/gitversion/execute@0
+        uses: gittools/actions/gitversion/execute@v0.9
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
