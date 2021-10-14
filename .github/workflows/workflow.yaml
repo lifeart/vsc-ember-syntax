@@ -60,7 +60,7 @@ jobs:
           VERSION: "${{ steps.gitversion.outputs.majorMinorPatch }}"
 
       - name: compile
-        run: node:package
+        run: yarn node:package
 
       - name: compile and create vsix
         run: yarn vs:package
