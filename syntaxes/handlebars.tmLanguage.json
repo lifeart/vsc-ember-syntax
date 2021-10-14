@@ -458,7 +458,7 @@
     },
     "glimmer-expression": {
       "name": "entity.expression.handlebars",
-      "begin": "({{~?)(([@a-zA-Z0-9_.-]+))",
+      "begin": "({{~?)(([()\\s@a-zA-Z0-9_.-]+))",
       "end": "(~?}})",
       "captures": {
         "1": {
@@ -471,8 +471,19 @@
           "name": "support.function",
           "patterns": [
             {
+              "name": "string.regexp",
+              "match": "[(]+"
+            },
+            {
+              "name": "string.regexp",
+              "match": "[)]+"
+            },
+            {
               "name": "punctuation.definition.tag",
               "match": "(\\.)+"
+            },
+            {
+              "include": "#glimmer-supexp-content"
             }
           ]
         }
