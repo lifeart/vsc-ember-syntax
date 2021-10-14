@@ -41,6 +41,18 @@
 	"contributes": {
 		"languages": [
 			{
+				"id": "javascript",
+				"extensions": [
+					".gjs"
+				]
+			},
+			{
+				"id": "typescript",
+				"extensions": [
+					".gts"
+				]
+			},
+			{
 				"id": "handlebars",
 				"extensions": [
 					".hbs"
@@ -64,12 +76,13 @@
 					"source.js",
 					"source.ts"
 				],
-				"scopeName": "inline.hbs",
+				"scopeName": "inline.template",
 				"path": "./syntaxes/inline-hbs.json",
 				"embeddedLanguages": {
 					"meta.embedded.block.html": "text.html.handlebars"
 				}
 			}
+			
 		]
 	},
 	"devDependencies": {
