@@ -59,8 +59,11 @@ jobs:
         env:
           VERSION: "${{ steps.gitversion.outputs.majorMinorPatch }}"
 
-      - name: compile
+      - name: compile for node
         run: yarn node:package
+
+      - name: compile for worker
+        run: yarn web:package
 
       - name: compile and create vsix
         run: yarn vs:package

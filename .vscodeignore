@@ -1,6 +1,7 @@
 vscode-glimmer-syntax*
 .github
 .vscode
+.vscode-test-web
 src
 .gitignore
 webpack.config.js
