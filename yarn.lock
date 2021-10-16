@@ -1329,10 +1329,10 @@ typed-rest-client@^1.8.4:
     tunnel "0.0.6"
     underscore "^1.12.1"
 
-typescript-hbs-plugin@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/typescript-hbs-plugin/-/typescript-hbs-plugin-0.1.0.tgz#247965881960adca81e02cf817701534f789f9b5"
-  integrity sha512-NDgaI6LBCza2fVR0K9KfWH7ghUYv8Oo5g55IV09rGWMSK4U37W3K3BEWeDGaVvg2O1ozWfXIMwbWXOnXrYDYBg==
+typescript-hbs-plugin@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/typescript-hbs-plugin/-/typescript-hbs-plugin-0.1.1.tgz#716b2cffc216080ea1979b3bbbb7e6e029539d33"
+  integrity sha512-K7wO8XVzh1tLMivA/PfFJkMFQjkpAoL/ZLDauIr9QwefixKt9RXdrwDZHv7l+757W3c+qJdH1s3Y+Tj3C7+yVg==
   dependencies:
     typescript-styled-plugin "^0.18.1"
     typescript-template-language-service-decorator "^2.2.0"
