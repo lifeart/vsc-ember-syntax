@@ -694,6 +694,9 @@
               "name": "meta.tag.metadata.style.start.html",
               "patterns": [
                 {
+                  "include": "#glimmer-argument"
+                },
+                {
                   "include": "#html-attribute"
                 }
               ]
@@ -872,6 +875,9 @@
                   "include": "#string-single-quoted-html"
                 },
                 {
+                  "include": "#glimmer-argument"
+                },
+                {
                   "include": "#html-attribute"
                 }
               ]
@@ -939,6 +945,9 @@
         },
         {
           "include": "#glimmer-as-stuff"
+        },
+        {
+          "include": "#glimmer-argument"
         },
         {
           "include": "#html-attribute"
@@ -1019,16 +1028,29 @@
         }
       ]
     },
-    "html-attribute": {
-      "match": "\\s([@a-zA-Z0-9:_.-]+)(=)?",
+    "glimmer-argument": {
+      "match": "\\s(@[a-zA-Z0-9:_.-]+)(=)?",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.handlebars",
+          "name": "entity.other.argument-name.handlebars",
           "patterns": [
             {
               "name": "markup.italic",
               "match": "(@)"
-            },
+            }
+          ]
+        },
+        "2": {
+          "name": "punctuation.separator.key-value.html.handlebars"
+        }
+      }
+    },
+    "html-attribute": {
+      "match": "\\s([a-zA-Z0-9:_.-]+)(=)?",
+      "captures": {
+        "1": {
+          "name": "entity.other.attribute-name.handlebars",
+          "patterns": [
             {
               "name": "markup.bold",
               "match": "(\\.\\.\\.attributes)"

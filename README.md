@@ -25,6 +25,25 @@ Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 ## Usage
 The vsc-ember-syntax extension adds highlighting and IntelliSense for hbs template strings in JavaScript and TypeScript. It works out of the box when you use VS Code's built-in version of TypeScript.
 
+## Customizing the theme
+![customize-theme](assets/customize-theme.gif)
+In your vscode `settings.json` file:
+```json
+// https://code.visualstudio.com/docs/getstarted/themes
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": [
+                "text.html.handlebars meta.tag.any.handlebars entity.other.argument-name.handlebars",
+            ],
+            "settings": {
+                "foreground": "#47c7b3",
+            }
+        }
+    ]
+}
+```
+
 If you are using VS Code 1.30 or older and are using a workspace version of typescript, you must currently configure the TS Server plugin manually by following these instructions
 ## Thanks to:
 * [vscode-lit-html](https://github.com/mjbvz/vscode-lit-html)
