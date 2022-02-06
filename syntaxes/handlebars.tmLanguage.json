@@ -1032,7 +1032,7 @@
       "match": "\\s(@[a-zA-Z0-9:_.-]+)(=)?",
       "captures": {
         "1": {
-          "name": "entity.other.argument-name.handlebars",
+          "name": "entity.other.attribute-name.handlebars.argument",
           "patterns": [
             {
               "name": "markup.italic",
