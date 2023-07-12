@@ -22,10 +22,54 @@ Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 - Folding html.
 - CSS completions in style blocks.
 - Works with literal hbs strings that contain placeholders.
+- `.gts` & `.gjs` template tag support
 
 ## Usage
 
 The vsc-ember-syntax extension adds highlighting and IntelliSense for hbs template strings in JavaScript and TypeScript. It works out of the box when you use VS Code's built-in version of TypeScript.
+
+### `.gts` & `.gjs` template tags
+
+The extension adds new language definitions for `.gts` and `.gjs` known as `glimmer-ts` and `glimmer-js` respectively.
+These languages are identical to `typescript` and `javascript` except that they add support for the template tag. This means that you can use the template tag in your code and get syntax highlighting and IntelliSense for the template.
+
+```js
+import Component from '@glimmer/component';
+
+export default class MyComponent extends Component {
+  get greeting() {
+    return 'Hello';
+  }
+
+  <template>
+    <div>{{this.greeting}} World!</div>
+  </template>
+}
+```
+
+Since the Typescript Language Server will not be running for these file types, you will need to add the following settings to your `settings.json` file to fill in the gaps. Consider installing [Glint](https://typed-ember.gitbook.io/glint/) to get type checking and hover information.
+
+```jsonc
+// add language specific settings
+"[glimmer-js]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.foldingStrategy": "indentation"
+},
+"[glimmer-ts]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.foldingStrategy": "indentation"
+},
+// enable eslint for glimmer files
+{
+  "eslint.validate": [
+    "glimmer-ts",
+    "glimmer-js"
+  ],
+  "eslint.rules.customizations": [
+    { "rule": "*", "severity": "warn" },
+  ]
+}
+```
 
 ## Customizing the theme
 

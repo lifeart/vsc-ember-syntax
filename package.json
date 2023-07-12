@@ -53,16 +53,34 @@
 	"contributes": {
 		"languages": [
 			{
-				"id": "javascript",
+				"id": "glimmer-js",
+				"aliases": [
+					"Glimmer JS",
+					"gjs"
+				],
 				"extensions": [
 					".gjs"
-				]
+				],
+				"configuration": "./languages/inline-template.configuration.json",
+				"icon": {
+					"light": "./assets/glimmer.svg",
+					"dark": "./assets/glimmer.svg"
+				}
 			},
 			{
-				"id": "typescript",
+				"id": "glimmer-ts",
+				"aliases": [
+					"Glimmer TS",
+					"gts"
+				],
 				"extensions": [
 					".gts"
-				]
+				],
+				"configuration": "./languages/inline-template.configuration.json",
+				"icon": {
+					"light": "./assets/glimmer.svg",
+					"dark": "./assets/glimmer.svg"
+				}
 			},
 			{
 				"id": "handlebars",
@@ -73,10 +91,42 @@
 					"handlebars",
 					"hbs"
 				],
-				"configuration": "./handlebars.configuration.json"
+				"configuration": "./languages/handlebars.configuration.json"
 			}
 		],
 		"grammars": [
+			{
+				"language": "glimmer-js",
+				"path": "./syntaxes/glimmer-js.json",
+				"scopeName": "source.gjs",
+				"embeddedLanguages": {
+					"source.gjs": "javascript"
+				},
+				"unbalancedBracketScopes": [
+					"keyword.operator.relational",
+					"storage.type.function.arrow",
+					"keyword.operator.bitwise.shift",
+					"meta.brace.angle",
+					"punctuation.definition.tag",
+					"keyword.operator.assignment.compound.bitwise.ts"
+				]
+			},
+			{
+				"language": "glimmer-ts",
+				"path": "./syntaxes/glimmer-ts.json",
+				"scopeName": "source.gts",
+				"embeddedLanguages": {
+					"source.gts": "typescript"
+				},
+				"unbalancedBracketScopes": [
+					"keyword.operator.relational",
+					"storage.type.function.arrow",
+					"keyword.operator.bitwise.shift",
+					"meta.brace.angle",
+					"punctuation.definition.tag",
+					"keyword.operator.assignment.compound.bitwise.ts"
+				]
+			},
 			{
 				"label": "Handlebars (Ember)",
 				"language": "handlebars",
@@ -86,14 +136,25 @@
 			{
 				"injectTo": [
 					"source.js",
-					"source.ts",
-					"source.gjs",
-					"source.gts"
+					"source.ts"
 				],
-				"scopeName": "inline.template",
+				"scopeName": "inline.hbs",
 				"path": "./syntaxes/inline-hbs.json",
 				"embeddedLanguages": {
 					"meta.embedded.block.html": "handlebars"
+				}
+			},
+			{
+				"injectTo": [
+					"source.gts",
+					"source.gjs"
+				],
+				"scopeName": "inline.template",
+				"path": "./syntaxes/inline-template.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.html": "handlebars",
+					"meta.js.embeddedTemplateWithoutArgs": "handlebars",
+					"meta.js.embeddedTemplateWithArgs": "handlebars"
 				}
 			}
 		],
