@@ -21,7 +21,7 @@ jobs:
       - name: install gitversion tool
         uses: gittools/actions/gitversion/setup@v0.9
         with:
-          versionSpec: '6.0.x'
+          versionSpec: '6.0.0-beta.3'
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
