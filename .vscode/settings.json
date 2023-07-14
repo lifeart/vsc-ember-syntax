@@ -1,0 +1,12 @@
+{
+  "[glimmer-js]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.foldingStrategy": "indentation"
+  },
+  "[glimmer-ts]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.foldingStrategy": "indentation"
+  },
+  "eslint.validate": ["glimmer-ts", "glimmer-js"],
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }]
+}

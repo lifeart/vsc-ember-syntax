@@ -47,30 +47,6 @@ export default class MyComponent extends Component {
 }
 ```
 
-Since the Typescript Language Server will not be running for these file types, you will need to add the following settings to your `settings.json` file to fill in the gaps. Consider installing [Glint](https://typed-ember.gitbook.io/glint/) to get type checking and hover information.
-
-```jsonc
-// add language specific settings
-"[glimmer-js]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.foldingStrategy": "indentation"
-},
-"[glimmer-ts]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.foldingStrategy": "indentation"
-},
-// enable eslint for glimmer files
-{
-  "eslint.validate": [
-    "glimmer-ts",
-    "glimmer-js"
-  ],
-  "eslint.rules.customizations": [
-    { "rule": "*", "severity": "warn" },
-  ]
-}
-```
-
 ## Customizing the theme
 
 ![customize-theme](assets/customize-theme.gif)
