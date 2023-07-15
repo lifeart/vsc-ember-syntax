@@ -15,8 +15,18 @@ function updateLanguageSettings(languageId: string) {
   const config = vscode.workspace.getConfiguration("", {
     languageId,
   });
-  config.update("editor.defaultFormatter", "esbenp.prettier-vscode");
-  config.update("editor.foldingStrategy", "indentation");
+  config.update(
+    "editor.defaultFormatter",
+    "esbenp.prettier-vscode",
+    vscode.ConfigurationTarget.Global,
+    true
+  );
+  config.update(
+    "editor.foldingStrategy",
+    "indentation",
+    vscode.ConfigurationTarget.Global,
+    true
+  );
 }
 
 updateLanguageSettings("glimmer-js");
@@ -24,8 +34,16 @@ updateLanguageSettings("glimmer-ts");
 
 const eslintConfig = vscode.workspace.getConfiguration("eslint");
 
-eslintConfig.update("validate", ["glimmer-ts", "glimmer-js"]);
-eslintConfig.update("rules.customizations", [{ rule: "*", severity: "warn" }]);
+eslintConfig.update(
+  "validate",
+  ["glimmer-ts", "glimmer-js"],
+  vscode.ConfigurationTarget.Global
+);
+eslintConfig.update(
+  "rules.customizations",
+  [{ rule: "*", severity: "warn" }],
+  vscode.ConfigurationTarget.Global
+);
 
 export async function activate(context: vscode.ExtensionContext) {
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
