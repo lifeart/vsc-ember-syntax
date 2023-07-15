@@ -52,12 +52,16 @@ jobs:
           patch-syntax: |
             = /version => "${{ steps.gitversion.outputs.majorMinorPatch }}"
 
-      - name: add version in CHANGELOG.md
-        uses: cschleiden/replace-tokens@v1.0
+      - name: run prettier
+        run: yarn prettier:package
+
+      - name: add and commit package.json
+        uses: EndBug/add-and-commit@v9
         with:
-          files: '${{github.workspace}}/CHANGELOG.md'
-        env:
-          VERSION: "${{ steps.gitversion.outputs.majorMinorPatch }}"
+          add: 'package.json'
+          default_author: github_actions
+          message: 'chore: update package.json version to ${{ steps.gitversion.outputs.majorMinorPatch }}'
+          tag: 'v${{ steps.gitversion.outputs.majorMinorPatch }}'
 
       - name: compile for node
         run: yarn node:package
@@ -85,7 +89,6 @@ jobs:
         env:
           OPEN_VSX_STORE_TOKEN: ${{ secrets.OPEN_VSX_STORE_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         run: yarn ov:publish:ci
-
 
       - name: create a release
         if: github.ref == 'refs/heads/master'
