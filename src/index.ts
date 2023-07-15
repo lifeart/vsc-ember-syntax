@@ -1,8 +1,8 @@
-import * as vscode from "vscode";
+import * as vscode from 'vscode';
 
-const typeScriptExtensionId = "vscode.typescript-language-features";
-const pluginId = "typescript-hbs-plugin";
-const configurationSection = "hbs";
+const typeScriptExtensionId = 'vscode.typescript-language-features';
+const pluginId = 'typescript-hbs-plugin';
+const configurationSection = 'hbs';
 
 interface SynchronizedConfiguration {
   tags?: ReadonlyArray<string>;
@@ -12,38 +12,20 @@ interface SynchronizedConfiguration {
 }
 
 function updateLanguageSettings(languageId: string) {
-  const config = vscode.workspace.getConfiguration("", {
+  const config = vscode.workspace.getConfiguration('', {
     languageId,
   });
-  config.update(
-    "editor.defaultFormatter",
-    "esbenp.prettier-vscode",
-    vscode.ConfigurationTarget.Global,
-    true
-  );
-  config.update(
-    "editor.foldingStrategy",
-    "indentation",
-    vscode.ConfigurationTarget.Global,
-    true
-  );
+  config.update('editor.defaultFormatter', 'esbenp.prettier-vscode', vscode.ConfigurationTarget.Global, true);
+  config.update('editor.foldingStrategy', 'indentation', vscode.ConfigurationTarget.Global, true);
 }
 
-updateLanguageSettings("glimmer-js");
-updateLanguageSettings("glimmer-ts");
+updateLanguageSettings('glimmer-js');
+updateLanguageSettings('glimmer-ts');
 
-const eslintConfig = vscode.workspace.getConfiguration("eslint");
+const eslintConfig = vscode.workspace.getConfiguration('eslint');
 
-eslintConfig.update(
-  "validate",
-  ["glimmer-ts", "glimmer-js"],
-  vscode.ConfigurationTarget.Global
-);
-eslintConfig.update(
-  "rules.customizations",
-  [{ rule: "*", severity: "warn" }],
-  vscode.ConfigurationTarget.Global
-);
+eslintConfig.update('validate', ['glimmer-ts', 'glimmer-js'], vscode.ConfigurationTarget.Global);
+eslintConfig.update('rules.customizations', [{ rule: '*', severity: 'warn' }], vscode.ConfigurationTarget.Global);
 
 export async function activate(context: vscode.ExtensionContext) {
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
@@ -67,7 +49,7 @@ export async function activate(context: vscode.ExtensionContext) {
       }
     },
     undefined,
-    context.subscriptions
+    context.subscriptions,
   );
 
   synchronizeConfiguration(api);
@@ -83,24 +65,20 @@ function getConfiguration(): SynchronizedConfiguration {
     format: {
       enabled: true,
     },
-    tags: ["hbs"],
+    tags: ['hbs'],
   };
 
-  withConfigValue<string[]>(config, "tags", (tags) => {
+  withConfigValue<string[]>(config, 'tags', (tags) => {
     outConfig.tags = tags;
   });
-  withConfigValue<boolean>(config, "format.enabled", (enabled) => {
+  withConfigValue<boolean>(config, 'format.enabled', (enabled) => {
     outConfig.format.enabled = enabled;
   });
-  console.log("outConfig", JSON.stringify(outConfig));
+  console.log('outConfig', JSON.stringify(outConfig));
   return outConfig;
 }
 
-function withConfigValue<T>(
-  config: vscode.WorkspaceConfiguration,
-  key: string,
-  withValue: (value: T) => void
-): void {
+function withConfigValue<T>(config: vscode.WorkspaceConfiguration, key: string, withValue: (value: T) => void): void {
   const configSetting = config.inspect(key);
   if (!configSetting) {
     return;
@@ -109,15 +87,15 @@ function withConfigValue<T>(
   // Make sure the user has actually set the value.
   // VS Code will return the default values instead of `undefined`, even if user has not don't set anything.
   if (
-    typeof configSetting.globalValue === "undefined" &&
-    typeof configSetting.workspaceFolderValue === "undefined" &&
-    typeof configSetting.workspaceValue === "undefined"
+    typeof configSetting.globalValue === 'undefined' &&
+    typeof configSetting.workspaceFolderValue === 'undefined' &&
+    typeof configSetting.workspaceValue === 'undefined'
   ) {
     return;
   }
 
   const value = config.get<T | undefined>(key, undefined);
-  if (typeof value !== "undefined") {
+  if (typeof value !== 'undefined') {
     withValue(value);
   }
 }
