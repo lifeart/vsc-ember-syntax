@@ -91,7 +91,7 @@
       ]
     },
     {
-      "begin": "((precompileTemplate))(\\()",
+      "begin": "((precompileTemplate)\\s*)(\\()",
       "beginCaptures": {
         "1": {
           "name": "entity.name.function.ts"
@@ -111,7 +111,7 @@
       },
       "patterns": [
         {
-          "begin": "((`|'|\"))",
+          "begin": "((`))",
           "contentName": "meta.embedded.block.html",
           "beginCaptures": {
             "1": {
@@ -121,7 +121,7 @@
               "name": "punctuation.definition.string.template.begin.ts"
             }
           },
-          "end": "((`|'|\"))",
+          "end": "((`))",
           "endCaptures": {
             "1": {
               "name": "string.template.ts"
@@ -135,6 +135,12 @@
               "include": "text.html.handlebars"
             }
           ]
+        },
+        {
+          "include": "source.ts#object-literal"
+        },
+        {
+          "include": "source.ts"
         }
       ]
     }
