@@ -111,7 +111,7 @@
       },
       "patterns": [
         {
-          "begin": "((`))",
+          "begin": "((`|'|\"))",
           "contentName": "meta.embedded.block.html",
           "beginCaptures": {
             "1": {
@@ -121,7 +121,7 @@
               "name": "punctuation.definition.string.template.begin.ts"
             }
           },
-          "end": "((`))",
+          "end": "((`|'|\"))",
           "endCaptures": {
             "1": {
               "name": "string.template.ts"
