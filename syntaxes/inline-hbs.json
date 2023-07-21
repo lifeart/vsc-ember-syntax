@@ -43,7 +43,7 @@
       ]
     },
     {
-      "begin": "((createTemplate|hbs|html|precompileTemplate))(\\()",
+      "begin": "((createTemplate|hbs|html))(\\()",
       "contentName": "meta.embedded.block.html",
       "beginCaptures": {
         "1": {
@@ -87,6 +87,60 @@
               "include": "text.html.handlebars"
             }
           ]
+        }
+      ]
+    },
+    {
+      "begin": "((precompileTemplate)\\s*)(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.ts"
+        },
+        "2": {
+          "name": "meta.function-call.ts"
+        },
+        "3": {
+          "name": "meta.brace.round.ts"
+        }
+      },
+      "end": "(\\))",
+      "endCaptures": {
+        "1": {
+          "name": "meta.brace.round.ts"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "((`|'|\"))",
+          "contentName": "meta.embedded.block.html",
+          "beginCaptures": {
+            "1": {
+              "name": "string.template.ts"
+            },
+            "2": {
+              "name": "punctuation.definition.string.template.begin.ts"
+            }
+          },
+          "end": "((`|'|\"))",
+          "endCaptures": {
+            "1": {
+              "name": "string.template.ts"
+            },
+            "2": {
+              "name": "punctuation.definition.string.template.end.ts"
+            }
+          },
+          "patterns": [
+            {
+              "include": "text.html.handlebars"
+            }
+          ]
+        },
+        {
+          "include": "source.ts#object-literal"
+        },
+        {
+          "include": "source.ts"
         }
       ]
     }
