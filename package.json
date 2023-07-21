@@ -65,8 +65,8 @@
         ],
         "configuration": "./languages/inline-template.configuration.json",
         "icon": {
-          "light": "./assets/glimmer-js.svg",
-          "dark": "./assets/glimmer-js.svg"
+          "light": "./assets/glimmer-js-light.svg",
+          "dark": "./assets/glimmer-js-dark.svg"
         }
       },
       {
@@ -80,8 +80,8 @@
         ],
         "configuration": "./languages/inline-template.configuration.json",
         "icon": {
-          "light": "./assets/glimmer-ts.svg",
-          "dark": "./assets/glimmer-ts.svg"
+          "light": "./assets/glimmer-ts-light.svg",
+          "dark": "./assets/glimmer-ts-dark.svg"
         }
       },
       {
