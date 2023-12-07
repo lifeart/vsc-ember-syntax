@@ -58,7 +58,7 @@ In your vscode `settings.json` file:
     "textMateRules": [
         {
             "scope": [
-                "text.html.handlebars meta.tag.any.handlebars entity.other.attribute-name.handlebars.argument",
+                "text.html.ember-handlebars meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument",
             ],
             "settings": {
                 "foreground": "#47c7b3",

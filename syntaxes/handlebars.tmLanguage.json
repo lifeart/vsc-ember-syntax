@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Glimmer",
-  "scopeName": "text.html.handlebars",
+  "scopeName": "text.html.ember-handlebars",
   "fileTypes": ["hbs"],
   "patterns": [
     {
@@ -63,64 +63,64 @@
       }
     },
     "string-double-quoted-handlebars": {
-      "name": "string.quoted.double.handlebars",
+      "name": "string.quoted.double.ember-handlebars",
       "begin": "\"",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.handlebars"
+          "name": "punctuation.definition.string.begin.ember-handlebars"
         }
       },
       "end": "\"",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.handlebars"
+          "name": "punctuation.definition.string.end.ember-handlebars"
         }
       },
       "patterns": [
         {
-          "name": "constant.character.escape.handlebars",
+          "name": "constant.character.escape.ember-handlebars",
           "match": "\\\\\""
         }
       ]
     },
     "string-single-quoted-handlebars": {
-      "name": "string.quoted.single.handlebars",
+      "name": "string.quoted.single.ember-handlebars",
       "begin": "'",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.handlebars"
+          "name": "punctuation.definition.string.begin.ember-handlebars"
         }
       },
       "end": "'",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.handlebars"
+          "name": "punctuation.definition.string.end.ember-handlebars"
         }
       },
       "patterns": [
         {
-          "name": "constant.character.escape.handlebars",
+          "name": "constant.character.escape.ember-handlebars",
           "match": "\\\\'"
         }
       ]
     },
     "string-double-quoted-html": {
-      "name": "string.quoted.double.html.handlebars",
+      "name": "string.quoted.double.html.ember-handlebars",
       "begin": "\"",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.handlebars"
+          "name": "punctuation.definition.string.begin.ember-handlebars"
         }
       },
       "end": "\"",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.handlebars"
+          "name": "punctuation.definition.string.end.ember-handlebars"
         }
       },
       "patterns": [
         {
-          "name": "constant.character.escape.handlebars",
+          "name": "constant.character.escape.ember-handlebars",
           "match": "\\\\\""
         },
         {
@@ -141,22 +141,22 @@
       ]
     },
     "string-single-quoted-html": {
-      "name": "string.quoted.single.html.handlebars",
+      "name": "string.quoted.single.html.ember-handlebars",
       "begin": "'",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.definition.string.begin.handlebars"
+          "name": "punctuation.definition.string.begin.ember-handlebars"
         }
       },
       "end": "'",
       "endCaptures": {
         "0": {
-          "name": "punctuation.definition.string.end.handlebars"
+          "name": "punctuation.definition.string.end.ember-handlebars"
         }
       },
       "patterns": [
         {
-          "name": "constant.character.escape.handlebars",
+          "name": "constant.character.escape.ember-handlebars",
           "match": "\\\\'"
         },
         {
@@ -240,7 +240,7 @@
       "patterns": []
     },
     "glimmer-unescaped-expression": {
-      "name": "entity.unescaped.expression.handlebars",
+      "name": "entity.unescaped.expression.ember-handlebars",
       "begin": "{{{",
       "end": "}}}",
       "captures": {
@@ -300,7 +300,7 @@
       ]
     },
     "glimmer-bools": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "match": "({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})",
       "captures": {
         "0": {
@@ -321,7 +321,7 @@
       }
     },
     "glimmer-else-block": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "match": "({{~?)(else\\s[a-z]+\\s|else)([()@a-zA-Z0-9\\.\\s\\b]+)?(~?}})",
       "captures": {
         "0": {
@@ -368,7 +368,7 @@
       }
     },
     "glimmer-special-block": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "match": "({{~?)(yield|outlet)(~?}})",
       "captures": {
         "0": {
@@ -396,7 +396,7 @@
       ]
     },
     "glimmer-block": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(#|/)(([@\\$a-zA-Z0-9_/.-]+))",
       "end": "(~?}})",
       "captures": {
@@ -433,7 +433,7 @@
       ]
     },
     "glimmer-expression-property": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)((@|this.)([a-zA-Z0-9_.-]+))",
       "end": "(~?}})",
       "captures": {
@@ -473,7 +473,7 @@
       ]
     },
     "glimmer-expression": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(([()\\s@a-zA-Z0-9_.-]+))",
       "end": "(~?}})",
       "captures": {
@@ -539,7 +539,7 @@
       ]
     },
     "glimmer-control-expression": {
-      "name": "entity.expression.handlebars",
+      "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(([-a-z/]+)\\s)",
       "end": "(~?}})",
       "captures": {
@@ -560,7 +560,7 @@
       ]
     },
     "glimmer-subexp": {
-      "name": "entity.subexpression.handlebars",
+      "name": "entity.subexpression.ember-handlebars",
       "begin": "(\\()([@a-zA-Z0-9.-]+)",
       "end": "(\\))",
       "captures": {
@@ -583,17 +583,17 @@
       "patterns": []
     },
     "as-params": {
-      "name": "keyword.block-params.handlebars",
+      "name": "keyword.block-params.ember-handlebars",
       "begin": "(?<!\\|)(\\|)",
       "beginCaptures": {
         "1": {
-          "name": "constant.other.symbol.begin.handlebars"
+          "name": "constant.other.symbol.begin.ember-handlebars"
         }
       },
       "end": "(\\|)(?!\\|)",
       "endCaptures": {
         "1": {
-          "name": "constant.other.symbol.end.handlebars"
+          "name": "constant.other.symbol.end.ember-handlebars"
         }
       },
       "patterns": [
@@ -621,10 +621,10 @@
       "match": "\\b([a-zA-Z0-9_-]+)(\\s?=)",
       "captures": {
         "1": {
-          "name": "variable.parameter.name.handlebars"
+          "name": "variable.parameter.name.ember-handlebars"
         },
         "2": {
-          "name": "punctuation.definition.expression.handlebars"
+          "name": "punctuation.definition.expression.ember-handlebars"
         }
       },
       "patterns": []
@@ -885,12 +885,12 @@
       ]
     },
     "html-comment": {
-      "name": "comment.block.html.handlebars",
+      "name": "comment.block.html.ember-handlebars",
       "begin": "<!--",
       "end": "--\\s*>",
       "captures": {
         "0": {
-          "name": "punctuation.definition.comment.html.handlebars"
+          "name": "punctuation.definition.comment.html.ember-handlebars"
         }
       },
       "patterns": [
@@ -899,7 +899,7 @@
         },
         {
           "match": "--",
-          "name": "invalid.illegal.bad-comments-or-CDATA.html.handlebars"
+          "name": "invalid.illegal.bad-comments-or-CDATA.html.ember-handlebars"
         }
       ]
     },
@@ -953,7 +953,7 @@
       ]
     },
     "component-tag": {
-      "name": "meta.tag.any.handlebars",
+      "name": "meta.tag.any.ember-handlebars",
       "begin": "(<\\/?)(@|this.)?([a-zA-Z0-9-\\$:\\.]+)\\b",
       "beginCaptures": {
         "1": {
@@ -1001,14 +1001,14 @@
       ]
     },
     "html-tag": {
-      "name": "meta.tag.any.handlebars",
+      "name": "meta.tag.any.ember-handlebars",
       "begin": "(<\\/?)([a-z0-9-]+)(?!\\.|:)\\b",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
         },
         "2": {
-          "name": "entity.name.tag.html.handlebars"
+          "name": "entity.name.tag.html.ember-handlebars"
         }
       },
       "end": "(\\/?)(>)",
@@ -1030,7 +1030,7 @@
       "match": "\\s(@[a-zA-Z0-9:_.-]+)(=)?",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.handlebars.argument",
+          "name": "entity.other.attribute-name.ember-handlebars.argument",
           "patterns": [
             {
               "name": "markup.italic",
@@ -1039,7 +1039,7 @@
           ]
         },
         "2": {
-          "name": "punctuation.separator.key-value.html.handlebars"
+          "name": "punctuation.separator.key-value.html.ember-handlebars"
         }
       }
     },
@@ -1047,7 +1047,7 @@
       "match": "\\s([a-zA-Z0-9:_.-]+)(=)?",
       "captures": {
         "1": {
-          "name": "entity.other.attribute-name.handlebars",
+          "name": "entity.other.attribute-name.ember-handlebars",
           "patterns": [
             {
               "name": "markup.bold",
@@ -1056,26 +1056,26 @@
           ]
         },
         "2": {
-          "name": "punctuation.separator.key-value.html.handlebars"
+          "name": "punctuation.separator.key-value.html.ember-handlebars"
         }
       }
     },
     "entities": {
       "patterns": [
         {
-          "name": "constant.character.entity.html.handlebars",
+          "name": "constant.character.entity.html.ember-handlebars",
           "match": "(&)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)",
           "captures": {
             "1": {
-              "name": "punctuation.definition.entity.html.handlebars"
+              "name": "punctuation.definition.entity.html.ember-handlebars"
             },
             "3": {
-              "name": "punctuation.definition.entity.html.handlebars"
+              "name": "punctuation.definition.entity.html.ember-handlebars"
             }
           }
         },
         {
-          "name": "invalid.illegal.bad-ampersand.html.handlebars",
+          "name": "invalid.illegal.bad-ampersand.html.ember-handlebars",
           "match": "&"
         }
       ]

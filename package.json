@@ -132,7 +132,7 @@
       {
         "label": "Handlebars (Ember)",
         "language": "handlebars",
-        "scopeName": "text.html.handlebars",
+        "scopeName": "text.html.ember-handlebars",
         "path": "./syntaxes/handlebars.tmLanguage.json"
       },
       {
