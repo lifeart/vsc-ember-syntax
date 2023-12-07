@@ -38,7 +38,7 @@
           "include": "source.ts#template-substitution-element"
         },
         {
-          "include": "text.html.handlebars"
+          "include": "text.html.ember-handlebars"
         }
       ]
     },
@@ -84,7 +84,7 @@
           },
           "patterns": [
             {
-              "include": "text.html.handlebars"
+              "include": "text.html.ember-handlebars"
             }
           ]
         }
@@ -132,7 +132,7 @@
           },
           "patterns": [
             {
-              "include": "text.html.handlebars"
+              "include": "text.html.ember-handlebars"
             }
           ]
         },

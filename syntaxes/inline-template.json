@@ -30,7 +30,7 @@
       },
       "patterns": [
         {
-          "include": "text.html.handlebars"
+          "include": "text.html.ember-handlebars"
         }
       ]
     },
@@ -63,7 +63,7 @@
           "end": "(?=\\>)",
           "patterns": [
             {
-              "include": "text.html.handlebars#tag-like-content"
+              "include": "text.html.ember-handlebars#tag-like-content"
             }
           ]
         },
@@ -78,7 +78,7 @@
           "contentName": "meta.html.embedded.block",
           "patterns": [
             {
-              "include": "text.html.handlebars"
+              "include": "text.html.ember-handlebars"
             }
           ]
         }
