@@ -25,7 +25,6 @@ updateLanguageSettings('glimmer-ts');
 const eslintConfig = vscode.workspace.getConfiguration('eslint');
 
 eslintConfig.update('validate', ['glimmer-ts', 'glimmer-js'], vscode.ConfigurationTarget.Global);
-eslintConfig.update('rules.customizations', [{ rule: '*', severity: 'warn' }], vscode.ConfigurationTarget.Global);
 
 export async function activate(context: vscode.ExtensionContext) {
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
