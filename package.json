@@ -2,7 +2,7 @@
   "name": "vscode-glimmer-syntax",
   "displayName": "Glimmer Templates Syntax for VS Code",
   "description": "Glimmer templates syntax",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "author": "Aleksandr Kanunnikov <lifeart92@gmail.com>",
   "license": "MIT",
   "publisher": "lifeart",
