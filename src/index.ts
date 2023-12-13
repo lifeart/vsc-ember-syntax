@@ -23,10 +23,14 @@ updateLanguageSettings('glimmer-js');
 updateLanguageSettings('glimmer-ts');
 
 const eslintConfig = vscode.workspace.getConfiguration('eslint');
-const validate = eslintConfig.get('validate') ?? [];
+const validate = eslintConfig.get<Array<string>>('validate') ?? [];
 const glimmerScopes = ['glimmer-ts', 'glimmer-js'];
 
-eslintConfig.update('validate', Array.from(new Set([...validate, ...glimmerScopes])), vscode.ConfigurationTarget.Workspace);
+eslintConfig.update(
+  'validate',
+  Array.from(new Set([...validate, ...glimmerScopes])),
+  vscode.ConfigurationTarget.Workspace,
+);
 
 export async function activate(context: vscode.ExtensionContext) {
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
