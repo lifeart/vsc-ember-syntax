@@ -47,7 +47,8 @@
     "web:package": "webpack --mode production",
     "prettier": "prettier --write \"**/*.{js,ts,json,yaml}\"",
     "prettier:package": "prettier --write \"package.json\"",
-    "chrome": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=."
+    "chrome": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=.",
+    "build:grammars": "node ./syntaxes/src/index.mjs"
   },
   "extensionKind": [
     "ui"
@@ -99,7 +100,7 @@
     "grammars": [
       {
         "language": "glimmer-js",
-        "path": "./syntaxes/glimmer-js.json",
+        "path": "./syntaxes/source.gjs.json",
         "scopeName": "source.gjs",
         "embeddedLanguages": {
           "source.gjs": "javascript"
@@ -115,7 +116,7 @@
       },
       {
         "language": "glimmer-ts",
-        "path": "./syntaxes/glimmer-ts.json",
+        "path": "./syntaxes/source.gts.json",
         "scopeName": "source.gts",
         "embeddedLanguages": {
           "source.gts": "typescript"
@@ -133,7 +134,7 @@
         "label": "Handlebars (Ember)",
         "language": "handlebars",
         "scopeName": "text.html.ember-handlebars",
-        "path": "./syntaxes/handlebars.tmLanguage.json"
+        "path": "./syntaxes/text.html.ember-handlebars.json"
       },
       {
         "injectTo": [
@@ -141,7 +142,7 @@
           "source.ts"
         ],
         "scopeName": "inline.hbs",
-        "path": "./syntaxes/inline-hbs.json",
+        "path": "./syntaxes/inline.hbs.json",
         "embeddedLanguages": {
           "meta.embedded.block.html": "handlebars"
         }
@@ -152,7 +153,7 @@
           "source.gjs"
         ],
         "scopeName": "inline.template",
-        "path": "./syntaxes/inline-template.json",
+        "path": "./syntaxes/inline.template.json",
         "embeddedLanguages": {
           "meta.embedded.block.html": "handlebars",
           "meta.js.embeddedTemplateWithoutArgs": "handlebars",

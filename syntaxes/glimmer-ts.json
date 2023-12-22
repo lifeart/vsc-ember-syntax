@@ -1,4 +1,0 @@
-{
-  "scopeName": "source.gts",
-  "patterns": [{ "include": "source.ts" }]
-}
