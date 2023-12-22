@@ -1,4 +1,0 @@
-{
-  "scopeName": "source.gjs",
-  "patterns": [{ "include": "source.js" }]
-}
