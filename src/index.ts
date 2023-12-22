@@ -29,7 +29,7 @@ const glimmerScopes = ['glimmer-ts', 'glimmer-js'];
 eslintConfig.update(
   'validate',
   Array.from(new Set([...validate, ...glimmerScopes])),
-  vscode.ConfigurationTarget.Workspace,
+  vscode.ConfigurationTarget.Global,
 );
 
 export async function activate(context: vscode.ExtensionContext) {
