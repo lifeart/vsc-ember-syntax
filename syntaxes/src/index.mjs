@@ -49,7 +49,7 @@ if (errors.length) {
     console.log(`\n${'-'.repeat(file.length)}\n${file}\n${'-'.repeat(file.length)}`);
     console.error(error);
   }
-  process.exit(1);
+  process.exitCode = 1;
 } else {
   console.log(`\n🎉 All grammars written to ${outDirectory}`);
 }
