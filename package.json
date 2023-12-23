@@ -103,7 +103,10 @@
         "path": "./syntaxes/source.gjs.json",
         "scopeName": "source.gjs",
         "embeddedLanguages": {
-          "source.gjs": "javascript"
+          "source.gjs": "javascript",
+          "meta.embedded.block.html": "handlebars",
+          "meta.js.embeddedTemplateWithoutArgs": "handlebars",
+          "meta.js.embeddedTemplateWithArgs": "handlebars"
         },
         "unbalancedBracketScopes": [
           "keyword.operator.relational",
@@ -119,7 +122,10 @@
         "path": "./syntaxes/source.gts.json",
         "scopeName": "source.gts",
         "embeddedLanguages": {
-          "source.gts": "typescript"
+          "source.gts": "typescript",
+          "meta.embedded.block.html": "handlebars",
+          "meta.js.embeddedTemplateWithoutArgs": "handlebars",
+          "meta.js.embeddedTemplateWithArgs": "handlebars"
         },
         "unbalancedBracketScopes": [
           "keyword.operator.relational",
@@ -145,19 +151,6 @@
         "path": "./syntaxes/inline.hbs.json",
         "embeddedLanguages": {
           "meta.embedded.block.html": "handlebars"
-        }
-      },
-      {
-        "injectTo": [
-          "source.gts",
-          "source.gjs"
-        ],
-        "scopeName": "inline.template",
-        "path": "./syntaxes/inline.template.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.html": "handlebars",
-          "meta.js.embeddedTemplateWithoutArgs": "handlebars",
-          "meta.js.embeddedTemplateWithArgs": "handlebars"
         }
       }
     ],
