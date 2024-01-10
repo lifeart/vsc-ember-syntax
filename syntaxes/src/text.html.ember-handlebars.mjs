@@ -55,7 +55,7 @@ export default {
   ],
   repository: {
     'glimmer-component-path': {
-      match: '(::|\\$|\\.)',
+      match: '(::|_|\\$|\\.)',
       captures: {
         1: {
           name: 'punctuation.definition.tag',
@@ -955,7 +955,7 @@ export default {
     },
     'component-tag': {
       name: 'meta.tag.any.ember-handlebars',
-      begin: '(<\\/?)(@|this.)?([a-zA-Z0-9-\\$:\\.]+)\\b',
+      begin: '(<\\/?)(@|this.)?([a-zA-Z0-9-_\\$:\\.]+)\\b',
       beginCaptures: {
         1: {
           name: 'punctuation.definition.tag',
