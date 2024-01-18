@@ -13,7 +13,6 @@ export default {
   },
   patterns: [
     {
-      name: 'string.js.taggedTemplate',
       contentName: 'meta.embedded.block.html',
       begin: '(?x)(\\b(?:\\w+\\.)*(?:hbs|html)\\s*)(`)',
       beginCaptures: {
@@ -64,7 +63,7 @@ export default {
       },
       patterns: [
         {
-          begin: '((`))',
+          begin: '((`|\'|"))',
           beginCaptures: {
             1: {
               name: 'string.template.ts',
@@ -73,7 +72,7 @@ export default {
               name: 'punctuation.definition.string.template.begin.ts',
             },
           },
-          end: '((`))',
+          end: '((`|\'|"))',
           endCaptures: {
             1: {
               name: 'string.template.ts',
