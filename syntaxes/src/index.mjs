@@ -12,6 +12,12 @@ function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
+// copy patterns and repository to avoid mutating the original grammars
+const copiedEmberHandlebarPatterns = deepCopy(emberHandlebars.patterns);
+const copiedEmberHandlebarRepository = deepCopy(emberHandlebars.repository);
+const copiedInlineTemplatePatterns = deepCopy(inlineTemplate.patterns);
+const copiedInlineHandlebarsPatterns = deepCopy(inlineHandlebars.patterns);
+
 const [inlineTemplateInjectionSelectorGJS, inlineTemplateInjectionSelectorGTS] =
   inlineTemplate.injectionSelector.split(', ');
 
@@ -26,16 +32,18 @@ function mergeGrammars(grammar, injectionSelector) {
 
   grammar.repository = {
     main: {
-      patterns: [...deepCopy(inlineTemplate.patterns), ...deepCopy(inlineHandlebars.patterns)],
+      patterns: [...copiedInlineTemplatePatterns, ...copiedInlineHandlebarsPatterns],
     },
-    ...deepCopy(emberHandlebars.repository),
+    ...copiedEmberHandlebarRepository,
   };
 
   // Embedded Template With Args
   const embeddedTemplateWithArgs = grammar.repository.main.patterns.find(
     (pattern) => pattern.name === 'meta.js.embeddedTemplateWithArgs',
   );
-  embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(>)').patterns = [...emberHandlebars.patterns];
+  embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(>)').patterns = [
+    ...copiedEmberHandlebarPatterns,
+  ];
 
   const tagLikeContent = embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(?<=\\<template)');
   tagLikeContent.patterns = [
@@ -48,7 +56,7 @@ function mergeGrammars(grammar, injectionSelector) {
   const embeddedTemplateWithoutArgs = grammar.repository.main.patterns.find(
     (pattern) => pattern.name === 'meta.js.embeddedTemplateWithoutArgs',
   );
-  embeddedTemplateWithoutArgs.patterns = [...emberHandlebars.patterns];
+  embeddedTemplateWithoutArgs.patterns = [...copiedEmberHandlebarPatterns];
 
   const taggedTemplate = grammar.repository.main.patterns.find(
     (pattern) => pattern.begin === '(?x)(\\b(?:\\w+\\.)*(?:hbs|html)\\s*)(`)',
@@ -56,21 +64,21 @@ function mergeGrammars(grammar, injectionSelector) {
   const filteredPatterns = taggedTemplate.patterns.filter(
     (pattern) => pattern.include !== 'text.html.ember-handlebars',
   );
-  taggedTemplate.patterns = [...filteredPatterns, ...emberHandlebars.patterns];
+  taggedTemplate.patterns = [...filteredPatterns, ...copiedEmberHandlebarPatterns];
 
   // createTemplate/hbs/html functions
   const createTemplate = grammar.repository.main.patterns
     .find((pattern) => pattern.begin === '((createTemplate|hbs|html))(\\()')
     .patterns.find((pattern) => pattern.begin === '((`|\'|"))');
 
-  createTemplate.patterns = [...emberHandlebars.patterns];
+  createTemplate.patterns = [...copiedEmberHandlebarPatterns];
 
   // precompileTemplate function
   const precompileTemplate = grammar.repository.main.patterns
     .find((pattern) => pattern.begin === '((precompileTemplate)\\s*)(\\()')
     .patterns.find((pattern) => pattern.begin === '((`|\'|"))');
 
-  precompileTemplate.patterns = [...emberHandlebars.patterns];
+  precompileTemplate.patterns = [...copiedEmberHandlebarPatterns];
 }
 
 mergeGrammars(glimmerJavascript, inlineTemplateInjectionSelectorGJS);
