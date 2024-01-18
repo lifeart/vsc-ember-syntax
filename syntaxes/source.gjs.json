@@ -265,6 +265,54 @@
             },
             {
               "include": "#entities"
+            },
+            {
+              "include": "#style"
+            },
+            {
+              "include": "#script"
+            },
+            {
+              "include": "#glimmer-else-block"
+            },
+            {
+              "include": "#glimmer-bools"
+            },
+            {
+              "include": "#glimmer-special-block"
+            },
+            {
+              "include": "#glimmer-unescaped-expression"
+            },
+            {
+              "include": "#glimmer-comment-block"
+            },
+            {
+              "include": "#glimmer-comment-inline"
+            },
+            {
+              "include": "#glimmer-expression-property"
+            },
+            {
+              "include": "#glimmer-control-expression"
+            },
+            {
+              "include": "#glimmer-expression"
+            },
+            {
+              "include": "#glimmer-block"
+            },
+            {
+              "include": "#html-tag"
+            },
+            {
+              "include": "#component-tag"
+            },
+            {
+              "include": "#html-comment"
+            },
+            {
+              "include": "#entities"
             }
           ]
         },
@@ -463,7 +511,7 @@
       ]
     },
     "glimmer-component-path": {
-      "match": "(::|\\$|\\.)",
+      "match": "(::|_|\\$|\\.)",
       "captures": {
         "1": {
           "name": "punctuation.definition.tag"
@@ -1362,7 +1410,7 @@
     },
     "component-tag": {
       "name": "meta.tag.any.ember-handlebars",
-      "begin": "(<\\/?)(@|this.)?([a-zA-Z0-9-\\$:\\.]+)\\b",
+      "begin": "(<\\/?)(@|this.)?([a-zA-Z0-9-_\\$:\\.]+)\\b",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
