@@ -265,54 +265,6 @@
             },
             {
               "include": "#entities"
-            },
-            {
-              "include": "#style"
-            },
-            {
-              "include": "#script"
-            },
-            {
-              "include": "#glimmer-else-block"
-            },
-            {
-              "include": "#glimmer-bools"
-            },
-            {
-              "include": "#glimmer-special-block"
-            },
-            {
-              "include": "#glimmer-unescaped-expression"
-            },
-            {
-              "include": "#glimmer-comment-block"
-            },
-            {
-              "include": "#glimmer-comment-inline"
-            },
-            {
-              "include": "#glimmer-expression-property"
-            },
-            {
-              "include": "#glimmer-control-expression"
-            },
-            {
-              "include": "#glimmer-expression"
-            },
-            {
-              "include": "#glimmer-block"
-            },
-            {
-              "include": "#html-tag"
-            },
-            {
-              "include": "#component-tag"
-            },
-            {
-              "include": "#html-comment"
-            },
-            {
-              "include": "#entities"
             }
           ]
         },

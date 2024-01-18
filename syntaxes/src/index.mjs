@@ -12,16 +12,16 @@ function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-// copy patterns and repository to avoid mutating the original grammars
-const copiedEmberHandlebarPatterns = deepCopy(emberHandlebars.patterns);
-const copiedEmberHandlebarRepository = deepCopy(emberHandlebars.repository);
-const copiedInlineTemplatePatterns = deepCopy(inlineTemplate.patterns);
-const copiedInlineHandlebarsPatterns = deepCopy(inlineHandlebars.patterns);
-
 const [inlineTemplateInjectionSelectorGJS, inlineTemplateInjectionSelectorGTS] =
   inlineTemplate.injectionSelector.split(', ');
 
 function mergeGrammars(grammar, injectionSelector) {
+  // copy patterns and repository to avoid mutating the original grammars
+  const copiedEmberHandlebarPatterns = deepCopy(emberHandlebars.patterns);
+  const copiedEmberHandlebarRepository = deepCopy(emberHandlebars.repository);
+  const copiedInlineTemplatePatterns = deepCopy(inlineTemplate.patterns);
+  const copiedInlineHandlebarsPatterns = deepCopy(inlineHandlebars.patterns);
+
   grammar.injections = {
     [injectionSelector]: {
       patterns: [{ include: '#main' }],
@@ -58,6 +58,7 @@ function mergeGrammars(grammar, injectionSelector) {
   );
   embeddedTemplateWithoutArgs.patterns = [...copiedEmberHandlebarPatterns];
 
+  // Tagged template (hbs/html)
   const taggedTemplate = grammar.repository.main.patterns.find(
     (pattern) => pattern.begin === '(?x)(\\b(?:\\w+\\.)*(?:hbs|html)\\s*)(`)',
   );
