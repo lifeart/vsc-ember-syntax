@@ -8,20 +8,82 @@ import inlineHandlebars from './inline.hbs.mjs';
 import inlineTemplate from './inline.template.mjs';
 import emberHandlebars from './text.html.ember-handlebars.mjs';
 
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
 const [inlineTemplateInjectionSelectorGJS, inlineTemplateInjectionSelectorGTS] =
   inlineTemplate.injectionSelector.split(', ');
 
-glimmerJavascript.injections = {
-  [inlineTemplateInjectionSelectorGJS]: {
-    patterns: [...inlineTemplate.patterns, ...inlineHandlebars.patterns],
-  },
-};
+function mergeGrammars(grammar, injectionSelector) {
+  // copy patterns and repository to avoid mutating the original grammars
+  const copiedEmberHandlebarPatterns = deepCopy(emberHandlebars.patterns);
+  const copiedEmberHandlebarRepository = deepCopy(emberHandlebars.repository);
+  const copiedInlineTemplatePatterns = deepCopy(inlineTemplate.patterns);
+  const copiedInlineHandlebarsPatterns = deepCopy(inlineHandlebars.patterns);
 
-glimmerTypescript.injections = {
-  [inlineTemplateInjectionSelectorGTS]: {
-    patterns: [...inlineTemplate.patterns, ...inlineHandlebars.patterns],
-  },
-};
+  grammar.injections = {
+    [injectionSelector]: {
+      patterns: [{ include: '#main' }],
+    },
+  };
+
+  grammar.patterns.push({ include: '#main' });
+
+  grammar.repository = {
+    main: {
+      patterns: [...copiedInlineTemplatePatterns, ...copiedInlineHandlebarsPatterns],
+    },
+    ...copiedEmberHandlebarRepository,
+  };
+
+  // Embedded Template With Args
+  const embeddedTemplateWithArgs = grammar.repository.main.patterns.find(
+    (pattern) => pattern.name === 'meta.js.embeddedTemplateWithArgs',
+  );
+  embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(>)').patterns = [
+    ...copiedEmberHandlebarPatterns,
+  ];
+
+  const tagLikeContent = embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(?<=\\<template)');
+  tagLikeContent.patterns = [
+    {
+      include: '#tag-like-content',
+    },
+  ];
+
+  // Embedded Template Without Args
+  const embeddedTemplateWithoutArgs = grammar.repository.main.patterns.find(
+    (pattern) => pattern.name === 'meta.js.embeddedTemplateWithoutArgs',
+  );
+  embeddedTemplateWithoutArgs.patterns = [...copiedEmberHandlebarPatterns];
+
+  // Tagged template (hbs/html)
+  const taggedTemplate = grammar.repository.main.patterns.find(
+    (pattern) => pattern.begin === '(?x)(\\b(?:\\w+\\.)*(?:hbs|html)\\s*)(`)',
+  );
+  const filteredPatterns = taggedTemplate.patterns.filter(
+    (pattern) => pattern.include !== 'text.html.ember-handlebars',
+  );
+  taggedTemplate.patterns = [...filteredPatterns, ...copiedEmberHandlebarPatterns];
+
+  // createTemplate/hbs/html functions
+  const createTemplate = grammar.repository.main.patterns
+    .find((pattern) => pattern.begin === '((createTemplate|hbs|html))(\\()')
+    .patterns.find((pattern) => pattern.begin === '((`|\'|"))');
+
+  createTemplate.patterns = [...copiedEmberHandlebarPatterns];
+
+  // precompileTemplate function
+  const precompileTemplate = grammar.repository.main.patterns
+    .find((pattern) => pattern.begin === '((precompileTemplate)\\s*)(\\()')
+    .patterns.find((pattern) => pattern.begin === '((`|\'|"))');
+
+  precompileTemplate.patterns = [...copiedEmberHandlebarPatterns];
+}
+
+mergeGrammars(glimmerJavascript, inlineTemplateInjectionSelectorGJS);
+mergeGrammars(glimmerTypescript, inlineTemplateInjectionSelectorGTS);
 
 const grammars = [glimmerJavascript, glimmerTypescript, inlineHandlebars, inlineTemplate, emberHandlebars];
 
@@ -32,14 +94,15 @@ const errors = [];
 console.log('Writing grammars...\n');
 
 for (const grammar of grammars) {
-  const filePath = resolve(outDirectory, `${grammar.scopeName}.json`);
+  const fileName = `${grammar.scopeName}.json`;
+  const filePath = resolve(outDirectory, fileName);
 
   try {
     writeFileSync(filePath, JSON.stringify(grammar, null, 2));
-    console.log(`✅ ${grammar.scopeName}.json`);
+    console.log(`✅ ${fileName}`);
   } catch (error) {
-    console.error(`❌ ${grammar.scopeName}.json`);
-    errors.push({ file: `${grammar.scopeName}.json`, error });
+    console.error(`❌ ${fileName}`);
+    errors.push({ file: fileName, error });
   }
 }
 
