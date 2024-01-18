@@ -93,7 +93,6 @@
           ]
         },
         {
-          "name": "string.js.taggedTemplate",
           "contentName": "meta.embedded.block.html",
           "begin": "(?x)(\\b(?:\\w+\\.)*(?:hbs|html)\\s*)(`)",
           "beginCaptures": {
@@ -144,7 +143,7 @@
           },
           "patterns": [
             {
-              "begin": "((`))",
+              "begin": "((`|'|\"))",
               "beginCaptures": {
                 "1": {
                   "name": "string.template.ts"
@@ -153,7 +152,7 @@
                   "name": "punctuation.definition.string.template.begin.ts"
                 }
               },
-              "end": "((`))",
+              "end": "((`|'|\"))",
               "endCaptures": {
                 "1": {
                   "name": "string.template.ts"
