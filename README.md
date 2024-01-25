@@ -22,7 +22,9 @@ Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 - Folding html.
 - CSS completions in style blocks.
 - Works with literal hbs strings that contain placeholders.
-- `.gts` & `.gjs` template tag support
+- Template tag support
+  - In `.gjs` and `.gts` files
+  - In `.md` files when specifing `"```gjs"` or `"```gts"` as the language
 
 ## Usage
 
@@ -33,7 +35,7 @@ The vsc-ember-syntax extension adds highlighting and IntelliSense for hbs templa
 The extension adds new language definitions for `.gts` and `.gjs` known as `glimmer-ts` and `glimmer-js` respectively.
 These languages are identical to `typescript` and `javascript` except that they add support for the template tag. This means that you can use the template tag in your code and get syntax highlighting and IntelliSense for the template.
 
-```js
+```gjs
 import Component from '@glimmer/component';
 
 export default class MyComponent extends Component {
