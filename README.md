@@ -22,7 +22,9 @@ Issues: https://github.com/lifeart/vsc-ember-syntax/issues
 - Folding html.
 - CSS completions in style blocks.
 - Works with literal hbs strings that contain placeholders.
-- `.gts` & `.gjs` template tag support
+- Template tag support
+  - In `.gjs` and `.gts` files
+  - In `.md` files when specifing `"```gjs"` or `"```gts"` as the language
 
 ## Usage
 
