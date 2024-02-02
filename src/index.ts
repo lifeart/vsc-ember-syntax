@@ -32,6 +32,16 @@ eslintConfig.update(
   vscode.ConfigurationTarget.Global,
 );
 
+const prettierConfig = vscode.workspace.getConfiguration('prettier');
+const documentSelectors = prettierConfig.get<Array<string>>('documentSelectors') ?? [];
+const glimmerFileExtensions = ['**/*.gts', '**/*.gjs'];
+
+prettierConfig.update(
+  'documentSelectors',
+  Array.from(new Set([...documentSelectors, ...glimmerFileExtensions])),
+  vscode.ConfigurationTarget.Global,
+);
+
 export async function activate(context: vscode.ExtensionContext) {
   const extension = vscode.extensions.getExtension(typeScriptExtensionId);
   if (!extension) {
