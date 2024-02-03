@@ -7,6 +7,7 @@ import glimmerTypescript from './source.gts.mjs';
 import inlineHandlebars from './inline.hbs.mjs';
 import inlineTemplate from './inline.template.mjs';
 import emberHandlebars from './text.html.ember-handlebars.mjs';
+import markdownGlimmer from './markdown.glimmer.codeblock.mjs';
 
 function deepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -15,7 +16,7 @@ function deepCopy(obj) {
 const [inlineTemplateInjectionSelectorGJS, inlineTemplateInjectionSelectorGTS] =
   inlineTemplate.injectionSelector.split(', ');
 
-function mergeGrammars(grammar, injectionSelector) {
+function mergeGlimmerSourceGrammars(grammar, injectionSelector) {
   // copy patterns and repository to avoid mutating the original grammars
   const copiedEmberHandlebarPatterns = deepCopy(emberHandlebars.patterns);
   const copiedEmberHandlebarRepository = deepCopy(emberHandlebars.repository);
@@ -82,10 +83,26 @@ function mergeGrammars(grammar, injectionSelector) {
   precompileTemplate.patterns = [...copiedEmberHandlebarPatterns];
 }
 
-mergeGrammars(glimmerJavascript, inlineTemplateInjectionSelectorGJS);
-mergeGrammars(glimmerTypescript, inlineTemplateInjectionSelectorGTS);
+mergeGlimmerSourceGrammars(glimmerJavascript, inlineTemplateInjectionSelectorGJS);
+mergeGlimmerSourceGrammars(glimmerTypescript, inlineTemplateInjectionSelectorGTS);
 
-const grammars = [glimmerJavascript, glimmerTypescript, inlineHandlebars, inlineTemplate, emberHandlebars];
+function mergeMarkdownGrammar() {
+  const copiedInlineTemplatePatterns = deepCopy(inlineTemplate.patterns);
+  const copiedInlineHandlebarsPatterns = deepCopy(inlineHandlebars.patterns);
+
+  markdownGlimmer.patterns.push(...copiedInlineTemplatePatterns, ...copiedInlineHandlebarsPatterns);
+}
+
+mergeMarkdownGrammar();
+
+const grammars = [
+  glimmerJavascript,
+  glimmerTypescript,
+  inlineHandlebars,
+  inlineTemplate,
+  emberHandlebars,
+  markdownGlimmer,
+];
 
 const outDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '../');
 
