@@ -97,10 +97,7 @@
         "configuration": "./languages/handlebars.configuration.json"
       },
       {
-        "id": "markdown-gjs"
-      },
-      {
-        "id": "markdown-gts"
+        "id": "markdown-glimmer"
       }
     ],
     "grammars": [
@@ -160,24 +157,14 @@
         }
       },
       {
-        "language": "markdown-gjs",
-        "scopeName": "markdown.gjs.codeblock",
-        "path": "./syntaxes/markdown-gjs.json",
+        "language": "markdown-glimmer",
+        "scopeName": "markdown.glimmer.codeblock",
+        "path": "./syntaxes/markdown-glimmer.json",
         "injectTo": [
           "text.html.markdown"
         ],
         "embeddedLanguages": {
-          "meta.embedded.block.gjs": "glimmer-js"
-        }
-      },
-      {
-        "language": "markdown-gts",
-        "scopeName": "markdown.gts.codeblock",
-        "path": "./syntaxes/markdown-gts.json",
-        "injectTo": [
-          "text.html.markdown"
-        ],
-        "embeddedLanguages": {
+          "meta.embedded.block.gjs": "glimmer-js",
           "meta.embedded.block.gts": "glimmer-ts"
         }
       }
