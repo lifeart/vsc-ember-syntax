@@ -159,7 +159,7 @@
       {
         "language": "markdown-glimmer",
         "scopeName": "markdown.glimmer.codeblock",
-        "path": "./syntaxes/markdown-glimmer.json",
+        "path": "./syntaxes/markdown.glimmer.codeblock.json",
         "injectTo": [
           "text.html.markdown"
         ],
