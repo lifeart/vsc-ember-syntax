@@ -540,7 +540,7 @@ export default {
     },
     'glimmer-control-expression': {
       name: 'entity.expression.ember-handlebars',
-      begin: '({{~?)(([-a-z/]+)\\s)',
+      begin: '({{~?)(([-a-zA-Z_0-9/]+)\\s)',
       end: '(~?}})',
       captures: {
         1: {
