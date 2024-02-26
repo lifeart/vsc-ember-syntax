@@ -11,6 +11,42 @@ function regexes(extension) {
   };
 }
 
+function codeblock(extension) {
+  return {
+    name: 'markup.fenced_code.block.markdown',
+    begin: regexes(extension).fencedCodeBlock.begin,
+    end: regexes(extension).fencedCodeBlock.end,
+    beginCaptures: {
+      3: {
+        name: 'punctuation.definition.markdown',
+      },
+      4: {
+        name: 'fenced_code.block.language.markdown',
+      },
+      5: {
+        name: 'fenced_code.block.language.attributes.markdown',
+      },
+    },
+    endCaptures: {
+      3: {
+        name: 'punctuation.definition.markdown',
+      },
+    },
+    patterns: [
+      {
+        begin: regexes(extension).embeddedBlock.begin,
+        while: regexes(extension).embeddedBlock.while,
+        contentName: `meta.embedded.block.${extension}`,
+        patterns: [
+          {
+            include: `source.${extension}`,
+          },
+        ],
+      },
+    ],
+  };
+}
+
 export default {
   fileTypes: [],
   injectionSelector: 'L:text.html.markdown',
@@ -23,72 +59,8 @@ export default {
     },
   ],
   repository: {
-    'gts-code-block': {
-      name: 'markup.fenced_code.block.markdown',
-      begin: regexes('gts').fencedCodeBlock.begin,
-      end: regexes('gts').fencedCodeBlock.end,
-      beginCaptures: {
-        3: {
-          name: 'punctuation.definition.markdown',
-        },
-        4: {
-          name: 'fenced_code.block.language.markdown',
-        },
-        5: {
-          name: 'fenced_code.block.language.attributes.markdown',
-        },
-      },
-      endCaptures: {
-        3: {
-          name: 'punctuation.definition.markdown',
-        },
-      },
-      patterns: [
-        {
-          begin: regexes('gts').embeddedBlock.begin,
-          while: regexes('gts').embeddedBlock.while,
-          contentName: 'meta.embedded.block.gts',
-          patterns: [
-            {
-              include: 'source.gts',
-            },
-          ],
-        },
-      ],
-    },
-    'gjs-code-block': {
-      name: 'markup.fenced_code.block.markdown',
-      begin: regexes('gjs').fencedCodeBlock.begin,
-      end: regexes('gjs').fencedCodeBlock.end,
-      beginCaptures: {
-        3: {
-          name: 'punctuation.definition.markdown',
-        },
-        4: {
-          name: 'fenced_code.block.language.markdown',
-        },
-        5: {
-          name: 'fenced_code.block.language.attributes.markdown',
-        },
-      },
-      endCaptures: {
-        3: {
-          name: 'punctuation.definition.markdown',
-        },
-      },
-      patterns: [
-        {
-          begin: regexes('gjs').embeddedBlock.begin,
-          while: regexes('gjs').embeddedBlock.while,
-          contentName: 'meta.embedded.block.gjs',
-          patterns: [
-            {
-              include: 'source.gjs',
-            },
-          ],
-        },
-      ],
-    },
+    'gts-code-block': codeblock('gts'),
+    'gjs-code-block': codeblock('gjs'),
   },
   scopeName: 'markdown.glimmer.codeblock',
 };
