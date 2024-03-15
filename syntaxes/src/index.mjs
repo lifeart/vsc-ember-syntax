@@ -29,7 +29,7 @@ function mergeGlimmerSourceGrammars(grammar, injectionSelector) {
     },
   };
 
-  grammar.patterns.push({ include: '#main' });
+  grammar.patterns.unshift({ include: '#main' });
 
   grammar.repository = {
     main: {

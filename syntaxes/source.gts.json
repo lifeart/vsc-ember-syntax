@@ -4,10 +4,10 @@
   "scopeName": "source.gts",
   "patterns": [
     {
-      "include": "source.ts"
+      "include": "#main"
     },
     {
-      "include": "#main"
+      "include": "source.ts"
     }
   ],
   "injections": {
