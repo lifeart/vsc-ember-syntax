@@ -4,10 +4,10 @@
   "scopeName": "source.gjs",
   "patterns": [
     {
-      "include": "source.js"
+      "include": "#main"
     },
     {
-      "include": "#main"
+      "include": "source.js"
     }
   ],
   "injections": {
