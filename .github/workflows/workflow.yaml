@@ -83,7 +83,7 @@ jobs:
         run: yarn vs:package
 
       - name: upload vsix as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: vscode-glimmer-syntax-${{steps.gitversion.outputs.majorMinorPatch}}.vsix
           path: ${{github.workspace}}/vscode-glimmer-syntax-${{steps.gitversion.outputs.majorMinorPatch}}.vsix
