@@ -9,6 +9,7 @@ webpack.config.js
 **/*.d.ts
 node_modules/**/*.md
 node_modules/**/.*.json
+node_modules/**/.*.ts
 node_modules/**/*.test.js
 node_modules/**/.vscode
 node_modules/**/.travis.yml
