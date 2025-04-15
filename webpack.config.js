@@ -8,6 +8,7 @@
 // @ts-check
 'use strict';
 
+/** @type {string} */
 const buildName = process.env.npm_lifecycle_event;
 
 // @ts-check
