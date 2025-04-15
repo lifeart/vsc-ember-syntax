@@ -5,12 +5,12 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-//@ts-check
+// @ts-check
 'use strict';
 
 const buildName = process.env.npm_lifecycle_event;
 
-//@ts-check
+// @ts-check
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
 
 const path = require('path');
