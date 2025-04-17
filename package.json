@@ -106,8 +106,7 @@
         "path": "./syntaxes/source.gjs.json",
         "scopeName": "source.gjs",
         "embeddedLanguages": {
-          "source.gjs": "glimmer-js",
-          "source.js": "javascript",
+          "source.gjs": "javascript",
           "meta.embedded.block.html": "handlebars",
           "meta.js.embeddedTemplateWithoutArgs": "handlebars",
           "meta.js.embeddedTemplateWithArgs": "handlebars"
@@ -126,8 +125,7 @@
         "path": "./syntaxes/source.gts.json",
         "scopeName": "source.gts",
         "embeddedLanguages": {
-          "source.gts": "glimmer-ts",
-          "source.ts": "typescript",
+          "source.gts": "typescript",
           "meta.embedded.block.html": "handlebars",
           "meta.js.embeddedTemplateWithoutArgs": "handlebars",
           "meta.js.embeddedTemplateWithArgs": "handlebars"
