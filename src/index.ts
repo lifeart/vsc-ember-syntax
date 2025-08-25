@@ -22,6 +22,19 @@ function updateLanguageSettings(languageId: string) {
 updateLanguageSettings('glimmer-js');
 updateLanguageSettings('glimmer-ts');
 
+const eslintConfig = vscode.workspace.getConfiguration('eslint');
+const validate = eslintConfig.get<Array<string>>('validate');
+const glimmerScopes = ['glimmer-ts', 'glimmer-js'];
+
+if (Array.isArray(validate)) {
+  const sideScopes = validate.filter((scope) => glimmerScopes.includes(scope));
+  if (sideScopes.length) {
+    eslintConfig.update('validate', sideScopes, vscode.ConfigurationTarget.Global);
+  } else {
+    eslintConfig.update('validate', undefined, vscode.ConfigurationTarget.Global);
+  }
+}
+
 const prettierConfig = vscode.workspace.getConfiguration('prettier');
 const documentSelectors = prettierConfig.get<Array<string>>('documentSelectors') ?? [];
 const glimmerFileExtensions = ['**/*.gts', '**/*.gjs'];
