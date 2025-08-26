@@ -27,7 +27,7 @@ const validate = eslintConfig.get<Array<string>>('validate');
 const glimmerScopes = ['glimmer-ts', 'glimmer-js'];
 
 if (Array.isArray(validate)) {
-  const sideScopes = validate.filter((scope) => glimmerScopes.includes(scope));
+  const sideScopes = validate.filter((scope) => !glimmerScopes.includes(scope));
   if (sideScopes.length) {
     eslintConfig.update('validate', sideScopes, vscode.ConfigurationTarget.Global);
   } else {
