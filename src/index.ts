@@ -22,14 +22,24 @@ function updateLanguageSettings(languageId: string) {
 updateLanguageSettings('glimmer-js');
 updateLanguageSettings('glimmer-ts');
 
+const { Global, Workspace } = vscode.ConfigurationTarget;
 const eslintConfig = vscode.workspace.getConfiguration('eslint');
-const validate = eslintConfig.get<Array<string>>('validate');
+const eslintValidateInfo = eslintConfig.inspect('validate');
+const globalValidate = eslintValidateInfo?.globalValue;
+const workspaceValidate = eslintValidateInfo?.workspaceValue;
 const glimmerScopes = ['glimmer-ts', 'glimmer-js'];
 
-if (Array.isArray(validate)) {
-  const shouldRemoveValidateProperty = validate.every((scope) => glimmerScopes.includes(scope));
+if (Array.isArray(globalValidate) && globalValidate.length) {
+  const shouldRemoveValidateProperty = globalValidate.every((scope) => glimmerScopes.includes(scope));
   if (shouldRemoveValidateProperty) {
-    eslintConfig.update('validate', undefined, vscode.ConfigurationTarget.Global);
+    eslintConfig.update('validate', undefined, Global);
+  }
+}
+
+if (Array.isArray(workspaceValidate) && workspaceValidate.length) {
+  const shouldRemoveValidateProperty = workspaceValidate.every((scope) => glimmerScopes.includes(scope));
+  if (shouldRemoveValidateProperty) {
+    eslintConfig.update('validate', undefined, Workspace);
   }
 }
 
