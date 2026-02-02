@@ -48,7 +48,9 @@
     "prettier": "prettier --write \"**/*.{js,ts,json,yaml}\"",
     "prettier:package": "prettier --write \"package.json\"",
     "chrome": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=.",
-    "build:grammars": "node ./syntaxes/src/index.mjs"
+    "build:grammars": "node ./syntaxes/src/index.mjs",
+    "test": "node ./tests/run-grammar-tests.mjs",
+    "test:update-snapshots": "node ./tests/update-snapshots.mjs"
   },
   "extensionKind": [
     "ui"
@@ -203,6 +205,8 @@
     "ts-loader": "^9.2.3",
     "typescript": "^4.1.3",
     "vsce": "1.100.1",
+    "vscode-oniguruma": "^1.7.0",
+    "vscode-textmate": "^9.0.0",
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2"
   }

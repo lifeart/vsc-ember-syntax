@@ -1,0 +1,182 @@
+Grammar: text.html.ember-handlebars
+================================================================================
+
+Line 1: "<div class=\"container\">"
+  [0-1] "<"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [1-4] "div"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [4-5] " "
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars
+  [5-10] "class"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars
+  [10-11] "="
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.separator.key-value.html.ember-handlebars
+  [11-12] "\""
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.begin.ember-handlebars
+  [12-21] "container"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars
+  [21-22] "\""
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.end.ember-handlebars
+  [22-23] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 2: "  <h1>{{this.title}}</h1>"
+  [0-2] "  "
+    text.html.ember-handlebars
+  [2-3] "<"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [3-5] "h1"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [5-6] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [6-8] "{{"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [8-12] "this"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [12-13] "."
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [13-18] "title"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [18-20] "}}"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [20-22] "</"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [22-24] "h1"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [24-25] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 3: "  {{#if this.showContent}}"
+  [0-2] "  "
+    text.html.ember-handlebars
+  [2-4] "{{"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+  [4-5] "#"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+  [5-7] "if"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.control
+  [7-8] " "
+    text.html.ember-handlebars > entity.expression.ember-handlebars
+  [8-12] "this"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [12-13] "."
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [13-24] "showContent"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [24-26] "}}"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+
+Line 4: "    <p>{{this.content}}</p>"
+  [0-4] "    "
+    text.html.ember-handlebars
+  [4-5] "<"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [5-6] "p"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [6-7] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [7-9] "{{"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [9-13] "this"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [13-14] "."
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [14-21] "content"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [21-23] "}}"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [23-25] "</"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [25-26] "p"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [26-27] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 5: "  {{/if}}"
+  [0-2] "  "
+    text.html.ember-handlebars
+  [2-4] "{{"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+  [4-5] "/"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+  [5-7] "if"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > keyword.control
+  [7-9] "}}"
+    text.html.ember-handlebars > entity.expression.ember-handlebars > punctuation.definition.tag
+
+Line 6: "</div>"
+  [0-2] "</"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [2-5] "div"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [5-6] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 7: ""
+  [0-1] ""
+    text.html.ember-handlebars
+
+Line 8: "<MyComponent @value={{this.data}} @onClick={{this.handleClick}} />"
+  [0-1] "<"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [1-12] "MyComponent"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.name.type
+  [12-13] " "
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars
+  [13-14] "@"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars.argument > markup.italic
+  [14-19] "value"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars.argument
+  [19-20] "="
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.separator.key-value.html.ember-handlebars
+  [20-22] "{{"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [22-26] "this"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [26-27] "."
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [27-31] "data"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [31-33] "}}"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [33-34] " "
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars
+  [34-35] "@"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars.argument > markup.italic
+  [35-42] "onClick"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars.argument
+  [42-43] "="
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.separator.key-value.html.ember-handlebars
+  [43-45] "{{"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [45-49] "this"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [49-50] "."
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [50-61] "handleClick"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [61-63] "}}"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [63-64] " "
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars
+  [64-65] "/"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [65-66] ">"
+    text.html.ember-handlebars > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 9: ""
+  [0-1] ""
+    text.html.ember-handlebars
+
+Line 10: "{{!-- This is a comment --}}"
+  [0-5] "{{!--"
+    text.html.ember-handlebars > comment.block.glimmer > punctuation.definition.block.comment.glimmer
+  [5-24] " This is a comment "
+    text.html.ember-handlebars > comment.block.glimmer
+  [24-28] "--}}"
+    text.html.ember-handlebars > comment.block.glimmer > punctuation.definition.block.comment.glimmer
+
+Line 11: ""
+  [0-1] ""
+    text.html.ember-handlebars

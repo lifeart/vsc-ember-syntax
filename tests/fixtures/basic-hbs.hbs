@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>{{this.title}}</h1>
+  {{#if this.showContent}}
+    <p>{{this.content}}</p>
+  {{/if}}
+</div>
+
+<MyComponent @value={{this.data}} @onClick={{this.handleClick}} />
+
+{{!-- This is a comment --}}

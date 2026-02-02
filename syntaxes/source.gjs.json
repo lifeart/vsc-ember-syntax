@@ -11,7 +11,7 @@
     }
   ],
   "injections": {
-    "L:source.gjs -comment -(string -meta.embedded)": {
+    "L:source.gjs -comment -(string -meta.embedded) -source.css": {
       "patterns": [
         {
           "include": "#main"
