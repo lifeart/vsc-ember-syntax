@@ -1,0 +1,244 @@
+Grammar: source.gts
+================================================================================
+
+Line 1: "import Component from '@glimmer/component';"
+  [0-44] "import Component from '@glimmer/component';"
+    source.gts
+
+Line 2: ""
+  [0-1] ""
+    source.gts
+
+Line 3: "interface Signature {"
+  [0-22] "interface Signature {"
+    source.gts
+
+Line 4: "  Args: { name: string };"
+  [0-26] "  Args: { name: string };"
+    source.gts
+
+Line 5: "}"
+  [0-2] "}"
+    source.gts
+
+Line 6: ""
+  [0-1] ""
+    source.gts
+
+Line 7: "export default class Greeting extends Component<Signature> {"
+  [0-61] "export default class Greeting extends Component<Signature> {"
+    source.gts
+
+Line 8: "  <template>"
+  [0-2] "  "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [2-3] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+  [3-11] "template"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.name.tag.other.html
+  [11-12] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+
+Line 9: "    <div class=\"greeting\">"
+  [0-4] "    "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [4-5] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [5-8] "div"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [8-9] " "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars
+  [9-14] "class"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars
+  [14-15] "="
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.separator.key-value.html.ember-handlebars
+  [15-16] "\""
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.begin.ember-handlebars
+  [16-24] "greeting"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars
+  [24-25] "\""
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.end.ember-handlebars
+  [25-26] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 10: "      <h1>Hello, {{@name}}!</h1>"
+  [0-6] "      "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [6-7] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [7-9] "h1"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [9-10] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [10-17] "Hello, "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [17-19] "{{"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.operator
+  [19-20] "@"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function > variable.language
+  [20-24] "name"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function
+  [24-26] "}}"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.operator
+  [26-27] "!"
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [27-29] "</"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [29-31] "h1"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [31-32] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 11: "      {{#if this.showDetails}}"
+  [0-6] "      "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [6-8] "{{"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+  [8-9] "#"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+  [9-11] "if"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.control
+  [11-12] " "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars
+  [12-16] "this"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function > variable.language
+  [16-17] "."
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [17-28] "showDetails"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function
+  [28-30] "}}"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+
+Line 12: "        <p>Welcome to our app.</p>"
+  [0-8] "        "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [8-9] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [9-10] "p"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [10-11] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [11-30] "Welcome to our app."
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [30-32] "</"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [32-33] "p"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [33-34] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 13: "      {{/if}}"
+  [0-6] "      "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [6-8] "{{"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+  [8-9] "/"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+  [9-11] "if"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.control
+  [11-13] "}}"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > punctuation.definition.tag
+
+Line 14: "    </div>"
+  [0-4] "    "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [4-6] "</"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [6-9] "div"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [9-10] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 15: ""
+  [0-1] ""
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+
+Line 16: "    <style>"
+  [0-4] "    "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > punctuation.whitespace.embedded.leading.html
+  [4-5] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.start.html > punctuation.definition.tag.begin.html
+  [5-10] "style"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.start.html > entity.name.tag.html
+  [10-11] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.start.html > punctuation.definition.tag.end.html
+
+Line 17: "      .greeting {"
+  [0-6] "      "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css
+  [6-7] "."
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.selector.css > entity.other.attribute-name.class.css > punctuation.definition.entity.css
+  [7-15] "greeting"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.selector.css > entity.other.attribute-name.class.css
+  [15-16] " "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css
+  [16-17] "{"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.section.property-list.begin.bracket.curly.css
+
+Line 18: "        padding: 1rem;"
+  [0-8] "        "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css
+  [8-15] "padding"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > meta.property-name.css > support.type.property-name.css
+  [15-16] ":"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.separator.key-value.css
+  [16-17] " "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css
+  [17-18] "1"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > meta.property-value.css > constant.numeric.css
+  [18-21] "rem"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > meta.property-value.css > constant.numeric.css > keyword.other.unit.rem.css
+  [21-22] ";"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.terminator.rule.css
+
+Line 19: "      }"
+  [0-6] "      "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css
+  [6-7] "}"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.section.property-list.end.bracket.curly.css
+
+Line 20: "    </style>"
+  [0-4] "    "
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > source.css
+  [4-5] "<"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.begin.html > source.css-ignored-vscode
+  [5-6] "/"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.begin.html
+  [6-11] "style"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.end.html > entity.name.tag.html
+  [11-12] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.end.html
+
+Line 21: "  </template>"
+  [0-2] "  "
+    source.gts > meta.js.embeddedTemplateWithoutArgs
+  [2-4] "</"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+  [4-12] "template"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > entity.name.tag.other.html
+  [12-13] ">"
+    source.gts > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+
+Line 22: ""
+  [0-1] ""
+    source.gts
+
+Line 23: "  get showDetails() {"
+  [0-22] "  get showDetails() {"
+    source.gts
+
+Line 24: "    return true;"
+  [0-17] "    return true;"
+    source.gts
+
+Line 25: "  }"
+  [0-4] "  }"
+    source.gts
+
+Line 26: "}"
+  [0-2] "}"
+    source.gts
+
+Line 27: ""
+  [0-1] ""
+    source.gts

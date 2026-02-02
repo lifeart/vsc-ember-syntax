@@ -1,0 +1,174 @@
+Grammar: source.gjs
+================================================================================
+
+Line 1: "import Component from '@glimmer/component';"
+  [0-44] "import Component from '@glimmer/component';"
+    source.gjs
+
+Line 2: ""
+  [0-1] ""
+    source.gjs
+
+Line 3: "export default class Counter extends Component {"
+  [0-49] "export default class Counter extends Component {"
+    source.gjs
+
+Line 4: "  count = 0;"
+  [0-13] "  count = 0;"
+    source.gjs
+
+Line 5: ""
+  [0-1] ""
+    source.gjs
+
+Line 6: "  increment = () => {"
+  [0-22] "  increment = () => {"
+    source.gjs
+
+Line 7: "    this.count++;"
+  [0-18] "    this.count++;"
+    source.gjs
+
+Line 8: "  };"
+  [0-5] "  };"
+    source.gjs
+
+Line 9: ""
+  [0-1] ""
+    source.gjs
+
+Line 10: "  <template>"
+  [0-2] "  "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [2-3] "<"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+  [3-11] "template"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.name.tag.other.html
+  [11-12] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+
+Line 11: "    <div class=\"counter\">"
+  [0-4] "    "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [4-5] "<"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [5-8] "div"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [8-9] " "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars
+  [9-14] "class"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.other.attribute-name.ember-handlebars
+  [14-15] "="
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.separator.key-value.html.ember-handlebars
+  [15-16] "\""
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.begin.ember-handlebars
+  [16-23] "counter"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars
+  [23-24] "\""
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > string.quoted.double.html.ember-handlebars > punctuation.definition.string.end.ember-handlebars
+  [24-25] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 12: "      <span>Count: {{this.count}}</span>"
+  [0-6] "      "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [6-7] "<"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [7-11] "span"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [11-12] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [12-19] "Count: "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [19-21] "{{"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.operator
+  [21-25] "this"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function > variable.language
+  [25-26] "."
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [26-31] "count"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > support.function
+  [31-33] "}}"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.expression.ember-handlebars > keyword.operator
+  [33-35] "</"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [35-39] "span"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [39-40] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 13: "      <button {{on \"click\" this.increment}}>"
+  [0-6] "      "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [6-7] "<"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [7-13] "button"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [13-14] " "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars
+  [14-16] "{{"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [16-18] "on"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator > keyword.control
+  [18-19] " "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [19-20] "\""
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > string.quoted.double.ember-handlebars > punctuation.definition.string.begin.ember-handlebars
+  [20-25] "click"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > string.quoted.double.ember-handlebars
+  [25-26] "\""
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > string.quoted.double.ember-handlebars > punctuation.definition.string.end.ember-handlebars
+  [26-27] " "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars
+  [27-31] "this"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > variable.language
+  [31-32] "."
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function > punctuation.definition.tag
+  [32-41] "increment"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > support.function
+  [41-43] "}}"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.expression.ember-handlebars > keyword.operator
+  [43-44] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 14: "        Increment"
+  [0-18] "        Increment"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+
+Line 15: "      </button>"
+  [0-6] "      "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [6-8] "</"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [8-14] "button"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [14-15] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 16: "    </div>"
+  [0-4] "    "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [4-6] "</"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+  [6-9] "div"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > entity.name.tag.html.ember-handlebars
+  [9-10] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > meta.tag.any.ember-handlebars > punctuation.definition.tag
+
+Line 17: "  </template>"
+  [0-2] "  "
+    source.gjs > meta.js.embeddedTemplateWithoutArgs
+  [2-4] "</"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+  [4-12] "template"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > entity.name.tag.other.html
+  [12-13] ">"
+    source.gjs > meta.js.embeddedTemplateWithoutArgs > punctuation.definition.tag.html
+
+Line 18: "}"
+  [0-2] "}"
+    source.gjs
+
+Line 19: ""
+  [0-1] ""
+    source.gjs

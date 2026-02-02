@@ -1,0 +1,204 @@
+Grammar: text.html.ember-handlebars
+================================================================================
+
+Line 1: "<style>"
+  [0-1] "<"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.start.html > punctuation.definition.tag.begin.html
+  [1-6] "style"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.start.html > entity.name.tag.html
+  [6-7] ">"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.start.html > punctuation.definition.tag.end.html
+
+Line 2: "  .foo {"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [2-3] "."
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.selector.css > entity.other.attribute-name.class.css > punctuation.definition.entity.css
+  [3-6] "foo"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.selector.css > entity.other.attribute-name.class.css
+  [6-7] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [7-8] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.section.property-list.begin.bracket.curly.css
+
+Line 3: "    color: red;"
+  [0-4] "    "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css
+  [4-9] "color"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > meta.property-name.css > support.type.property-name.css
+  [9-10] ":"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.separator.key-value.css
+  [10-11] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css
+  [11-14] "red"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > meta.property-value.css > support.constant.color.w3c-standard-color-name.css
+  [14-15] ";"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.terminator.rule.css
+
+Line 4: "  }"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css
+  [2-3] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.property-list.css > punctuation.section.property-list.end.bracket.curly.css
+
+Line 5: ""
+  [0-1] ""
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+
+Line 6: "  @media (min-width: 500px) {"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [2-3] "@"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > keyword.control.at-rule.media.css > punctuation.definition.keyword.css
+  [3-8] "media"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > keyword.control.at-rule.media.css
+  [8-9] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css
+  [9-10] "("
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > punctuation.definition.parameters.begin.bracket.round.css
+  [10-19] "min-width"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > support.type.property-name.media.css
+  [19-20] ":"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > punctuation.separator.key-value.css
+  [20-21] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css
+  [21-24] "500"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > constant.numeric.css
+  [24-26] "px"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > constant.numeric.css > keyword.other.unit.px.css
+  [26-27] ")"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.header.css > punctuation.definition.parameters.end.bracket.round.css
+  [27-28] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [28-29] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > punctuation.section.media.begin.bracket.curly.css
+
+Line 7: "    .bar {"
+  [0-4] "    "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css
+  [4-5] "."
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.selector.css > entity.other.attribute-name.class.css > punctuation.definition.entity.css
+  [5-8] "bar"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.selector.css > entity.other.attribute-name.class.css
+  [8-9] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css
+  [9-10] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > punctuation.section.property-list.begin.bracket.curly.css
+
+Line 8: "      color: blue;"
+  [0-6] "      "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css
+  [6-11] "color"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > meta.property-name.css > support.type.property-name.css
+  [11-12] ":"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > punctuation.separator.key-value.css
+  [12-13] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css
+  [13-17] "blue"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > meta.property-value.css > support.constant.color.w3c-standard-color-name.css
+  [17-18] ";"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > punctuation.terminator.rule.css
+
+Line 9: "    }"
+  [0-4] "    "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css
+  [4-5] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > meta.property-list.css > punctuation.section.property-list.end.bracket.curly.css
+
+Line 10: "  }"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css
+  [2-3] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.media.body.css > punctuation.section.media.end.bracket.curly.css
+
+Line 11: ""
+  [0-1] ""
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+
+Line 12: "  @keyframes fadeIn {"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [2-3] "@"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.header.css > keyword.control.at-rule.keyframes.css > punctuation.definition.keyword.css
+  [3-12] "keyframes"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.header.css > keyword.control.at-rule.keyframes.css
+  [12-13] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.header.css
+  [13-19] "fadeIn"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.header.css > variable.parameter.keyframe-list.css
+  [19-20] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css
+  [20-21] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > punctuation.section.keyframes.begin.bracket.curly.css
+
+Line 13: "    from { opacity: 0; }"
+  [0-4] "    "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css
+  [4-8] "from"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > entity.other.keyframe-offset.css
+  [8-9] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css
+  [9-10] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.section.property-list.begin.bracket.curly.css
+  [10-11] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [11-18] "opacity"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > meta.property-name.css > support.type.property-name.css
+  [18-19] ":"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.separator.key-value.css
+  [19-20] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [20-21] "0"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > meta.property-value.css > constant.numeric.css
+  [21-22] ";"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.terminator.rule.css
+  [22-23] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [23-24] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.section.property-list.end.bracket.curly.css
+
+Line 14: "    to { opacity: 1; }"
+  [0-4] "    "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css
+  [4-6] "to"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > entity.other.keyframe-offset.css
+  [6-7] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css
+  [7-8] "{"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.section.property-list.begin.bracket.curly.css
+  [8-9] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [9-16] "opacity"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > meta.property-name.css > support.type.property-name.css
+  [16-17] ":"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.separator.key-value.css
+  [17-18] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [18-19] "1"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > meta.property-value.css > constant.numeric.css
+  [19-20] ";"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.terminator.rule.css
+  [20-21] " "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css
+  [21-22] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > meta.property-list.css > punctuation.section.property-list.end.bracket.curly.css
+
+Line 15: "  }"
+  [0-2] "  "
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css
+  [2-3] "}"
+    text.html.ember-handlebars > meta.embedded.block.html > source.css > meta.at-rule.keyframes.body.css > punctuation.section.keyframes.end.bracket.curly.css
+
+Line 16: "</style>"
+  [0-1] "<"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.begin.html > source.css-ignored-vscode
+  [1-2] "/"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.begin.html
+  [2-7] "style"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.end.html > entity.name.tag.html
+  [7-8] ">"
+    text.html.ember-handlebars > meta.embedded.block.html > meta.tag.metadata.style.end.html > punctuation.definition.tag.end.html
+
+Line 17: ""
+  [0-1] ""
+    text.html.ember-handlebars
