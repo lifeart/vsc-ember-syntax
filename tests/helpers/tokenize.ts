@@ -115,10 +115,46 @@ export function formatTokens(lines: Token[][], source: string): string {
         continue;
       }
       const marker = ' '.repeat(token.startIndex) + '^'.repeat(token.text.length);
-      output.push(` ${marker} ${token.scopes.slice(1).join(' ')}`);
+      output.push(` ${marker} ${token.scopes.slice(1).join(' ')}`.trimEnd());
     }
   });
   return output.join('\n') + '\n';
+}
+
+/**
+ * Returns the tokens that come after `start` and before `end`, in source order.
+ * Both `start` and `end` must be tokens from `lines`.
+ */
+export function tokensBetween(lines: Token[][], start: Token, end: Token): Token[] {
+  const all = lines.flat();
+  const startPosition = all.indexOf(start);
+  const endPosition = all.indexOf(end);
+  if (startPosition === -1 || endPosition === -1) {
+    throw new Error('tokensBetween: start and end must be tokens from the given lines');
+  }
+  if (endPosition < startPosition) {
+    throw new Error('tokensBetween: end comes before start');
+  }
+  return all.slice(startPosition + 1, endPosition);
+}
+
+export interface ComparableToken {
+  line: number;
+  text: string;
+  scopes: string[];
+}
+
+/**
+ * Reduces tokens to line, text and scopes so two tokenizations can be compared with `toEqual`.
+ * Column positions are left out because renaming a tag shifts every column after it.
+ * `rename` replaces the text of any token that is exactly `rename.from`.
+ */
+export function comparableTokens(lines: Token[][], rename?: { from: string; to: string }): ComparableToken[] {
+  return lines.flat().map((token) => ({
+    line: token.line,
+    text: rename && token.text === rename.from ? rename.to : token.text,
+    scopes: token.scopes,
+  }));
 }
 
 /**
