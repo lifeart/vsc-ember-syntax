@@ -24,7 +24,6 @@ import {
   type Token,
   type Tokenizer,
 } from '../helpers/tokenize.ts';
-import { nestedTemplateBodies, outerTemplateForms, TAG_PLACEHOLDER } from '../grammar/nested-template.examples.ts';
 
 const testsDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = resolve(testsDir, '..');
@@ -62,17 +61,7 @@ function readExampleDir(dir: string, group: string): Example[] {
 }
 
 function collectExamples(): Example[] {
-  const fixtures = readExampleDir('fixtures', 'Fixtures (snapshotted)');
-  // Suspected grammar bugs found while reviewing the fixtures. They have no snapshots or tests yet.
-  const knownIssues = readExampleDir('known-issues', 'Known issues (not snapshotted)');
-  // The nested <template> examples are known to be broken, so they have no snapshots yet.
-  const nested = Object.entries(nestedTemplateBodies).map(([name, body]) => ({
-    group: 'Nested <template> examples (known broken, not snapshotted)',
-    name,
-    scopeName: 'source.gts',
-    source: outerTemplateForms['class body'](body).replace(TAG_PLACEHOLDER, 'template'),
-  }));
-  return [...fixtures, ...knownIssues, ...nested];
+  return readExampleDir('fixtures', 'Fixtures');
 }
 
 function git(args: string[]): string {
