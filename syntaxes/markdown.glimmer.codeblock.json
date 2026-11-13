@@ -1,6 +1,6 @@
 {
   "fileTypes": [],
-  "injectionSelector": "L:text.html.markdown -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs",
+  "injectionSelector": "L:text.html.markdown -meta.paragraph.markdown -markup.heading.markdown -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs",
   "patterns": [
     {
       "include": "#gts-code-block"

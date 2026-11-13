@@ -36,9 +36,11 @@ function codeblock(extension) {
 
 export default {
   fileTypes: [],
-  // The build adds the Glimmer template rules to these patterns. Inside a template, a <template> tag is a
-  // plain HTML element, so the injection is left out there.
-  injectionSelector: 'L:text.html.markdown -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs',
+  // The build adds the Glimmer template rules to these patterns, so templates in code blocks are highlighted.
+  // The injection is left out of prose (paragraphs and headings), where a <template> tag or an hbs`...` call is
+  // plain text. It is also left out inside a template, where a <template> tag is a plain HTML element.
+  injectionSelector:
+    'L:text.html.markdown -meta.paragraph.markdown -markup.heading.markdown -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs',
   patterns: [
     {
       include: '#gts-code-block',
