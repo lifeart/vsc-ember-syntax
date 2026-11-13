@@ -19,6 +19,9 @@
       "include": "#glimmer-bools"
     },
     {
+      "include": "#glimmer-literal-expression"
+    },
+    {
       "include": "#glimmer-special-block"
     },
     {
@@ -179,33 +182,23 @@
       ]
     },
     "boolean": {
-      "match": "true|false|undefined|null",
+      "match": "(?<![\\w@.$:-])(?:(true|false)|(null)|(undefined))(?![\\w$:-])",
       "captures": {
-        "0": {
-          "name": "string.regexp"
-        },
         "1": {
-          "name": "string.regexp"
+          "name": "constant.language.boolean.ember-handlebars"
         },
         "2": {
-          "name": "string.regexp"
+          "name": "constant.language.null.ember-handlebars"
+        },
+        "3": {
+          "name": "constant.language.undefined.ember-handlebars"
         }
       },
       "patterns": []
     },
     "digit": {
-      "match": "\\d*(\\.)?\\d+",
-      "captures": {
-        "0": {
-          "name": "constant.numeric"
-        },
-        "1": {
-          "name": "constant.numeric"
-        },
-        "2": {
-          "name": "constant.numeric"
-        }
-      },
+      "match": "(?<![\\w@.$:-])-?\\d*\\.?\\d+(?![\\w$:-])",
+      "name": "constant.numeric",
       "patterns": []
     },
     "param": {
@@ -303,24 +296,40 @@
     },
     "glimmer-bools": {
       "name": "entity.expression.ember-handlebars",
-      "match": "({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})",
+      "match": "({{~?)(true|false|null|undefined|-?\\d*\\.?\\d+)(~?}})",
       "captures": {
-        "0": {
-          "name": "keyword.operator"
-        },
         "1": {
           "name": "keyword.operator"
         },
         "2": {
-          "name": "string.regexp"
+          "patterns": [
+            {
+              "include": "#boolean"
+            },
+            {
+              "include": "#digit"
+            }
+          ]
         },
         "3": {
-          "name": "string.regexp"
-        },
-        "4": {
           "name": "keyword.operator"
         }
       }
+    },
+    "glimmer-literal-expression": {
+      "name": "entity.expression.ember-handlebars",
+      "begin": "({{~?)(?=[\"'])",
+      "end": "(~?}})",
+      "captures": {
+        "1": {
+          "name": "keyword.operator"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#glimmer-supexp-content"
+        }
+      ]
     },
     "glimmer-else-block": {
       "name": "entity.expression.ember-handlebars",
@@ -909,6 +918,9 @@
       "patterns": [
         {
           "include": "#glimmer-bools"
+        },
+        {
+          "include": "#glimmer-literal-expression"
         },
         {
           "include": "#glimmer-unescaped-expression"

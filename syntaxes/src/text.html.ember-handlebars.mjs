@@ -1,3 +1,8 @@
+// A literal must not be part of a longer name or path, such as `trueValue` or `foo-1`.
+const NOT_AFTER_NAME = '(?<![\\w@.$:-])';
+const NOT_BEFORE_NAME = '(?![\\w$:-])';
+const NUMBER = '-?\\d*\\.?\\d+';
+
 export default {
   $schema: 'https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json',
   name: 'Glimmer',
@@ -15,6 +20,9 @@ export default {
     },
     {
       include: '#glimmer-bools',
+    },
+    {
+      include: '#glimmer-literal-expression',
     },
     {
       include: '#glimmer-special-block',
@@ -177,33 +185,23 @@ export default {
       ],
     },
     'boolean': {
-      match: 'true|false|undefined|null',
+      match: `${NOT_AFTER_NAME}(?:(true|false)|(null)|(undefined))${NOT_BEFORE_NAME}`,
       captures: {
-        0: {
-          name: 'string.regexp',
-        },
         1: {
-          name: 'string.regexp',
+          name: 'constant.language.boolean.ember-handlebars',
         },
         2: {
-          name: 'string.regexp',
+          name: 'constant.language.null.ember-handlebars',
+        },
+        3: {
+          name: 'constant.language.undefined.ember-handlebars',
         },
       },
       patterns: [],
     },
     'digit': {
-      match: '\\d*(\\.)?\\d+',
-      captures: {
-        0: {
-          name: 'constant.numeric',
-        },
-        1: {
-          name: 'constant.numeric',
-        },
-        2: {
-          name: 'constant.numeric',
-        },
-      },
+      match: `${NOT_AFTER_NAME}${NUMBER}${NOT_BEFORE_NAME}`,
+      name: 'constant.numeric',
       patterns: [],
     },
     'param': {
@@ -301,24 +299,41 @@ export default {
     },
     'glimmer-bools': {
       name: 'entity.expression.ember-handlebars',
-      match: '({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})',
+      match: `({{~?)(true|false|null|undefined|${NUMBER})(~?}})`,
       captures: {
-        0: {
-          name: 'keyword.operator',
-        },
         1: {
           name: 'keyword.operator',
         },
         2: {
-          name: 'string.regexp',
+          patterns: [
+            {
+              include: '#boolean',
+            },
+            {
+              include: '#digit',
+            },
+          ],
         },
         3: {
-          name: 'string.regexp',
-        },
-        4: {
           name: 'keyword.operator',
         },
       },
+    },
+    // A mustache that starts with a string literal, such as {{"text"}}.
+    'glimmer-literal-expression': {
+      name: 'entity.expression.ember-handlebars',
+      begin: '({{~?)(?=["\'])',
+      end: '(~?}})',
+      captures: {
+        1: {
+          name: 'keyword.operator',
+        },
+      },
+      patterns: [
+        {
+          include: '#glimmer-supexp-content',
+        },
+      ],
     },
     'glimmer-else-block': {
       name: 'entity.expression.ember-handlebars',
@@ -908,6 +923,9 @@ export default {
       patterns: [
         {
           include: '#glimmer-bools',
+        },
+        {
+          include: '#glimmer-literal-expression',
         },
         {
           include: '#glimmer-unescaped-expression',
