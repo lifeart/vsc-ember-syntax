@@ -4,8 +4,18 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { grammars as externalGrammars } from 'tm-grammars';
-import { loadWASM, OnigScanner, OnigString } from 'vscode-oniguruma';
-import { INITIAL, parseRawGrammar, Registry, type IGrammar, type IRawGrammar } from 'vscode-textmate';
+import vscodeOniguruma from 'vscode-oniguruma';
+import vscodeTextmate, {
+  type IGrammar,
+  type IRawGrammar,
+  type IRawTheme,
+  type IRawThemeSetting,
+} from 'vscode-textmate';
+
+// Both packages are CommonJS. Plain Node only supports a default import for them,
+// so the preview script (run by Node, not Vitest) needs this form.
+const { loadWASM, OnigScanner, OnigString } = vscodeOniguruma;
+const { INITIAL, parseRawGrammar, Registry } = vscodeTextmate;
 
 const require = createRequire(import.meta.url);
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -33,47 +43,40 @@ for (const grammar of contributedGrammars) {
   }
 }
 
-function loadRawGrammar(scopeName: string): IRawGrammar | null {
-  const path = localGrammarPaths.get(scopeName) ?? externalGrammarPaths.get(scopeName);
-  if (!path) {
-    return null;
-  }
-  return parseRawGrammar(readFileSync(path, 'utf8'), path);
-}
+let wasmLoaded: Promise<void> | undefined;
 
-let registryPromise: Promise<Registry> | undefined;
-
-function getRegistry(): Promise<Registry> {
-  registryPromise ??= (async () => {
+function loadOniguruma(): Promise<void> {
+  wasmLoaded ??= (async () => {
     const wasm = readFileSync(require.resolve('vscode-oniguruma/release/onig.wasm'));
     await loadWASM(wasm.buffer.slice(wasm.byteOffset, wasm.byteOffset + wasm.byteLength));
-    return new Registry({
-      onigLib: Promise.resolve({
-        createOnigScanner: (patterns) => new OnigScanner(patterns),
-        createOnigString: (text) => new OnigString(text),
-      }),
-      loadGrammar: async (scopeName) => loadRawGrammar(scopeName),
-      getInjections: (scopeName) => injections.get(scopeName),
-    });
   })();
-  return registryPromise;
+  return wasmLoaded;
 }
 
-const grammarCache = new Map<string, Promise<IGrammar>>();
+export const THEME_NAMES = ['dark-plus', 'light-plus', 'github-light', 'github-dark'] as const;
+export type ThemeName = (typeof THEME_NAMES)[number];
 
-export function getGrammar(scopeName: string): Promise<IGrammar> {
-  let grammar = grammarCache.get(scopeName);
-  if (!grammar) {
-    grammar = getRegistry().then(async (registry) => {
-      const loaded = await registry.loadGrammar(scopeName);
-      if (!loaded) {
-        throw new Error(`Grammar not found for scope "${scopeName}"`);
-      }
-      return loaded;
-    });
-    grammarCache.set(scopeName, grammar);
-  }
-  return grammar;
+interface VSCodeTheme {
+  displayName?: string;
+  type?: string;
+  colors: Record<string, string>;
+  tokenColors: IRawThemeSetting[];
+}
+
+export function loadTheme(name: ThemeName): VSCodeTheme {
+  return JSON.parse(readFileSync(require.resolve(`tm-themes/themes/${name}.json`), 'utf8'));
+}
+
+// vscode-textmate expects the editor colours as a first rule with no scope.
+function toRawTheme(name: ThemeName): IRawTheme {
+  const theme = loadTheme(name);
+  return {
+    name,
+    settings: [
+      { settings: { foreground: theme.colors['editor.foreground'], background: theme.colors['editor.background'] } },
+      ...theme.tokenColors,
+    ],
+  };
 }
 
 export interface Token {
@@ -84,19 +87,148 @@ export interface Token {
   startIndex: number;
 }
 
-export async function tokenize(source: string, scopeName: string): Promise<Token[][]> {
-  const grammar = await getGrammar(scopeName);
-  let ruleStack = INITIAL;
-  return source.split(/\r?\n/).map((lineText, line) => {
-    const result = grammar.tokenizeLine(lineText, ruleStack);
-    ruleStack = result.ruleStack;
-    return result.tokens.map((token) => ({
-      text: lineText.slice(token.startIndex, token.endIndex),
-      scopes: token.scopes,
-      line,
-      startIndex: token.startIndex,
-    }));
+export interface ColoredToken {
+  text: string;
+  line: number;
+  startIndex: number;
+  /** Lowercase hex colour, such as "#569cd6". */
+  foreground: string;
+  /** Any of "italic", "bold", "underline" and "strikethrough". */
+  fontStyles: string[];
+}
+
+export interface TokenizerOptions {
+  /**
+   * Grammars to use in place of the files in syntaxes/, keyed by scope name.
+   * Used by the preview page to compare the committed grammars with the working copy.
+   */
+  grammars?: Map<string, object>;
+  /** Theme used by tokenizeColors. */
+  theme?: ThemeName;
+}
+
+export interface Tokenizer {
+  getGrammar(scopeName: string): Promise<IGrammar>;
+  tokenize(source: string, scopeName: string): Promise<Token[][]>;
+  tokenizeColors(source: string, scopeName: string): Promise<ColoredToken[][]>;
+}
+
+// Bit layout of the token metadata returned by tokenizeLine2, from vscode-textmate's EncodedTokenAttributes,
+// which the package does not export.
+const FONT_STYLE_MASK = 0b0000_0000_0000_0000_0111_1000_0000_0000;
+const FONT_STYLE_OFFSET = 11;
+const FOREGROUND_MASK = 0b0000_0000_1111_1111_1000_0000_0000_0000;
+const FOREGROUND_OFFSET = 15;
+const FONT_STYLE_NAMES = ['italic', 'bold', 'underline', 'strikethrough'];
+
+export function createTokenizer(options: TokenizerOptions = {}): Tokenizer {
+  const { grammars: grammarOverrides, theme } = options;
+
+  function loadRawGrammar(scopeName: string): IRawGrammar | null {
+    const override = grammarOverrides?.get(scopeName);
+    if (override) {
+      return parseRawGrammar(JSON.stringify(override), `${scopeName}.json`);
+    }
+    const path = localGrammarPaths.get(scopeName) ?? externalGrammarPaths.get(scopeName);
+    if (!path) {
+      return null;
+    }
+    return parseRawGrammar(readFileSync(path, 'utf8'), path);
+  }
+
+  const registryPromise = loadOniguruma().then(() => {
+    const registry = new Registry({
+      onigLib: Promise.resolve({
+        createOnigScanner: (patterns) => new OnigScanner(patterns),
+        createOnigString: (text) => new OnigString(text),
+      }),
+      loadGrammar: async (scopeName) => loadRawGrammar(scopeName),
+      getInjections: (scopeName) => injections.get(scopeName),
+    });
+    if (theme) {
+      registry.setTheme(toRawTheme(theme));
+    }
+    return registry;
   });
+
+  const grammarCache = new Map<string, Promise<IGrammar>>();
+
+  function getGrammar(scopeName: string): Promise<IGrammar> {
+    let grammar = grammarCache.get(scopeName);
+    if (!grammar) {
+      grammar = registryPromise.then(async (registry) => {
+        const loaded = await registry.loadGrammar(scopeName);
+        if (!loaded) {
+          throw new Error(`Grammar not found for scope "${scopeName}"`);
+        }
+        return loaded;
+      });
+      grammarCache.set(scopeName, grammar);
+    }
+    return grammar;
+  }
+
+  async function tokenize(source: string, scopeName: string): Promise<Token[][]> {
+    const grammar = await getGrammar(scopeName);
+    let ruleStack = INITIAL;
+    return source.split(/\r?\n/).map((lineText, line) => {
+      const result = grammar.tokenizeLine(lineText, ruleStack);
+      ruleStack = result.ruleStack;
+      return result.tokens.map((token) => ({
+        text: lineText.slice(token.startIndex, token.endIndex),
+        scopes: token.scopes,
+        line,
+        startIndex: token.startIndex,
+      }));
+    });
+  }
+
+  async function tokenizeColors(source: string, scopeName: string): Promise<ColoredToken[][]> {
+    if (!theme) {
+      throw new Error('tokenizeColors needs a tokenizer created with a theme');
+    }
+    const [grammar, registry] = await Promise.all([getGrammar(scopeName), registryPromise]);
+    const colorMap = registry.getColorMap();
+    let ruleStack = INITIAL;
+    return source.split(/\r?\n/).map((lineText, line) => {
+      const result = grammar.tokenizeLine2(lineText, ruleStack);
+      ruleStack = result.ruleStack;
+      const tokens: ColoredToken[] = [];
+      // Each token takes two entries in the array, its start index and then its metadata.
+      for (let i = 0; i < result.tokens.length; i += 2) {
+        const startIndex = result.tokens[i];
+        const endIndex = i + 2 < result.tokens.length ? result.tokens[i + 2] : lineText.length;
+        const metadata = result.tokens[i + 1];
+        const fontStyle = (metadata & FONT_STYLE_MASK) >>> FONT_STYLE_OFFSET;
+        const foreground = colorMap[(metadata & FOREGROUND_MASK) >>> FOREGROUND_OFFSET];
+        tokens.push({
+          text: lineText.slice(startIndex, endIndex),
+          line,
+          startIndex,
+          foreground: foreground.toLowerCase(),
+          fontStyles: FONT_STYLE_NAMES.filter((_name, bit) => fontStyle & (1 << bit)),
+        });
+      }
+      return tokens;
+    });
+  }
+
+  return { getGrammar, tokenize, tokenizeColors };
+}
+
+const defaultTokenizer = createTokenizer();
+const themedTokenizers = new Map<ThemeName, Tokenizer>();
+
+export const getGrammar = defaultTokenizer.getGrammar;
+export const tokenize = defaultTokenizer.tokenize;
+
+export function tokenizeColors(source: string, scopeName: string, theme: ThemeName): Promise<ColoredToken[][]> {
+  let tokenizer = themedTokenizers.get(theme);
+  if (!tokenizer) {
+    tokenizer = createTokenizer({ theme });
+    themedTokenizers.set(theme, tokenizer);
+  }
+  return tokenizer.tokenizeColors(source, scopeName);
 }
 
 /**
@@ -116,6 +248,27 @@ export function formatTokens(lines: Token[][], source: string): string {
       }
       const marker = ' '.repeat(token.startIndex) + '^'.repeat(token.text.length);
       output.push(` ${marker} ${token.scopes.slice(1).join(' ')}`.trimEnd());
+    }
+  });
+  return output.join('\n') + '\n';
+}
+
+/**
+ * Formats coloured tokens as text for snapshots, in the same layout as formatTokens.
+ * Each row shows the token's colour, then any font styles.
+ * Tokens that are only whitespace are skipped.
+ */
+export function formatColors(lines: ColoredToken[][], source: string): string {
+  const sourceLines = source.split(/\r?\n/);
+  const output: string[] = [];
+  lines.forEach((tokens, index) => {
+    output.push(`>${sourceLines[index]}`);
+    for (const token of tokens) {
+      if (token.text.trim() === '') {
+        continue;
+      }
+      const marker = ' '.repeat(token.startIndex) + '^'.repeat(token.text.length);
+      output.push(` ${marker} ${[token.foreground, ...token.fontStyles].join(' ')}`);
     }
   });
   return output.join('\n') + '\n';

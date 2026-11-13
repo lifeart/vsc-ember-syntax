@@ -1,0 +1,146 @@
+>import { concat, get } from '@ember/helper';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                ^ meta.import.js meta.block.js punctuation.separator.comma.js
+                  ^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                      ^ meta.import.js meta.block.js punctuation.definition.block.js
+                        ^^^^ meta.import.js keyword.control.from.js
+                             ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                              ^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                           ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                            ^ punctuation.terminator.statement.js
+>import formatDate from './format-date';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^^^^^^^^^^ meta.import.js variable.other.readwrite.alias.js
+                   ^^^^ meta.import.js keyword.control.from.js
+                        ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                         ^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                      ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                       ^ punctuation.terminator.statement.js
+>
+><template>
+ ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  {{@title}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+      ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+           ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{this.count}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+         ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+          ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+               ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{@user.profile.name}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+      ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+          ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+           ^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                  ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+                   ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                       ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{formatDate @date format="short" locale=this.locale}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+                ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                 ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                      ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars variable.parameter.name.ember-handlebars
+                            ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.expression.ember-handlebars
+                             ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                              ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                   ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                     ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars variable.parameter.name.ember-handlebars
+                                           ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.expression.ember-handlebars
+                                            ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                                                ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                                 ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                                                       ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{concat "Hello, " (get @user "name") "!"}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+            ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+             ^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                    ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                      ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                       ^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.control
+                           ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function variable.language
+                            ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                 ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                  ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars
+                                      ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                       ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                         ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                          ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                           ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                            ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{if @isActive "on" "off"}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+        ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+         ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                  ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                     ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                       ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                        ^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                           ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                            ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{{@trustedHtml}}}
+   ^^^ meta.js.embeddedTemplateWithoutArgs entity.unescaped.expression.ember-handlebars keyword.operator
+      ^ meta.js.embeddedTemplateWithoutArgs entity.unescaped.expression.ember-handlebars support.function variable.language
+       ^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.unescaped.expression.ember-handlebars support.function
+                  ^^^ meta.js.embeddedTemplateWithoutArgs entity.unescaped.expression.ember-handlebars keyword.operator
+>  {{~@trimmed~}}
+   ^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+      ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+       ^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+              ^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{has-block "header"}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+               ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                      ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                       ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{yield}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+          ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+>  {{yield @model to="inverse"}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+           ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+            ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                  ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars variable.parameter.name.ember-handlebars
+                    ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.expression.ember-handlebars
+                     ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                      ^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                             ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                              ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{outlet}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+     ^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+           ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+>  {{debugger}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+             ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  {{log "value" this.value}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+     ^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+         ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+          ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+               ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                 ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                     ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+                      ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                           ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+></template>
+ ^^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>

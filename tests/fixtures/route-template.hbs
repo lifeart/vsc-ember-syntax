@@ -1,0 +1,17 @@
+{{page-title "Posts"}}
+
+<Layout>
+  <:header>
+    <h1>Posts</h1>
+  </:header>
+  <:body>
+    {{#each @model as |post|}}
+      <LinkTo @route="posts.post" @model={{post.id}}>{{post.title}}</LinkTo>
+    {{/each}}
+    {{outlet}}
+  </:body>
+</Layout>
+
+<style>
+  h1 { font-size: 2rem; }
+</style>

@@ -1,0 +1,155 @@
+>import { hbs } from 'ember-cli-htmlbars';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+              ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                ^^^^ meta.import.ts keyword.control.from.ts
+                     ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                      ^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                        ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                         ^ punctuation.terminator.statement.ts
+>import { render } from '@ember/test-helpers';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                 ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                   ^^^^ meta.import.ts keyword.control.from.ts
+                        ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                         ^^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                            ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                             ^ punctuation.terminator.statement.ts
+>import { precompileTemplate } from '@ember/template-compilation';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^^^^^^^^^^^^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                             ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                               ^^^^ meta.import.ts keyword.control.from.ts
+                                    ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                                                ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                                 ^ punctuation.terminator.statement.ts
+>
+>interface Context {
+ ^^^^^^^^^ meta.interface.ts storage.type.interface.ts
+           ^^^^^^^ meta.interface.ts entity.name.type.interface.ts
+                   ^ meta.interface.ts punctuation.definition.block.ts
+>  name: string;
+   ^^^^ meta.interface.ts meta.field.declaration.ts meta.definition.property.ts variable.object.property.ts
+       ^ meta.interface.ts meta.field.declaration.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+         ^^^^^^ meta.interface.ts meta.field.declaration.ts meta.type.annotation.ts support.type.primitive.ts
+               ^ meta.interface.ts punctuation.terminator.statement.ts
+>}
+ ^ meta.interface.ts punctuation.definition.block.ts
+>
+>export async function setup(this: Context): Promise<void> {
+ ^^^^^^ meta.function.ts keyword.control.export.ts
+        ^^^^^ meta.function.ts storage.modifier.async.ts
+              ^^^^^^^^ meta.function.ts storage.type.function.ts
+                       ^^^^^ meta.function.ts meta.definition.function.ts entity.name.function.ts
+                            ^ meta.function.ts meta.parameters.ts punctuation.definition.parameters.begin.ts
+                             ^^^^ meta.function.ts meta.parameters.ts variable.parameter.ts variable.language.this.ts
+                                 ^ meta.function.ts meta.parameters.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+                                   ^^^^^^^ meta.function.ts meta.parameters.ts meta.type.annotation.ts entity.name.type.ts
+                                          ^ meta.function.ts meta.parameters.ts punctuation.definition.parameters.end.ts
+                                           ^ meta.function.ts meta.return.type.ts keyword.operator.type.annotation.ts
+                                             ^^^^^^^ meta.function.ts meta.return.type.ts entity.name.type.ts
+                                                    ^ meta.function.ts meta.return.type.ts meta.type.parameters.ts punctuation.definition.typeparameters.begin.ts
+                                                     ^^^^ meta.function.ts meta.return.type.ts meta.type.parameters.ts support.type.primitive.ts
+                                                         ^ meta.function.ts meta.return.type.ts meta.type.parameters.ts punctuation.definition.typeparameters.end.ts
+                                                           ^ meta.function.ts meta.block.ts punctuation.definition.block.ts
+>  await render(hbs`<Greeting @name={{this.name}} as |g|>{{g.text}}</Greeting>`);
+   ^^^^^ meta.function.ts meta.block.ts keyword.control.flow.ts
+         ^^^^^^ meta.function.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+               ^ meta.function.ts meta.block.ts meta.brace.round.ts
+                ^^^ meta.function.ts meta.block.ts entity.name.function.tagged-template.js
+                   ^ meta.function.ts meta.block.ts punctuation.definition.string.template.begin.js
+                    ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                     ^^^^^^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.type
+                              ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument markup.italic
+                               ^^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument
+                                   ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                    ^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                      ^^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                                          ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                           ^^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                               ^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                 ^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars keyword.control
+                                                     ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.begin.ember-handlebars
+                                                      ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars support.function
+                                                       ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.end.ember-handlebars
+                                                        ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                         ^^ meta.function.ts meta.block.ts meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                           ^ meta.function.ts meta.block.ts meta.embedded.block.html entity.expression.ember-handlebars support.function support.function
+                                                            ^ meta.function.ts meta.block.ts meta.embedded.block.html entity.expression.ember-handlebars support.function support.function punctuation.definition.tag
+                                                             ^^^^ meta.function.ts meta.block.ts meta.embedded.block.html entity.expression.ember-handlebars support.function support.function
+                                                                 ^^ meta.function.ts meta.block.ts meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                                   ^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                     ^^^^^^^^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.type
+                                                                             ^ meta.function.ts meta.block.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                              ^ meta.function.ts meta.block.ts string.js punctuation.definition.string.template.end.js
+                                                                               ^ meta.function.ts meta.block.ts meta.brace.round.ts
+                                                                                ^ meta.function.ts meta.block.ts punctuation.terminator.statement.ts
+>}
+ ^ meta.function.ts meta.block.ts punctuation.definition.block.ts
+>
+>export const Precompiled = precompileTemplate(`<em>{{@text}}</em>`, {
+ ^^^^^^ meta.var.expr.ts keyword.control.export.ts
+        ^^^^^ meta.var.expr.ts storage.type.ts
+              ^^^^^^^^^^^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+                          ^ meta.var.expr.ts keyword.operator.assignment.ts
+                            ^^^^^^^^^^^^^^^^^^ meta.var.expr.ts entity.name.function.ts meta.function-call.ts
+                                              ^ meta.var.expr.ts meta.brace.round.ts
+                                               ^ meta.var.expr.ts string.template.ts punctuation.definition.string.template.begin.ts
+                                                ^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                 ^^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                   ^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                    ^^ meta.var.expr.ts meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                      ^ meta.var.expr.ts meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                                                       ^^^^ meta.var.expr.ts meta.embedded.block.html entity.expression.ember-handlebars support.function
+                                                           ^^ meta.var.expr.ts meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                             ^^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                               ^^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                                 ^ meta.var.expr.ts meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                  ^ meta.var.expr.ts string.template.ts punctuation.definition.string.template.end.ts
+                                                                   ^ meta.var.expr.ts punctuation.separator.comma.ts
+                                                                     ^ meta.var.expr.ts meta.objectliteral.ts punctuation.definition.block.ts
+>  strictMode: true,
+   ^^^^^^^^^^ meta.var.expr.ts meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts
+             ^ meta.var.expr.ts meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts punctuation.separator.key-value.ts
+               ^^^^ meta.var.expr.ts meta.objectliteral.ts meta.object.member.ts constant.language.boolean.true.ts
+                   ^ meta.var.expr.ts meta.objectliteral.ts punctuation.separator.comma.ts
+>});
+ ^ meta.var.expr.ts meta.objectliteral.ts punctuation.definition.block.ts
+  ^ meta.var.expr.ts meta.brace.round.ts
+   ^ punctuation.terminator.statement.ts
+>
+>const generic: Array<string> = [];
+ ^^^^^ meta.var.expr.ts storage.type.ts
+       ^^^^^^^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+              ^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+                ^^^^^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts entity.name.type.ts
+                     ^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts meta.type.parameters.ts punctuation.definition.typeparameters.begin.ts
+                      ^^^^^^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts meta.type.parameters.ts support.type.primitive.ts
+                            ^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.type.annotation.ts meta.type.parameters.ts punctuation.definition.typeparameters.end.ts
+                              ^ meta.var.expr.ts keyword.operator.assignment.ts
+                                ^ meta.var.expr.ts meta.array.literal.ts meta.brace.square.ts
+                                 ^ meta.var.expr.ts meta.array.literal.ts meta.brace.square.ts
+                                  ^ punctuation.terminator.statement.ts
+>const compared = generic.length < 1 && generic.length > -1;
+ ^^^^^ meta.var.expr.ts storage.type.ts
+       ^^^^^^^^ meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+                ^ meta.var.expr.ts keyword.operator.assignment.ts
+                  ^^^^^^^ meta.var.expr.ts variable.other.object.ts
+                         ^ meta.var.expr.ts punctuation.accessor.ts
+                          ^^^^^^ meta.var.expr.ts support.variable.property.ts
+                                 ^ meta.var.expr.ts keyword.operator.relational.ts
+                                   ^ meta.var.expr.ts constant.numeric.decimal.ts
+                                     ^^ meta.var.expr.ts keyword.operator.logical.ts
+                                        ^^^^^^^ meta.var.expr.ts variable.other.object.ts
+                                               ^ meta.var.expr.ts punctuation.accessor.ts
+                                                ^^^^^^ meta.var.expr.ts support.variable.property.ts
+                                                       ^ meta.var.expr.ts keyword.operator.relational.ts
+                                                         ^ meta.var.expr.ts keyword.operator.arithmetic.ts
+                                                          ^ meta.var.expr.ts constant.numeric.decimal.ts
+                                                           ^ punctuation.terminator.statement.ts
+>

@@ -1,0 +1,4 @@
+# Test inputs and outputs must stay exactly as written.
+tests/fixtures
+tests/__snapshots__
+tests/known-issues

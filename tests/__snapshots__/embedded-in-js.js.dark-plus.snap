@@ -1,0 +1,259 @@
+>import { hbs } from 'ember-cli-htmlbars';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^ #9cdcfe
+             ^^^ #d4d4d4
+                ^^^^ #c586c0
+                     ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                         ^ #d4d4d4
+>import { precompileTemplate } from '@ember/template-compilation';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^^^^^^^^^^^^ #9cdcfe
+                            ^^^ #d4d4d4
+                               ^^^^ #c586c0
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                                 ^ #d4d4d4
+>import { setComponentTemplate } from '@ember/component';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^^^^^^^^^^^^^^ #9cdcfe
+                              ^^^ #d4d4d4
+                                 ^^^^ #c586c0
+                                      ^^^^^^^^^^^^^^^^^^ #ce9178
+                                                        ^ #d4d4d4
+>import templateOnly from '@ember/component/template-only';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^^^^ #9cdcfe
+                     ^^^^ #c586c0
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                          ^ #d4d4d4
+>
+>const Tagged = hbs`<p class="tagged">{{@message}}</p>`;
+ ^^^^^ #569cd6
+       ^^^^^^ #4fc1ff
+             ^^^ #d4d4d4
+                ^^^ #dcdcaa
+                   ^ #d4d4d4
+                    ^ #808080
+                     ^ #569cd6
+                       ^^^^^ #9cdcfe
+                            ^ #d4d4d4
+                             ^^^^^^^^ #ce9178
+                                     ^ #808080
+                                      ^^ #d4d4d4
+                                        ^ #569cd6
+                                         ^^^^^^^ #dcdcaa
+                                                ^^ #d4d4d4
+                                                  ^^ #808080
+                                                    ^ #569cd6
+                                                     ^ #808080
+                                                      ^ #ce9178
+                                                       ^ #d4d4d4
+>
+>const MultiLine = hbs`
+ ^^^^^ #569cd6
+       ^^^^^^^^^ #4fc1ff
+                ^^^ #d4d4d4
+                   ^^^ #dcdcaa
+                      ^ #d4d4d4
+>  {{#if this.show}}
+   ^^^ #808080
+      ^^ #c586c0
+         ^^^^ #569cd6
+             ^ #808080
+              ^^^^ #dcdcaa
+                  ^^ #808080
+>    <MyComponent @value={{this.value}} {{on "click" this.go}} />
+     ^ #808080
+      ^^^^^^^^^^^ #4ec9b0
+                  ^ #9cdcfe italic
+                   ^^^^^ #9cdcfe
+                        ^^^ #d4d4d4
+                           ^^^^ #569cd6
+                               ^ #808080
+                                ^^^^^ #dcdcaa
+                                     ^^^^^ #d4d4d4
+                                          ^^ #c586c0
+                                             ^^^^^^^ #ce9178
+                                                     ^^^^ #569cd6
+                                                         ^ #808080
+                                                          ^^ #dcdcaa
+                                                            ^^^ #d4d4d4
+                                                               ^^ #808080
+>  {{/if}}
+   ^^^ #808080
+      ^^ #c586c0
+        ^^ #808080
+>`;
+ ^ #ce9178
+  ^ #d4d4d4
+>
+>const WithNamespace = Ember.HTMLBars.hbs`<span>{{this.name}}</span>`;
+ ^^^^^ #569cd6
+       ^^^^^^^^^^^^^ #4fc1ff
+                    ^^^ #d4d4d4
+                       ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                         ^ #d4d4d4
+                                          ^ #808080
+                                           ^^^^ #569cd6
+                                               ^ #808080
+                                                ^^ #d4d4d4
+                                                  ^^^^ #569cd6
+                                                      ^ #808080
+                                                       ^^^^ #dcdcaa
+                                                           ^^ #d4d4d4
+                                                             ^^ #808080
+                                                               ^^^^ #569cd6
+                                                                   ^ #808080
+                                                                    ^ #ce9178
+                                                                     ^ #d4d4d4
+>
+>const Called = hbs('<b>{{@bold}}</b>');
+ ^^^^^ #569cd6
+       ^^^^^^ #4fc1ff
+             ^^^ #d4d4d4
+                ^^^ #dcdcaa
+                   ^ #d4d4d4
+                    ^ #ce9178
+                     ^ #808080
+                      ^ #569cd6
+                       ^ #808080
+                        ^^ #d4d4d4
+                          ^ #569cd6
+                           ^^^^ #dcdcaa
+                               ^^ #d4d4d4
+                                 ^^ #808080
+                                   ^ #569cd6
+                                    ^ #808080
+                                     ^ #ce9178
+                                      ^^ #d4d4d4
+>
+>const Precompiled = precompileTemplate('<em>{{@text}}</em>', { strictMode: true });
+ ^^^^^ #569cd6
+       ^^^^^^^^^^^ #4fc1ff
+                  ^^^ #d4d4d4
+                     ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                       ^ #d4d4d4
+                                        ^ #ce9178
+                                         ^ #808080
+                                          ^^ #569cd6
+                                            ^ #808080
+                                             ^^ #d4d4d4
+                                               ^ #569cd6
+                                                ^^^^ #dcdcaa
+                                                    ^^ #d4d4d4
+                                                      ^^ #808080
+                                                        ^^ #569cd6
+                                                          ^ #808080
+                                                           ^ #ce9178
+                                                            ^^^^ #d4d4d4
+                                                                ^^^^^^^^^^^ #9cdcfe
+                                                                            ^^^^ #569cd6
+                                                                                ^^^^ #d4d4d4
+>
+>const PrecompiledBacktick = precompileTemplate(
+ ^^^^^ #569cd6
+       ^^^^^^^^^^^^^^^^^^^ #4fc1ff
+                          ^^^ #d4d4d4
+                             ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                               ^ #d4d4d4
+>  `<section>
+   ^ #ce9178
+    ^ #808080
+     ^^^^^^^ #569cd6
+            ^ #808080
+>    {{yield}}
+ ^^^^^^ #d4d4d4
+       ^^^^^ #c586c0
+            ^^ #d4d4d4
+>  </section>`,
+   ^^ #808080
+     ^^^^^^^ #569cd6
+            ^ #808080
+             ^ #ce9178
+              ^ #d4d4d4
+>  { strictMode: true, scope: () => ({}) },
+ ^^^^ #d4d4d4
+     ^^^^^^^^^^^ #9cdcfe
+                 ^^^^ #569cd6
+                     ^^ #d4d4d4
+                       ^^^^^ #dcdcaa
+                            ^ #9cdcfe
+                             ^^^^ #d4d4d4
+                                 ^^ #569cd6
+                                   ^^^^^^^^ #d4d4d4
+>);
+ ^^ #d4d4d4
+>
+>const Created = createTemplate("<i>{{@italic}}</i>");
+ ^^^^^ #569cd6
+       ^^^^^^^ #4fc1ff
+              ^^^ #d4d4d4
+                 ^^^^^^^^^^^^^^ #dcdcaa
+                               ^ #d4d4d4
+                                ^ #ce9178
+                                 ^ #808080
+                                  ^ #569cd6
+                                   ^ #808080
+                                    ^^ #d4d4d4
+                                      ^ #569cd6
+                                       ^^^^^^ #dcdcaa
+                                             ^^ #d4d4d4
+                                               ^^ #808080
+                                                 ^ #569cd6
+                                                  ^ #808080
+                                                   ^ #ce9178
+                                                    ^^ #d4d4d4
+>
+>const Html = html`<div class="lit-style">${'not handlebars'}</div>`;
+ ^^^^^ #569cd6
+       ^^^^ #4fc1ff
+           ^^^ #d4d4d4
+              ^^^^ #dcdcaa
+                  ^ #d4d4d4
+                   ^ #808080
+                    ^^^ #569cd6
+                        ^^^^^ #9cdcfe
+                             ^ #d4d4d4
+                              ^^^^^^^^^^^ #ce9178
+                                         ^ #808080
+                                          ^^ #569cd6
+                                            ^^^^^^^^^^^^^^^^ #ce9178
+                                                            ^ #569cd6
+                                                             ^^ #808080
+                                                               ^^^ #569cd6
+                                                                  ^ #808080
+                                                                   ^ #ce9178
+                                                                    ^ #d4d4d4
+>
+>export default setComponentTemplate(hbs`<Tagged />`, templateOnly());
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                    ^ #d4d4d4
+                                     ^^^ #dcdcaa
+                                        ^ #d4d4d4
+                                         ^ #808080
+                                          ^^^^^^ #4ec9b0
+                                                 ^^ #808080
+                                                   ^ #ce9178
+                                                    ^^ #d4d4d4
+                                                      ^^^^^^^^^^^^ #dcdcaa
+                                                                  ^^^^ #d4d4d4
+>
+>const notATemplate = `{{this}} is a plain string`;
+ ^^^^^ #569cd6
+       ^^^^^^^^^^^^ #4fc1ff
+                   ^^^ #d4d4d4
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                  ^ #d4d4d4
+>const after = 1 < 2;
+ ^^^^^ #569cd6
+       ^^^^^ #4fc1ff
+            ^^^ #d4d4d4
+               ^ #b5cea8
+                ^^^ #d4d4d4
+                   ^ #b5cea8
+                    ^ #d4d4d4
+>

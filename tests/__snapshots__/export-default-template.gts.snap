@@ -1,0 +1,36 @@
+>import type { TOC } from '@ember/component/template-only';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^^^^ meta.import.ts keyword.control.type.ts
+             ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+               ^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                   ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                     ^^^^ meta.import.ts keyword.control.from.ts
+                          ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                                         ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                          ^ punctuation.terminator.statement.ts
+>
+><template>
+ ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  <h1>{{@title}}</h1>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+      ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+       ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+         ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+          ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+               ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                 ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                   ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>  {{yield}}
+   ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.control
+          ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator keyword.operator
+></template>
+ ^^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>

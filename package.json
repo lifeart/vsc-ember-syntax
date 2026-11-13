@@ -50,7 +50,8 @@
     "chrome": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=.",
     "build:grammars": "node ./syntaxes/src/index.mjs",
     "test": "vitest run",
-    "test:update": "vitest run -u"
+    "test:update": "vitest run -u",
+    "test:preview": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON tests/tools/preview.mts"
   },
   "extensionKind": [
     "ui"
@@ -199,6 +200,7 @@
     "path-browserify": "^1.0.1",
     "prettier": "3.0.0",
     "tm-grammars": "^1.32.22",
+    "tm-themes": "^1.12.12",
     "ts-loader": "^9.2.3",
     "typescript": "^4.1.3",
     "vite": "^8.3.8",
