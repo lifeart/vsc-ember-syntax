@@ -1032,6 +1032,74 @@ export default {
         },
       ],
     },
+    // A <template> element inside a Glimmer <template> block in .gjs and .gts files, scoped like any
+    // other HTML tag. The outer block ends at the first </template> it reaches, so this rule matches the
+    // whole element, including its own closing tag. The .gjs and .gts build adds it to template content.
+    // Self-closing <template /> tags have no closing tag, so html-tag handles them.
+    'nested-template-element': {
+      begin: '(<)(template)\\b(?![^>]*/>)',
+      beginCaptures: {
+        0: {
+          name: 'meta.tag.any.ember-handlebars',
+        },
+        1: {
+          name: 'punctuation.definition.tag',
+        },
+        2: {
+          name: 'entity.name.tag.html.ember-handlebars',
+        },
+      },
+      end: '(</)(template)\\s*(>)',
+      endCaptures: {
+        0: {
+          name: 'meta.tag.any.ember-handlebars',
+        },
+        1: {
+          name: 'punctuation.definition.tag',
+        },
+        2: {
+          name: 'entity.name.tag.html.ember-handlebars',
+        },
+        3: {
+          name: 'punctuation.definition.tag',
+        },
+      },
+      patterns: [
+        {
+          // The attributes of the opening tag. It only starts when whitespace follows the tag name.
+          // A rule that starts and ends at the same position makes the tokenizer stop the line.
+          name: 'meta.tag.any.ember-handlebars',
+          begin: '(?<=<template)(?=\\s)',
+          end: '(?=>)',
+          patterns: [
+            {
+              include: '#tag-like-content',
+            },
+          ],
+        },
+        {
+          // The content between the opening and closing tags.
+          begin: '(>)',
+          beginCaptures: {
+            0: {
+              name: 'meta.tag.any.ember-handlebars',
+            },
+            1: {
+              name: 'punctuation.definition.tag',
+            },
+          },
+          end: '(?=</template\\s*>)',
+          patterns: [
+            {
+              include: '#nested-template-element',
+            },
+            {
+              include: '$self',
+            },
+          ],
+        },
+      ],
+    },
     'html-tag': {
       name: 'meta.tag.any.ember-handlebars',
       begin: '(<\\/?)([a-z0-9-]+)(?!\\.|:)\\b',

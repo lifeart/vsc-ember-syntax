@@ -1,6 +1,6 @@
 {
   "fileTypes": [],
-  "injectionSelector": "L:text.html.markdown",
+  "injectionSelector": "L:text.html.markdown -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs",
   "patterns": [
     {
       "include": "#gts-code-block"
@@ -35,6 +35,9 @@
         }
       },
       "patterns": [
+        {
+          "include": "text.html.ember-handlebars#nested-template-element"
+        },
         {
           "include": "text.html.ember-handlebars"
         }
@@ -83,6 +86,9 @@
           "end": "(?=</template>)",
           "contentName": "meta.html.embedded.block",
           "patterns": [
+            {
+              "include": "text.html.ember-handlebars#nested-template-element"
+            },
             {
               "include": "text.html.ember-handlebars"
             }

@@ -11,7 +11,7 @@
     }
   ],
   "injections": {
-    "L:source.gts -comment -(string -meta.embedded)": {
+    "L:source.gts -comment -(string -meta.embedded) -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs": {
       "patterns": [
         {
           "include": "#main"
@@ -49,6 +49,9 @@
             }
           },
           "patterns": [
+            {
+              "include": "#nested-template-element"
+            },
             {
               "include": "#glimmer-escaped-expression"
             },
@@ -148,6 +151,9 @@
               "end": "(?=</template>)",
               "contentName": "meta.html.embedded.block",
               "patterns": [
+                {
+                  "include": "#nested-template-element"
+                },
                 {
                   "include": "#glimmer-escaped-expression"
                 },
@@ -1463,6 +1469,118 @@
       "patterns": [
         {
           "include": "#tag-like-content"
+        }
+      ]
+    },
+    "nested-template-element": {
+      "begin": "(<)(template)\\b(?![^>]*/>)",
+      "beginCaptures": {
+        "0": {
+          "name": "meta.tag.any.ember-handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "entity.name.tag.html.ember-handlebars"
+        }
+      },
+      "end": "(</)(template)\\s*(>)",
+      "endCaptures": {
+        "0": {
+          "name": "meta.tag.any.ember-handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "entity.name.tag.html.ember-handlebars"
+        },
+        "3": {
+          "name": "punctuation.definition.tag"
+        }
+      },
+      "patterns": [
+        {
+          "name": "meta.tag.any.ember-handlebars",
+          "begin": "(?<=<template)(?=\\s)",
+          "end": "(?=>)",
+          "patterns": [
+            {
+              "include": "#tag-like-content"
+            }
+          ]
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "0": {
+              "name": "meta.tag.any.ember-handlebars"
+            },
+            "1": {
+              "name": "punctuation.definition.tag"
+            }
+          },
+          "end": "(?=</template\\s*>)",
+          "patterns": [
+            {
+              "include": "#nested-template-element"
+            },
+            {
+              "include": "#glimmer-escaped-expression"
+            },
+            {
+              "include": "#style"
+            },
+            {
+              "include": "#script"
+            },
+            {
+              "include": "#glimmer-else-block"
+            },
+            {
+              "include": "#glimmer-bools"
+            },
+            {
+              "include": "#glimmer-literal-expression"
+            },
+            {
+              "include": "#glimmer-special-block"
+            },
+            {
+              "include": "#glimmer-unescaped-expression"
+            },
+            {
+              "include": "#glimmer-comment-block"
+            },
+            {
+              "include": "#glimmer-comment-inline"
+            },
+            {
+              "include": "#glimmer-expression-property"
+            },
+            {
+              "include": "#glimmer-control-expression"
+            },
+            {
+              "include": "#glimmer-expression"
+            },
+            {
+              "include": "#glimmer-block"
+            },
+            {
+              "include": "#html-tag"
+            },
+            {
+              "include": "#component-tag"
+            },
+            {
+              "include": "#html-comment"
+            },
+            {
+              "include": "#entities"
+            }
+          ]
         }
       ]
     },

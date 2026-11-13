@@ -31,13 +31,21 @@ function mergeGlimmerSourceGrammars(grammar, injectionSelector, { emberHandlebar
     ...copiedEmberHandlebarRepository,
   };
 
+  // The content of a <template> block. A nested <template> element comes first, so that its closing tag
+  // does not end the outer block.
+  const templateContentPatterns = () => [
+    { include: '#nested-template-element' },
+    ...deepCopy(copiedEmberHandlebarPatterns),
+  ];
+
+  grammar.repository['nested-template-element'].patterns.find((pattern) => pattern.begin === '(>)').patterns =
+    templateContentPatterns();
+
   // Embedded Template With Args
   const embeddedTemplateWithArgs = grammar.repository.main.patterns.find(
     (pattern) => pattern.name === 'meta.js.embeddedTemplateWithArgs',
   );
-  embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(>)').patterns = [
-    ...copiedEmberHandlebarPatterns,
-  ];
+  embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(>)').patterns = templateContentPatterns();
 
   const tagLikeContent = embeddedTemplateWithArgs.patterns.find((pattern) => pattern.begin === '(?<=\\<template)');
   tagLikeContent.patterns = [
@@ -50,7 +58,7 @@ function mergeGlimmerSourceGrammars(grammar, injectionSelector, { emberHandlebar
   const embeddedTemplateWithoutArgs = grammar.repository.main.patterns.find(
     (pattern) => pattern.name === 'meta.js.embeddedTemplateWithoutArgs',
   );
-  embeddedTemplateWithoutArgs.patterns = [...copiedEmberHandlebarPatterns];
+  embeddedTemplateWithoutArgs.patterns = templateContentPatterns();
 
   // Tagged template (hbs/html)
   const taggedTemplate = grammar.repository.main.patterns.find(
