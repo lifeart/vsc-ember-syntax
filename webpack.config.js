@@ -27,6 +27,8 @@ const nodeClientConfig = /** @type WebpackConfig */ {
     filename: '[name].js',
     path: path.join(__dirname, 'out'),
     libraryTarget: 'commonjs',
+    // Node 17 and later have no md4, which webpack uses by default. xxhash64 is built into webpack.
+    hashFunction: 'xxhash64',
   },
   resolve: {
     mainFields: ['module', 'main'],
@@ -65,6 +67,8 @@ const browserClientConfig = /** @type WebpackConfig */ {
     filename: '[name].js',
     path: path.join(__dirname, 'out'),
     libraryTarget: 'commonjs',
+    // Node 17 and later have no md4, which webpack uses by default. xxhash64 is built into webpack.
+    hashFunction: 'xxhash64',
   },
   resolve: {
     mainFields: ['module', 'main'],
