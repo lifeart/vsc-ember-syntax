@@ -1,9 +1,12 @@
 // Writes tests/preview/index.html, a page that shows every fixture highlighted with real themes.
-// Each example is shown twice. "Committed" uses the compiled grammars in syntaxes/*.json at HEAD.
-// "Working copy" builds the grammars from syntaxes/src, so a change can be previewed without
-// running `yarn build:grammars`. Characters whose scopes or colour differ are marked.
+// Each example is shown twice. The base side uses the compiled grammars in syntaxes/*.json at a git
+// ref, master by default, so the page shows everything a branch changes. "Working copy" builds the
+// grammars from syntaxes/src, so a change can be previewed without running `yarn build:grammars`.
+// Characters whose scopes or colour differ are marked.
 //
-// Run with `yarn test:preview`. Pass --no-open to skip opening the page in a browser.
+// Run with `yarn test:preview`. Options:
+//   --base <ref>  compare with another branch, tag or commit instead of master
+//   --no-open     write the page without opening it in a browser
 
 import { execFileSync, spawn } from 'node:child_process';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -26,6 +29,18 @@ import { nestedTemplateBodies, outerTemplateForms, TAG_PLACEHOLDER } from '../gr
 const testsDir = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = resolve(testsDir, '..');
 const outFile = resolve(testsDir, 'preview/index.html');
+
+function optionValue(name: string): string | undefined {
+  const index = process.argv.indexOf(name);
+  if (index === -1) return undefined;
+  const value = process.argv[index + 1];
+  if (!value || value.startsWith('--')) {
+    throw new Error(`${name} needs a value`);
+  }
+  return value;
+}
+
+const baseRef = optionValue('--base') ?? 'master';
 
 interface Example {
   group: string;
@@ -60,18 +75,27 @@ function collectExamples(): Example[] {
   return [...fixtures, ...knownIssues, ...nested];
 }
 
-function committedGrammars(scopeNames: string[]): Map<string, object> {
+function git(args: string[]): string {
+  return execFileSync('git', args, { cwd: repoRoot, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+}
+
+function baseGrammars(ref: string, scopeNames: string[]): Map<string, object> {
+  try {
+    git(['rev-parse', '--verify', `${ref}^{commit}`]);
+  } catch {
+    throw new Error(`--base: "${ref}" is not a branch, tag or commit in this repository`);
+  }
   const grammars = new Map<string, object>();
   for (const scopeName of scopeNames) {
     try {
-      const json = execFileSync('git', ['show', `HEAD:syntaxes/${scopeName}.json`], {
+      const json = execFileSync('git', ['show', `${ref}:syntaxes/${scopeName}.json`], {
         cwd: repoRoot,
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
       });
       grammars.set(scopeName, JSON.parse(json));
     } catch {
-      // The grammar is new and not committed yet, so the working copy is used for both sides.
+      // The grammar does not exist at the base ref, so the working copy is used for both sides.
     }
   }
   return grammars;
@@ -158,16 +182,16 @@ async function main() {
   const working = new Map<string, object>(
     buildGrammars().map((grammar: { scopeName: string }) => [grammar.scopeName, grammar]),
   );
-  const committed = committedGrammars([...working.keys()]);
+  const base = baseGrammars(baseRef, [...working.keys()]);
   for (const [scopeName, grammar] of working) {
-    if (!committed.has(scopeName)) committed.set(scopeName, grammar);
+    if (!base.has(scopeName)) base.set(scopeName, grammar);
   }
 
   const tokenizers = new Map<ThemeName, { before: Tokenizer; after: Tokenizer }>(
     THEME_NAMES.map((theme) => [
       theme,
       {
-        before: createTokenizer({ grammars: committed, theme }),
+        before: createTokenizer({ grammars: base, theme }),
         after: createTokenizer({ grammars: working, theme }),
       },
     ]),
@@ -196,7 +220,9 @@ async function main() {
       const { colors } = loadTheme(theme);
       const background = colors['editor.background'];
       panes.push(`<div class="theme" data-theme="${theme}">
-  <figure class="pane committed"><figcaption>Committed</figcaption><pre style="background:${background}">${renderCode(
+  <figure class="pane base"><figcaption>${escapeHtml(
+    baseRef,
+  )}</figcaption><pre style="background:${background}">${renderCode(
     sourceLines,
     beforeStyles,
     afterStyles,
@@ -252,7 +278,7 @@ async function main() {
   body[data-theme="github-light"] .theme[data-theme="github-light"],
   body[data-theme="github-dark"] .theme[data-theme="github-dark"] { display: grid; }
   body.compare .theme { grid-template-columns: 1fr 1fr; }
-  body:not(.compare) .pane.committed { display: none; }
+  body:not(.compare) .pane.base { display: none; }
   @media (max-width: 900px) { body.compare .theme { grid-template-columns: 1fr; } }
   figure { margin: 0; min-width: 0; }
   figcaption { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
@@ -266,7 +292,9 @@ async function main() {
 <header>
   <h1>Grammar Preview</h1>
   <label>Theme <select id="theme">${themeOptions}</select></label>
-  <label><input type="checkbox" id="compare" checked> Compare committed with working copy</label>
+  <label><input type="checkbox" id="compare" checked> Compare <code>${escapeHtml(
+    baseRef,
+  )}</code> with working copy</label>
   <label><input type="checkbox" id="only-changed"> Only examples with changes (${changedExamples})</label>
   <span class="scope">Hover a token to see its scopes. Dashed outlines mark changes.</span>
 </header>
@@ -291,7 +319,7 @@ ${sections.join('\n')}
   mkdirSync(dirname(outFile), { recursive: true });
   writeFileSync(outFile, html);
   console.log(`Wrote ${outFile}`);
-  console.log(`${examples.length} examples, ${changedExamples} with changes between committed and working copy.`);
+  console.log(`${examples.length} examples, ${changedExamples} with changes between ${baseRef} and the working copy.`);
 
   if (!process.argv.includes('--no-open')) {
     const url = pathToFileURL(outFile).href;
