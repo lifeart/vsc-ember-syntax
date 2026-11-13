@@ -6,4 +6,5 @@
   {{true}} {{false}} {{null}} {{undefined}}
   {{hash compact=true count=3 label=null}}
   <Panel @collapsed={{false}} />
+  {{trueValue}} {{nullable}}
 </template>

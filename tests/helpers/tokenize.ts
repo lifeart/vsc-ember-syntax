@@ -328,3 +328,24 @@ export function findToken(lines: Token[][], text: string, occurrence = 1): Token
     .join(', ');
   throw new Error(`No token #${occurrence} starting with ${JSON.stringify(text)}. Tokens: ${all}`);
 }
+
+/**
+ * Finds `text` in the source and returns every token that overlaps it.
+ * Unlike findToken, this works when the grammar splits the text into several tokens,
+ * or merges it into a larger one. Use `occurrence` to pick a later match.
+ */
+export function tokensForText(lines: Token[][], text: string, occurrence = 1): Token[] {
+  let seen = 0;
+  for (const lineTokens of lines) {
+    const lineText = lineTokens.map((token) => token.text).join('');
+    let column = lineText.indexOf(text);
+    while (column !== -1) {
+      if (++seen === occurrence) {
+        const end = column + text.length;
+        return lineTokens.filter((token) => token.startIndex < end && token.startIndex + token.text.length > column);
+      }
+      column = lineText.indexOf(text, column + 1);
+    }
+  }
+  throw new Error(`Text #${occurrence} ${JSON.stringify(text)} not found in the source`);
+}

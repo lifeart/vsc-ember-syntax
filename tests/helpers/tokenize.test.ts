@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { comparableTokens, findToken, formatTokens, tokenize, tokensBetween } from './tokenize';
+import { comparableTokens, findToken, formatTokens, tokenize, tokensBetween, tokensForText } from './tokenize';
 
 const scopeName = 'text.html.ember-handlebars';
 
@@ -94,5 +94,28 @@ describe('formatTokens', () => {
   it('leaves no trailing space on a token that only has the root scope', async () => {
     const source = 'x';
     expect(formatTokens(await tokenize(source, scopeName), source)).toBe('>x\n ^\n');
+  });
+});
+
+describe('tokensForText', () => {
+  it('returns every token that overlaps the text', async () => {
+    const tokens = await tokenize('<b>x</b>', scopeName);
+    expect(tokensForText(tokens, 'b>x').map((token) => token.text)).toEqual(['b', '>', 'x']);
+  });
+
+  it('returns the whole token when the text is part of a larger token', async () => {
+    const tokens = await tokenize('<b>hello world</b>', scopeName);
+    expect(tokensForText(tokens, 'world').map((token) => token.text)).toEqual(['hello world']);
+  });
+
+  it('finds later occurrences, including on later lines', async () => {
+    const tokens = await tokenize('<b>x</b>\n<i>x</i>', scopeName);
+    const [second] = tokensForText(tokens, 'x', 2);
+    expect(second.line).toBe(1);
+  });
+
+  it('throws when the text is not in the source', async () => {
+    const tokens = await tokenize('<b>x</b>', scopeName);
+    expect(() => tokensForText(tokens, 'y')).toThrow('Text #1 "y" not found in the source');
   });
 });
