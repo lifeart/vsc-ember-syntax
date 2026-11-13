@@ -10,6 +10,9 @@ export default {
   fileTypes: ['hbs'],
   patterns: [
     {
+      include: '#glimmer-escaped-expression',
+    },
+    {
       include: '#style',
     },
     {
@@ -62,6 +65,16 @@ export default {
     },
   ],
   repository: {
+    // A backslash before {{ makes Handlebars output the mustache as plain text.
+    // Two backslashes are an escaped backslash, so the mustache after them is still a real one.
+    'glimmer-escaped-expression': {
+      match: '(?<!\\\\)(\\\\)(\\{\\{\\{.*?\\}\\}\\}|\\{\\{.*?\\}\\})',
+      captures: {
+        1: {
+          name: 'constant.character.escape.ember-handlebars',
+        },
+      },
+    },
     'glimmer-component-path': {
       match: '(::|_|\\$|\\.)',
       captures: {
