@@ -1,0 +1,111 @@
+><template>
+ ^ #808080
+  ^^^^^^^^ #569cd6
+          ^ #808080
+>  {{"a string literal"}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^^^^^^^^^^^ #ce9178
+                       ^^ #d4d4d4
+>  {{'single quotes'}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^^^^^^^^ #ce9178
+                    ^^ #d4d4d4
+>  {{ "spaced" }}
+ ^^^^ #d4d4d4
+      ^^^^^^^^ #ce9178
+              ^^^ #d4d4d4
+>  <p title={{"quoted"}} data-x={{42}}></p>
+   ^ #808080
+    ^ #569cd6
+      ^^^^^ #9cdcfe
+           ^^^ #d4d4d4
+              ^^^^^^^^ #ce9178
+                      ^^^ #d4d4d4
+                         ^^^^^^ #9cdcfe
+                               ^^^ #d4d4d4
+                                  ^^ #b5cea8
+                                    ^^ #d4d4d4
+                                      ^^^ #808080
+                                         ^ #569cd6
+                                          ^ #808080
+>  {{42}}
+ ^^^^ #d4d4d4
+     ^^ #b5cea8
+       ^^ #d4d4d4
+>  {{-1.5}}
+ ^^^^ #d4d4d4
+     ^^^^ #b5cea8
+         ^^ #d4d4d4
+>  {{0.25}}
+ ^^^^ #d4d4d4
+     ^^^^ #b5cea8
+         ^^ #d4d4d4
+>  {{format 42 -3}}
+ ^^^^ #d4d4d4
+     ^^^^^^ #c586c0
+            ^^ #b5cea8
+               ^^ #b5cea8
+                 ^^ #d4d4d4
+>  {{true}} {{false}} {{null}} {{undefined}}
+ ^^^^ #d4d4d4
+     ^^^^ #569cd6
+         ^^^^^ #d4d4d4
+              ^^^^^ #569cd6
+                   ^^^^^ #d4d4d4
+                        ^^^^ #569cd6
+                            ^^^^^ #d4d4d4
+                                 ^^^^^^^^^ #569cd6
+                                          ^^ #d4d4d4
+>  {{if true "a"}}
+ ^^^^ #d4d4d4
+     ^^ #c586c0
+        ^^^^ #569cd6
+             ^^^ #ce9178
+                ^^ #d4d4d4
+>  {{hash compact=true count=3 label=null}}
+ ^^^^ #d4d4d4
+     ^^^^ #c586c0
+          ^^^^^^^ #9cdcfe
+                 ^ #d4d4d4
+                  ^^^^ #569cd6
+                       ^^^^^ #9cdcfe
+                            ^ #d4d4d4
+                             ^ #b5cea8
+                               ^^^^^ #9cdcfe
+                                    ^ #d4d4d4
+                                     ^^^^ #569cd6
+                                         ^^ #d4d4d4
+>  {{format (hash a=undefined)}}
+ ^^^^ #d4d4d4
+     ^^^^^^ #c586c0
+            ^ #569cd6
+             ^^^^ #c586c0
+                  ^ #9cdcfe
+                   ^ #d4d4d4
+                    ^^^^^^^^^^ #569cd6
+                              ^^ #d4d4d4
+>  <Panel @collapsed={{false}} />
+   ^ #808080
+    ^^^^^ #4ec9b0
+          ^ #9cdcfe italic
+           ^^^^^^^^^ #9cdcfe
+                    ^^^ #d4d4d4
+                       ^^^^^ #569cd6
+                            ^^^ #d4d4d4
+                               ^^ #808080
+>  {{trueValue}} {{nullable}} {{@undefinedThing}} {{item42}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^^ #dcdcaa
+              ^^^^^ #d4d4d4
+                   ^^^^^^^^ #dcdcaa
+                           ^^^^^ #d4d4d4
+                                ^ #569cd6
+                                 ^^^^^^^^^^^^^^ #dcdcaa
+                                               ^^^^^ #d4d4d4
+                                                    ^^^^^^ #dcdcaa
+                                                          ^^ #d4d4d4
+></template>
+ ^^ #808080
+   ^^^^^^^^ #569cd6
+           ^ #808080
+>

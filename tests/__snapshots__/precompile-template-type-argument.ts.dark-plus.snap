@@ -1,0 +1,125 @@
+>import { precompileTemplate } from '@ember/template-compilation';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^^^^^^^^^^^^ #9cdcfe
+                            ^^^ #d4d4d4
+                               ^^^^ #c586c0
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                                 ^ #d4d4d4
+>
+>export const Precompiled = precompileTemplate<{ Args: { text: string } }>(`<em>{{@text}}</em>`, {
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^^^^^^^ #4fc1ff
+                         ^^^ #d4d4d4
+                            ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                              ^^^ #d4d4d4
+                                                 ^^^^ #9cdcfe
+                                                     ^^^^ #d4d4d4
+                                                         ^^^^ #9cdcfe
+                                                             ^^ #d4d4d4
+                                                               ^^^^^^ #4ec9b0
+                                                                     ^^^^^^ #d4d4d4
+                                                                           ^ #ce9178
+                                                                            ^ #808080
+                                                                             ^^ #569cd6
+                                                                               ^ #808080
+                                                                                ^^ #d4d4d4
+                                                                                  ^ #569cd6
+                                                                                   ^^^^ #dcdcaa
+                                                                                       ^^ #d4d4d4
+                                                                                         ^^ #808080
+                                                                                           ^^ #569cd6
+                                                                                             ^ #808080
+                                                                                              ^ #ce9178
+                                                                                               ^^^ #d4d4d4
+>  strictMode: true,
+   ^^^^^^^^^^^ #9cdcfe
+               ^^^^ #569cd6
+                   ^ #d4d4d4
+>});
+ ^^^ #d4d4d4
+>
+>export const Nested = precompileTemplate<{
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^^ #4fc1ff
+                    ^^^ #d4d4d4
+                       ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                         ^^ #d4d4d4
+>  Args: {
+   ^^^^ #9cdcfe
+       ^^^ #d4d4d4
+>    onSave: (data: { id: number; tags: Array<string> }) => Promise<void>;
+     ^^^^^^ #dcdcaa
+           ^^^ #d4d4d4
+              ^^^^ #9cdcfe
+                  ^^^^ #d4d4d4
+                      ^^ #9cdcfe
+                        ^^ #d4d4d4
+                          ^^^^^^ #4ec9b0
+                                ^^ #d4d4d4
+                                  ^^^^ #9cdcfe
+                                      ^^ #d4d4d4
+                                        ^^^^^ #4ec9b0
+                                             ^ #d4d4d4
+                                              ^^^^^^ #4ec9b0
+                                                    ^^^^^ #d4d4d4
+                                                         ^^ #569cd6
+                                                            ^^^^^^^ #4ec9b0
+                                                                   ^ #d4d4d4
+                                                                    ^^^^ #4ec9b0
+                                                                        ^^ #d4d4d4
+>    nested: { handler: (cb: (err: Error | null) => void) => void };
+     ^^^^^^ #9cdcfe
+           ^^^^ #d4d4d4
+               ^^^^^^^ #dcdcaa
+                      ^^^ #d4d4d4
+                         ^^ #dcdcaa
+                           ^^^ #d4d4d4
+                              ^^^ #9cdcfe
+                                 ^^ #d4d4d4
+                                   ^^^^^ #4ec9b0
+                                        ^^^ #d4d4d4
+                                           ^^^^ #4ec9b0
+                                               ^^ #d4d4d4
+                                                 ^^ #569cd6
+                                                    ^^^^ #4ec9b0
+                                                        ^^ #d4d4d4
+                                                          ^^ #569cd6
+                                                             ^^^^ #4ec9b0
+                                                                 ^^^ #d4d4d4
+>  };
+ ^^^^ #d4d4d4
+>}>(`<button {{on "click" @onSave}}>{{@label}}</button>`, { strictMode: true });
+ ^^^ #d4d4d4
+    ^ #ce9178
+     ^ #808080
+      ^^^^^^ #569cd6
+            ^^^ #d4d4d4
+               ^^ #c586c0
+                  ^^^^^^^ #ce9178
+                          ^ #569cd6
+                           ^^^^^^ #dcdcaa
+                                 ^^ #d4d4d4
+                                   ^ #808080
+                                    ^^ #d4d4d4
+                                      ^ #569cd6
+                                       ^^^^^ #dcdcaa
+                                            ^^ #d4d4d4
+                                              ^^ #808080
+                                                ^^^^^^ #569cd6
+                                                      ^ #808080
+                                                       ^ #ce9178
+                                                        ^^^^ #d4d4d4
+                                                            ^^^^^^^^^^^ #9cdcfe
+                                                                        ^^^^ #569cd6
+                                                                            ^^^^ #d4d4d4
+>
+>const after = 1;
+ ^^^^^ #569cd6
+       ^^^^^ #4fc1ff
+            ^^^ #d4d4d4
+               ^ #b5cea8
+                ^ #d4d4d4
+>

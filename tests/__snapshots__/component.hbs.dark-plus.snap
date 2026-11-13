@@ -1,0 +1,189 @@
+>{{! A classic component template }}
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #6a9955
+><div class="profile {{if @isActive 'active'}}" ...attributes>
+ ^ #808080
+  ^^^ #569cd6
+      ^^^^^ #9cdcfe
+           ^ #d4d4d4
+            ^^^^^^^^^ #ce9178
+                     ^^ #d4d4d4
+                       ^^ #c586c0
+                          ^ #569cd6
+                           ^^^^^^^^ #dcdcaa
+                                   ^^^^^^^^^ #ce9178
+                                            ^^ #d4d4d4
+                                              ^ #ce9178
+                                                ^^^^^^^^^^^^^ #569cd6 bold
+                                                             ^ #808080
+>  <h2>{{@user.name}}</h2>
+   ^ #808080
+    ^^ #569cd6
+      ^ #808080
+       ^^ #d4d4d4
+         ^ #569cd6
+          ^^^^ #dcdcaa
+              ^ #808080
+               ^^^^ #dcdcaa
+                   ^^ #d4d4d4
+                     ^^ #808080
+                       ^^ #569cd6
+                         ^ #808080
+>
+>  {{#if @user.bio}}
+   ^^^ #808080
+      ^^ #c586c0
+         ^ #569cd6
+          ^^^^ #dcdcaa
+              ^ #808080
+               ^^^ #dcdcaa
+                  ^^ #808080
+>    <p>{{@user.bio}}</p>
+     ^ #808080
+      ^ #569cd6
+       ^ #808080
+        ^^ #d4d4d4
+          ^ #569cd6
+           ^^^^ #dcdcaa
+               ^ #808080
+                ^^^ #dcdcaa
+                   ^^ #d4d4d4
+                     ^^ #808080
+                       ^ #569cd6
+                        ^ #808080
+>  {{else}}
+   ^^ #808080
+     ^^^^ #c586c0
+         ^^ #808080
+>    <p class="muted">No bio yet</p>
+     ^ #808080
+      ^ #569cd6
+        ^^^^^ #9cdcfe
+             ^ #d4d4d4
+              ^^^^^^^ #ce9178
+                     ^ #808080
+                      ^^^^^^^^^^ #d4d4d4
+                                ^^ #808080
+                                  ^ #569cd6
+                                   ^ #808080
+>  {{/if}}
+   ^^^ #808080
+      ^^ #c586c0
+        ^^ #808080
+>
+>  {{#each @user.links as |link|}}
+   ^^^ #808080
+      ^^^^ #c586c0
+           ^ #569cd6
+            ^^^^ #dcdcaa
+                ^ #808080
+                 ^^^^^ #dcdcaa
+                      ^^^ #c586c0
+                          ^ #569cd6
+                           ^^^^ #dcdcaa
+                               ^ #569cd6
+                                ^^ #808080
+>    <a href={{link.url}} target="_blank" rel="noopener">{{link.label}}</a>
+     ^ #808080
+      ^ #569cd6
+        ^^^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #dcdcaa
+                   ^ #808080
+                    ^^^ #dcdcaa
+                       ^^^ #d4d4d4
+                          ^^^^^^ #9cdcfe
+                                ^ #d4d4d4
+                                 ^^^^^^^^ #ce9178
+                                          ^^^ #9cdcfe
+                                             ^ #d4d4d4
+                                              ^^^^^^^^^^ #ce9178
+                                                        ^ #808080
+                                                         ^^ #d4d4d4
+                                                           ^^^^ #dcdcaa
+                                                               ^ #808080
+                                                                ^^^^^ #dcdcaa
+                                                                     ^^ #d4d4d4
+                                                                       ^^ #808080
+                                                                         ^ #569cd6
+                                                                          ^ #808080
+>  {{/each}}
+   ^^^ #808080
+      ^^^^ #c586c0
+          ^^ #808080
+>
+>  <Profile::Avatar @src={{@user.avatar}} @size="large" />
+   ^ #808080
+    ^^^^^^^ #4ec9b0
+           ^^ #808080
+             ^^^^^^ #4ec9b0
+                    ^ #9cdcfe italic
+                     ^^^ #9cdcfe
+                        ^^^ #d4d4d4
+                           ^ #569cd6
+                            ^^^^ #dcdcaa
+                                ^ #808080
+                                 ^^^^^^ #dcdcaa
+                                       ^^^ #d4d4d4
+                                          ^ #9cdcfe italic
+                                           ^^^^ #9cdcfe
+                                               ^ #d4d4d4
+                                                ^^^^^^^ #ce9178
+                                                        ^^ #808080
+>  <button type="button" {{on "click" (fn this.follow @user)}}>Follow</button>
+   ^ #808080
+    ^^^^^^ #569cd6
+           ^^^^ #9cdcfe
+               ^ #d4d4d4
+                ^^^^^^^^ #ce9178
+                        ^^^ #d4d4d4
+                           ^^ #c586c0
+                              ^^^^^^^ #ce9178
+                                      ^ #569cd6
+                                       ^^ #c586c0
+                                          ^^^^ #569cd6
+                                              ^ #808080
+                                               ^^^^^^ #dcdcaa
+                                                      ^ #569cd6
+                                                       ^^^^ #dcdcaa
+                                                           ^ #569cd6
+                                                            ^^ #d4d4d4
+                                                              ^ #808080
+                                                               ^^^^^^ #d4d4d4
+                                                                     ^^ #808080
+                                                                       ^^^^^^ #569cd6
+                                                                             ^ #808080
+>
+>  {{yield (hash title=(component "profile/title" user=@user))}}
+ ^^^^ #d4d4d4
+     ^^^^^ #c586c0
+           ^ #569cd6
+            ^^^^ #c586c0
+                 ^^^^^ #9cdcfe
+                      ^ #d4d4d4
+                       ^ #569cd6
+                        ^^^^^^^^^ #c586c0
+                                  ^^^^^^^^^^^^^^^ #ce9178
+                                                  ^^^^ #9cdcfe
+                                                      ^ #d4d4d4
+                                                       ^ #569cd6
+                                                        ^^^^ #dcdcaa
+                                                            ^^ #569cd6
+                                                              ^^ #d4d4d4
+>  {{{@user.signatureHtml}}}
+ ^^^^^ #d4d4d4
+      ^ #569cd6
+       ^^^^ #dcdcaa
+           ^ #808080
+            ^^^^^^^^^^^^^ #dcdcaa
+                         ^^^ #d4d4d4
+>  {{!-- A long
+   ^^^^^^^^^^^^ #6a9955
+>    comment --}}
+ ^^^^^^^^^^^^^^^^ #6a9955
+>  <!-- html comment -->
+   ^^^^^^^^^^^^^^^^^^^^^ #6a9955
+></div>
+ ^^ #808080
+   ^^^ #569cd6
+      ^ #808080
+>

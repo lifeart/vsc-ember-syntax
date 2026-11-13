@@ -1,9 +1,17 @@
+// A literal must not be part of a longer name or path, such as `trueValue` or `foo-1`.
+const NOT_AFTER_NAME = '(?<![\\w@.$:-])';
+const NOT_BEFORE_NAME = '(?![\\w$:-])';
+const NUMBER = '-?\\d*\\.?\\d+';
+
 export default {
   $schema: 'https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json',
   name: 'Glimmer',
   scopeName: 'text.html.ember-handlebars',
   fileTypes: ['hbs'],
   patterns: [
+    {
+      include: '#glimmer-escaped-expression',
+    },
     {
       include: '#style',
     },
@@ -15,6 +23,9 @@ export default {
     },
     {
       include: '#glimmer-bools',
+    },
+    {
+      include: '#glimmer-literal-expression',
     },
     {
       include: '#glimmer-special-block',
@@ -54,6 +65,16 @@ export default {
     },
   ],
   repository: {
+    // A backslash before {{ makes Handlebars output the mustache as plain text.
+    // Two backslashes are an escaped backslash, so the mustache after them is still a real one.
+    'glimmer-escaped-expression': {
+      match: '(?<!\\\\)(\\\\)(\\{\\{\\{.*?\\}\\}\\}|\\{\\{.*?\\}\\})',
+      captures: {
+        1: {
+          name: 'constant.character.escape.ember-handlebars',
+        },
+      },
+    },
     'glimmer-component-path': {
       match: '(::|_|\\$|\\.)',
       captures: {
@@ -177,33 +198,23 @@ export default {
       ],
     },
     'boolean': {
-      match: 'true|false|undefined|null',
+      match: `${NOT_AFTER_NAME}(?:(true|false)|(null)|(undefined))${NOT_BEFORE_NAME}`,
       captures: {
-        0: {
-          name: 'string.regexp',
-        },
         1: {
-          name: 'string.regexp',
+          name: 'constant.language.boolean.ember-handlebars',
         },
         2: {
-          name: 'string.regexp',
+          name: 'constant.language.null.ember-handlebars',
+        },
+        3: {
+          name: 'constant.language.undefined.ember-handlebars',
         },
       },
       patterns: [],
     },
     'digit': {
-      match: '\\d*(\\.)?\\d+',
-      captures: {
-        0: {
-          name: 'constant.numeric',
-        },
-        1: {
-          name: 'constant.numeric',
-        },
-        2: {
-          name: 'constant.numeric',
-        },
-      },
+      match: `${NOT_AFTER_NAME}${NUMBER}${NOT_BEFORE_NAME}`,
+      name: 'constant.numeric',
       patterns: [],
     },
     'param': {
@@ -301,24 +312,41 @@ export default {
     },
     'glimmer-bools': {
       name: 'entity.expression.ember-handlebars',
-      match: '({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})',
+      match: `({{~?)(true|false|null|undefined|${NUMBER})(~?}})`,
       captures: {
-        0: {
-          name: 'keyword.operator',
-        },
         1: {
           name: 'keyword.operator',
         },
         2: {
-          name: 'string.regexp',
+          patterns: [
+            {
+              include: '#boolean',
+            },
+            {
+              include: '#digit',
+            },
+          ],
         },
         3: {
-          name: 'string.regexp',
-        },
-        4: {
           name: 'keyword.operator',
         },
       },
+    },
+    // A mustache that starts with a string literal, such as {{"text"}}.
+    'glimmer-literal-expression': {
+      name: 'entity.expression.ember-handlebars',
+      begin: '({{~?)(?=["\'])',
+      end: '(~?}})',
+      captures: {
+        1: {
+          name: 'keyword.operator',
+        },
+      },
+      patterns: [
+        {
+          include: '#glimmer-supexp-content',
+        },
+      ],
     },
     'glimmer-else-block': {
       name: 'entity.expression.ember-handlebars',
@@ -910,6 +938,9 @@ export default {
           include: '#glimmer-bools',
         },
         {
+          include: '#glimmer-literal-expression',
+        },
+        {
           include: '#glimmer-unescaped-expression',
         },
         {
@@ -998,6 +1029,74 @@ export default {
       patterns: [
         {
           include: '#tag-like-content',
+        },
+      ],
+    },
+    // A <template> element inside a Glimmer <template> block in .gjs and .gts files, scoped like any
+    // other HTML tag. The outer block ends at the first </template> it reaches, so this rule matches the
+    // whole element, including its own closing tag. The .gjs and .gts build adds it to template content.
+    // Self-closing <template /> tags have no closing tag, so html-tag handles them.
+    'nested-template-element': {
+      begin: '(<)(template)\\b(?![^>]*/>)',
+      beginCaptures: {
+        0: {
+          name: 'meta.tag.any.ember-handlebars',
+        },
+        1: {
+          name: 'punctuation.definition.tag',
+        },
+        2: {
+          name: 'entity.name.tag.html.ember-handlebars',
+        },
+      },
+      end: '(</)(template)\\s*(>)',
+      endCaptures: {
+        0: {
+          name: 'meta.tag.any.ember-handlebars',
+        },
+        1: {
+          name: 'punctuation.definition.tag',
+        },
+        2: {
+          name: 'entity.name.tag.html.ember-handlebars',
+        },
+        3: {
+          name: 'punctuation.definition.tag',
+        },
+      },
+      patterns: [
+        {
+          // The attributes of the opening tag. It only starts when whitespace follows the tag name.
+          // A rule that starts and ends at the same position makes the tokenizer stop the line.
+          name: 'meta.tag.any.ember-handlebars',
+          begin: '(?<=<template)(?=\\s)',
+          end: '(?=>)',
+          patterns: [
+            {
+              include: '#tag-like-content',
+            },
+          ],
+        },
+        {
+          // The content between the opening and closing tags.
+          begin: '(>)',
+          beginCaptures: {
+            0: {
+              name: 'meta.tag.any.ember-handlebars',
+            },
+            1: {
+              name: 'punctuation.definition.tag',
+            },
+          },
+          end: '(?=</template\\s*>)',
+          patterns: [
+            {
+              include: '#nested-template-element',
+            },
+            {
+              include: '$self',
+            },
+          ],
         },
       ],
     },

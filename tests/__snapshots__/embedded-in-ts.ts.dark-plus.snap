@@ -1,0 +1,136 @@
+>import { hbs } from 'ember-cli-htmlbars';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^ #9cdcfe
+             ^^^ #d4d4d4
+                ^^^^ #c586c0
+                     ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                         ^ #d4d4d4
+>import { render } from '@ember/test-helpers';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^ #9cdcfe
+                ^^^ #d4d4d4
+                   ^^^^ #c586c0
+                        ^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                             ^ #d4d4d4
+>import { precompileTemplate } from '@ember/template-compilation';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^^^^^^^^^^^^ #9cdcfe
+                            ^^^ #d4d4d4
+                               ^^^^ #c586c0
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                                 ^ #d4d4d4
+>
+>interface Context {
+ ^^^^^^^^^ #569cd6
+           ^^^^^^^ #4ec9b0
+                  ^^ #d4d4d4
+>  name: string;
+   ^^^^ #9cdcfe
+       ^^ #d4d4d4
+         ^^^^^^ #4ec9b0
+               ^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>export async function setup(this: Context): Promise<void> {
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^^^^ #569cd6
+                       ^^^^^ #dcdcaa
+                            ^ #d4d4d4
+                             ^^^^ #569cd6
+                                 ^^ #d4d4d4
+                                   ^^^^^^^ #4ec9b0
+                                          ^^^ #d4d4d4
+                                             ^^^^^^^ #4ec9b0
+                                                    ^ #d4d4d4
+                                                     ^^^^ #4ec9b0
+                                                         ^^^ #d4d4d4
+>  await render(hbs`<Greeting @name={{this.name}} as |g|>{{g.text}}</Greeting>`);
+   ^^^^^ #c586c0
+         ^^^^^^ #dcdcaa
+               ^ #d4d4d4
+                ^^^ #dcdcaa
+                   ^ #d4d4d4
+                    ^ #808080
+                     ^^^^^^^^ #4ec9b0
+                              ^ #9cdcfe italic
+                               ^^^^ #9cdcfe
+                                   ^^^ #d4d4d4
+                                      ^^^^ #569cd6
+                                          ^ #808080
+                                           ^^^^ #dcdcaa
+                                               ^^ #d4d4d4
+                                                 ^^^ #c586c0
+                                                     ^ #569cd6
+                                                      ^ #dcdcaa
+                                                       ^ #569cd6
+                                                        ^ #808080
+                                                         ^^ #d4d4d4
+                                                           ^ #dcdcaa
+                                                            ^ #808080
+                                                             ^^^^ #dcdcaa
+                                                                 ^^ #d4d4d4
+                                                                   ^^ #808080
+                                                                     ^^^^^^^^ #4ec9b0
+                                                                             ^ #808080
+                                                                              ^ #ce9178
+                                                                               ^^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>export const Precompiled = precompileTemplate(`<em>{{@text}}</em>`, {
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^^^^^^^ #4fc1ff
+                         ^^^ #d4d4d4
+                            ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                                              ^ #d4d4d4
+                                               ^ #ce9178
+                                                ^ #808080
+                                                 ^^ #569cd6
+                                                   ^ #808080
+                                                    ^^ #d4d4d4
+                                                      ^ #569cd6
+                                                       ^^^^ #dcdcaa
+                                                           ^^ #d4d4d4
+                                                             ^^ #808080
+                                                               ^^ #569cd6
+                                                                 ^ #808080
+                                                                  ^ #ce9178
+                                                                   ^^^ #d4d4d4
+>  strictMode: true,
+   ^^^^^^^^^^^ #9cdcfe
+               ^^^^ #569cd6
+                   ^ #d4d4d4
+>});
+ ^^^ #d4d4d4
+>
+>const generic: Array<string> = [];
+ ^^^^^ #569cd6
+       ^^^^^^^ #4fc1ff
+              ^^ #d4d4d4
+                ^^^^^ #4ec9b0
+                     ^ #d4d4d4
+                      ^^^^^^ #4ec9b0
+                            ^^^^^^^ #d4d4d4
+>const compared = generic.length < 1 && generic.length > -1;
+ ^^^^^ #569cd6
+       ^^^^^^^^ #4fc1ff
+               ^^^ #d4d4d4
+                  ^^^^^^^ #9cdcfe
+                         ^ #d4d4d4
+                          ^^^^^^ #9cdcfe
+                                ^^^ #d4d4d4
+                                   ^ #b5cea8
+                                    ^^^^ #d4d4d4
+                                        ^^^^^^^ #9cdcfe
+                                               ^ #d4d4d4
+                                                ^^^^^^ #9cdcfe
+                                                      ^^^^ #d4d4d4
+                                                          ^ #b5cea8
+                                                           ^ #d4d4d4
+>

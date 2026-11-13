@@ -1,0 +1,23 @@
+{{! A classic component template }}
+<div class="profile {{if @isActive 'active'}}" ...attributes>
+  <h2>{{@user.name}}</h2>
+
+  {{#if @user.bio}}
+    <p>{{@user.bio}}</p>
+  {{else}}
+    <p class="muted">No bio yet</p>
+  {{/if}}
+
+  {{#each @user.links as |link|}}
+    <a href={{link.url}} target="_blank" rel="noopener">{{link.label}}</a>
+  {{/each}}
+
+  <Profile::Avatar @src={{@user.avatar}} @size="large" />
+  <button type="button" {{on "click" (fn this.follow @user)}}>Follow</button>
+
+  {{yield (hash title=(component "profile/title" user=@user))}}
+  {{{@user.signatureHtml}}}
+  {{!-- A long
+    comment --}}
+  <!-- html comment -->
+</div>

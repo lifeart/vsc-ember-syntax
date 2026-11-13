@@ -1,0 +1,124 @@
+>import { concat, get } from '@ember/helper';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^^^ #9cdcfe
+                     ^^^ #d4d4d4
+                        ^^^^ #c586c0
+                             ^^^^^^^^^^^^^^^ #ce9178
+                                            ^ #d4d4d4
+>import formatDate from './format-date';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^^ #9cdcfe
+                   ^^^^ #c586c0
+                        ^^^^^^^^^^^^^^^ #ce9178
+                                       ^ #d4d4d4
+>
+><template>
+ ^ #808080
+  ^^^^^^^^ #569cd6
+          ^ #808080
+>  {{@title}}
+ ^^^^ #d4d4d4
+     ^ #569cd6
+      ^^^^^ #dcdcaa
+           ^^ #d4d4d4
+>  {{this.count}}
+ ^^^^ #d4d4d4
+     ^^^^ #569cd6
+         ^ #808080
+          ^^^^^ #dcdcaa
+               ^^ #d4d4d4
+>  {{@user.profile.name}}
+ ^^^^ #d4d4d4
+     ^ #569cd6
+      ^^^^ #dcdcaa
+          ^ #808080
+           ^^^^^^^ #dcdcaa
+                  ^ #808080
+                   ^^^^ #dcdcaa
+                       ^^ #d4d4d4
+>  {{formatDate @date format="short" locale=this.locale}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^^^ #c586c0
+                ^ #569cd6
+                 ^^^^ #dcdcaa
+                      ^^^^^^ #9cdcfe
+                            ^ #d4d4d4
+                             ^^^^^^^ #ce9178
+                                     ^^^^^^ #9cdcfe
+                                           ^ #d4d4d4
+                                            ^^^^ #569cd6
+                                                ^ #808080
+                                                 ^^^^^^ #dcdcaa
+                                                       ^^ #d4d4d4
+>  {{concat "Hello, " (get @user "name") "!"}}
+ ^^^^ #d4d4d4
+     ^^^^^^ #c586c0
+            ^^^^^^^^^ #ce9178
+                      ^ #569cd6
+                       ^^^ #c586c0
+                           ^ #569cd6
+                            ^^^^ #dcdcaa
+                                 ^^^^^^ #ce9178
+                                       ^ #569cd6
+                                         ^^^ #ce9178
+                                            ^^ #d4d4d4
+>  {{if @isActive "on" "off"}}
+ ^^^^ #d4d4d4
+     ^^ #c586c0
+        ^ #569cd6
+         ^^^^^^^^ #dcdcaa
+                  ^^^^ #ce9178
+                       ^^^^^ #ce9178
+                            ^^ #d4d4d4
+>  {{{@trustedHtml}}}
+ ^^^^^ #d4d4d4
+      ^ #569cd6
+       ^^^^^^^^^^^ #dcdcaa
+                  ^^^ #d4d4d4
+>  {{~@trimmed~}}
+ ^^^^^ #d4d4d4
+      ^ #569cd6
+       ^^^^^^^ #dcdcaa
+              ^^^ #d4d4d4
+>  {{has-block "header"}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^^ #c586c0
+               ^^^^^^^^ #ce9178
+                       ^^ #d4d4d4
+>  {{yield}}
+ ^^^^ #d4d4d4
+     ^^^^^ #c586c0
+          ^^ #d4d4d4
+>  {{yield @model to="inverse"}}
+ ^^^^ #d4d4d4
+     ^^^^^ #c586c0
+           ^ #569cd6
+            ^^^^^ #dcdcaa
+                  ^^ #9cdcfe
+                    ^ #d4d4d4
+                     ^^^^^^^^^ #ce9178
+                              ^^ #d4d4d4
+>  {{outlet}}
+ ^^^^ #d4d4d4
+     ^^^^^^ #c586c0
+           ^^ #d4d4d4
+>  {{debugger}}
+ ^^^^ #d4d4d4
+     ^^^^^^^^ #dcdcaa
+             ^^ #d4d4d4
+>  {{log "value" this.value}}
+ ^^^^ #d4d4d4
+     ^^^ #c586c0
+         ^^^^^^^ #ce9178
+                 ^^^^ #569cd6
+                     ^ #808080
+                      ^^^^^ #dcdcaa
+                           ^^ #d4d4d4
+></template>
+ ^^ #808080
+   ^^^^^^^^ #569cd6
+           ^ #808080
+>

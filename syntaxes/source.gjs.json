@@ -11,7 +11,7 @@
     }
   ],
   "injections": {
-    "L:source.gjs -comment -(string -meta.embedded)": {
+    "L:source.gjs -comment -(string -meta.embedded) -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs": {
       "patterns": [
         {
           "include": "#main"
@@ -50,6 +50,12 @@
           },
           "patterns": [
             {
+              "include": "#nested-template-element"
+            },
+            {
+              "include": "#glimmer-escaped-expression"
+            },
+            {
               "include": "#style"
             },
             {
@@ -60,6 +66,9 @@
             },
             {
               "include": "#glimmer-bools"
+            },
+            {
+              "include": "#glimmer-literal-expression"
             },
             {
               "include": "#glimmer-special-block"
@@ -143,6 +152,12 @@
               "contentName": "meta.html.embedded.block",
               "patterns": [
                 {
+                  "include": "#nested-template-element"
+                },
+                {
+                  "include": "#glimmer-escaped-expression"
+                },
+                {
                   "include": "#style"
                 },
                 {
@@ -153,6 +168,9 @@
                 },
                 {
                   "include": "#glimmer-bools"
+                },
+                {
+                  "include": "#glimmer-literal-expression"
                 },
                 {
                   "include": "#glimmer-special-block"
@@ -219,6 +237,9 @@
               "include": "source.ts#template-substitution-element"
             },
             {
+              "include": "#glimmer-escaped-expression"
+            },
+            {
               "include": "#style"
             },
             {
@@ -229,6 +250,9 @@
             },
             {
               "include": "#glimmer-bools"
+            },
+            {
+              "include": "#glimmer-literal-expression"
             },
             {
               "include": "#glimmer-special-block"
@@ -310,6 +334,9 @@
               },
               "patterns": [
                 {
+                  "include": "#glimmer-escaped-expression"
+                },
+                {
                   "include": "#style"
                 },
                 {
@@ -320,6 +347,9 @@
                 },
                 {
                   "include": "#glimmer-bools"
+                },
+                {
+                  "include": "#glimmer-literal-expression"
                 },
                 {
                   "include": "#glimmer-special-block"
@@ -362,105 +392,130 @@
           ]
         },
         {
-          "begin": "((precompileTemplate)\\s*)(\\()",
+          "begin": "((precompileTemplate)\\s*)(?=[<(])",
           "beginCaptures": {
             "1": {
               "name": "entity.name.function.ts"
             },
             "2": {
               "name": "meta.function-call.ts"
-            },
-            "3": {
-              "name": "meta.brace.round.ts"
             }
           },
-          "end": "(\\))",
-          "endCaptures": {
-            "1": {
-              "name": "meta.brace.round.ts"
-            }
-          },
+          "end": "(?<=\\))|(?=[^\\s<(])",
           "patterns": [
             {
-              "begin": "((`|'|\"))",
-              "contentName": "meta.embedded.block.html",
+              "include": "source.ts#type-arguments"
+            },
+            {
+              "begin": "(\\()",
               "beginCaptures": {
                 "1": {
-                  "name": "string.template.ts"
-                },
-                "2": {
-                  "name": "punctuation.definition.string.template.begin.ts"
+                  "name": "meta.brace.round.ts"
                 }
               },
-              "end": "((`|'|\"))",
+              "end": "(\\))",
               "endCaptures": {
                 "1": {
-                  "name": "string.template.ts"
-                },
-                "2": {
-                  "name": "punctuation.definition.string.template.end.ts"
+                  "name": "meta.brace.round.ts"
                 }
               },
               "patterns": [
                 {
-                  "include": "#style"
+                  "begin": "((`|'|\"))",
+                  "contentName": "meta.embedded.block.html",
+                  "beginCaptures": {
+                    "1": {
+                      "name": "string.template.ts"
+                    },
+                    "2": {
+                      "name": "punctuation.definition.string.template.begin.ts"
+                    }
+                  },
+                  "end": "((`|'|\"))",
+                  "endCaptures": {
+                    "1": {
+                      "name": "string.template.ts"
+                    },
+                    "2": {
+                      "name": "punctuation.definition.string.template.end.ts"
+                    }
+                  },
+                  "patterns": [
+                    {
+                      "include": "#glimmer-escaped-expression"
+                    },
+                    {
+                      "include": "#style"
+                    },
+                    {
+                      "include": "#script"
+                    },
+                    {
+                      "include": "#glimmer-else-block"
+                    },
+                    {
+                      "include": "#glimmer-bools"
+                    },
+                    {
+                      "include": "#glimmer-literal-expression"
+                    },
+                    {
+                      "include": "#glimmer-special-block"
+                    },
+                    {
+                      "include": "#glimmer-unescaped-expression"
+                    },
+                    {
+                      "include": "#glimmer-comment-block"
+                    },
+                    {
+                      "include": "#glimmer-comment-inline"
+                    },
+                    {
+                      "include": "#glimmer-expression-property"
+                    },
+                    {
+                      "include": "#glimmer-control-expression"
+                    },
+                    {
+                      "include": "#glimmer-expression"
+                    },
+                    {
+                      "include": "#glimmer-block"
+                    },
+                    {
+                      "include": "#html-tag"
+                    },
+                    {
+                      "include": "#component-tag"
+                    },
+                    {
+                      "include": "#html-comment"
+                    },
+                    {
+                      "include": "#entities"
+                    }
+                  ]
                 },
                 {
-                  "include": "#script"
+                  "include": "source.ts#object-literal"
                 },
                 {
-                  "include": "#glimmer-else-block"
-                },
-                {
-                  "include": "#glimmer-bools"
-                },
-                {
-                  "include": "#glimmer-special-block"
-                },
-                {
-                  "include": "#glimmer-unescaped-expression"
-                },
-                {
-                  "include": "#glimmer-comment-block"
-                },
-                {
-                  "include": "#glimmer-comment-inline"
-                },
-                {
-                  "include": "#glimmer-expression-property"
-                },
-                {
-                  "include": "#glimmer-control-expression"
-                },
-                {
-                  "include": "#glimmer-expression"
-                },
-                {
-                  "include": "#glimmer-block"
-                },
-                {
-                  "include": "#html-tag"
-                },
-                {
-                  "include": "#component-tag"
-                },
-                {
-                  "include": "#html-comment"
-                },
-                {
-                  "include": "#entities"
+                  "include": "source.ts"
                 }
               ]
-            },
-            {
-              "include": "source.ts#object-literal"
-            },
-            {
-              "include": "source.ts"
             }
           ]
         }
       ]
+    },
+    "glimmer-escaped-expression": {
+      "match": "(?<!\\\\)(\\\\)(\\{\\{\\{.*?\\}\\}\\}|\\{\\{.*?\\}\\})",
+      "captures": {
+        "1": {
+          "name": "constant.character.escape.ember-handlebars"
+        }
+      }
     },
     "glimmer-component-path": {
       "match": "(::|_|\\$|\\.)",
@@ -585,33 +640,23 @@
       ]
     },
     "boolean": {
-      "match": "true|false|undefined|null",
+      "match": "(?<![\\w@.$:-])(?:(true|false)|(null)|(undefined))(?![\\w$:-])",
       "captures": {
-        "0": {
-          "name": "string.regexp"
-        },
         "1": {
-          "name": "string.regexp"
+          "name": "constant.language.boolean.ember-handlebars"
         },
         "2": {
-          "name": "string.regexp"
+          "name": "constant.language.null.ember-handlebars"
+        },
+        "3": {
+          "name": "constant.language.undefined.ember-handlebars"
         }
       },
       "patterns": []
     },
     "digit": {
-      "match": "\\d*(\\.)?\\d+",
-      "captures": {
-        "0": {
-          "name": "constant.numeric"
-        },
-        "1": {
-          "name": "constant.numeric"
-        },
-        "2": {
-          "name": "constant.numeric"
-        }
-      },
+      "match": "(?<![\\w@.$:-])-?\\d*\\.?\\d+(?![\\w$:-])",
+      "name": "constant.numeric",
       "patterns": []
     },
     "param": {
@@ -709,24 +754,40 @@
     },
     "glimmer-bools": {
       "name": "entity.expression.ember-handlebars",
-      "match": "({{~?)(true|false|null|undefined|\\d*(\\.)?\\d+)(~?}})",
+      "match": "({{~?)(true|false|null|undefined|-?\\d*\\.?\\d+)(~?}})",
       "captures": {
-        "0": {
-          "name": "keyword.operator"
-        },
         "1": {
           "name": "keyword.operator"
         },
         "2": {
-          "name": "string.regexp"
+          "patterns": [
+            {
+              "include": "#boolean"
+            },
+            {
+              "include": "#digit"
+            }
+          ]
         },
         "3": {
-          "name": "string.regexp"
-        },
-        "4": {
           "name": "keyword.operator"
         }
       }
+    },
+    "glimmer-literal-expression": {
+      "name": "entity.expression.ember-handlebars",
+      "begin": "({{~?)(?=[\"'])",
+      "end": "(~?}})",
+      "captures": {
+        "1": {
+          "name": "keyword.operator"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#glimmer-supexp-content"
+        }
+      ]
     },
     "glimmer-else-block": {
       "name": "entity.expression.ember-handlebars",
@@ -1317,6 +1378,9 @@
           "include": "#glimmer-bools"
         },
         {
+          "include": "#glimmer-literal-expression"
+        },
+        {
           "include": "#glimmer-unescaped-expression"
         },
         {
@@ -1405,6 +1469,118 @@
       "patterns": [
         {
           "include": "#tag-like-content"
+        }
+      ]
+    },
+    "nested-template-element": {
+      "begin": "(<)(template)\\b(?![^>]*/>)",
+      "beginCaptures": {
+        "0": {
+          "name": "meta.tag.any.ember-handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "entity.name.tag.html.ember-handlebars"
+        }
+      },
+      "end": "(</)(template)\\s*(>)",
+      "endCaptures": {
+        "0": {
+          "name": "meta.tag.any.ember-handlebars"
+        },
+        "1": {
+          "name": "punctuation.definition.tag"
+        },
+        "2": {
+          "name": "entity.name.tag.html.ember-handlebars"
+        },
+        "3": {
+          "name": "punctuation.definition.tag"
+        }
+      },
+      "patterns": [
+        {
+          "name": "meta.tag.any.ember-handlebars",
+          "begin": "(?<=<template)(?=\\s)",
+          "end": "(?=>)",
+          "patterns": [
+            {
+              "include": "#tag-like-content"
+            }
+          ]
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "0": {
+              "name": "meta.tag.any.ember-handlebars"
+            },
+            "1": {
+              "name": "punctuation.definition.tag"
+            }
+          },
+          "end": "(?=</template\\s*>)",
+          "patterns": [
+            {
+              "include": "#nested-template-element"
+            },
+            {
+              "include": "#glimmer-escaped-expression"
+            },
+            {
+              "include": "#style"
+            },
+            {
+              "include": "#script"
+            },
+            {
+              "include": "#glimmer-else-block"
+            },
+            {
+              "include": "#glimmer-bools"
+            },
+            {
+              "include": "#glimmer-literal-expression"
+            },
+            {
+              "include": "#glimmer-special-block"
+            },
+            {
+              "include": "#glimmer-unescaped-expression"
+            },
+            {
+              "include": "#glimmer-comment-block"
+            },
+            {
+              "include": "#glimmer-comment-inline"
+            },
+            {
+              "include": "#glimmer-expression-property"
+            },
+            {
+              "include": "#glimmer-control-expression"
+            },
+            {
+              "include": "#glimmer-expression"
+            },
+            {
+              "include": "#glimmer-block"
+            },
+            {
+              "include": "#html-tag"
+            },
+            {
+              "include": "#component-tag"
+            },
+            {
+              "include": "#html-comment"
+            },
+            {
+              "include": "#entities"
+            }
+          ]
         }
       ]
     },

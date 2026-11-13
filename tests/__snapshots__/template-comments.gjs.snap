@@ -1,0 +1,56 @@
+>// A line comment with <template> in it
+ ^^ comment.line.double-slash.js punctuation.definition.comment.js
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.js
+>/* A block comment with <template>{{@x}}</template> in it */
+ ^^ comment.block.js punctuation.definition.comment.js
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.js
+                                                           ^^ comment.block.js punctuation.definition.comment.js
+>
+><template>
+ ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  {{! A short comment }}
+   ^^^ meta.js.embeddedTemplateWithoutArgs comment.inline.glimmer punctuation.definition.block.comment.glimmer
+      ^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs comment.inline.glimmer
+                       ^^ meta.js.embeddedTemplateWithoutArgs comment.inline.glimmer punctuation.definition.block.comment.glimmer
+>  {{!-- A long comment
+   ^^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.glimmer punctuation.definition.block.comment.glimmer
+        ^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.glimmer
+>    with {{mustaches}} and <tags> inside
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.glimmer
+>  --}}
+   ^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.glimmer punctuation.definition.block.comment.glimmer
+>  <!-- An HTML comment with {{@arg}} inside -->
+   ^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.html.ember-handlebars punctuation.definition.comment.html.ember-handlebars
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs comment.block.html.ember-handlebars
+                                             ^^^ meta.js.embeddedTemplateWithoutArgs comment.block.html.ember-handlebars punctuation.definition.comment.html.ember-handlebars
+>  <div {{! comment in a tag }} class="after-comment">Text</div>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+        ^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars comment.inline.glimmer punctuation.definition.block.comment.glimmer
+           ^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars comment.inline.glimmer
+                             ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars comment.inline.glimmer punctuation.definition.block.comment.glimmer
+                                ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                                     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                      ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                       ^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                                    ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                      ^^^^ meta.js.embeddedTemplateWithoutArgs
+                                                          ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                            ^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                               ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>  <p>Still highlighted</p>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+                       ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                         ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                          ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+></template>
+ ^^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>

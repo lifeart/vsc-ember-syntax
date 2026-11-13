@@ -3,7 +3,7 @@
     "gjs",
     "gts"
   ],
-  "injectionSelector": "L:source.gjs -comment -(string -meta.embedded), L:source.gts -comment -(string -meta.embedded)",
+  "injectionSelector": "L:source.gjs -comment -(string -meta.embedded) -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs, L:source.gts -comment -(string -meta.embedded) -meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs",
   "patterns": [
     {
       "name": "meta.js.embeddedTemplateWithoutArgs",
@@ -32,6 +32,9 @@
         }
       },
       "patterns": [
+        {
+          "include": "text.html.ember-handlebars#nested-template-element"
+        },
         {
           "include": "text.html.ember-handlebars"
         }
@@ -80,6 +83,9 @@
           "end": "(?=</template>)",
           "contentName": "meta.html.embedded.block",
           "patterns": [
+            {
+              "include": "text.html.ember-handlebars#nested-template-element"
+            },
             {
               "include": "text.html.ember-handlebars"
             }
