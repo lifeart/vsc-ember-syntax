@@ -68,9 +68,10 @@ function mergeGlimmerSourceGrammars(grammar, injectionSelector, { emberHandlebar
 
   createTemplate.patterns = [...copiedEmberHandlebarPatterns];
 
-  // precompileTemplate function
+  // precompileTemplate function. The template string rule is inside the rule for the call's parentheses.
   const precompileTemplate = grammar.repository.main.patterns
-    .find((pattern) => pattern.begin === '((precompileTemplate)\\s*)(\\()')
+    .find((pattern) => pattern.begin?.startsWith('((precompileTemplate)\\s*)'))
+    .patterns.find((pattern) => pattern.begin === '(\\()')
     .patterns.find((pattern) => pattern.begin === '((`|\'|"))');
 
   precompileTemplate.patterns = [...copiedEmberHandlebarPatterns];

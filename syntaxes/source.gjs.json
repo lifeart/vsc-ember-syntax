@@ -386,107 +386,118 @@
           ]
         },
         {
-          "begin": "((precompileTemplate)\\s*)(\\()",
+          "begin": "((precompileTemplate)\\s*)(?=[<(])",
           "beginCaptures": {
             "1": {
               "name": "entity.name.function.ts"
             },
             "2": {
               "name": "meta.function-call.ts"
-            },
-            "3": {
-              "name": "meta.brace.round.ts"
             }
           },
-          "end": "(\\))",
-          "endCaptures": {
-            "1": {
-              "name": "meta.brace.round.ts"
-            }
-          },
+          "end": "(?<=\\))|(?=[^\\s<(])",
           "patterns": [
             {
-              "begin": "((`|'|\"))",
-              "contentName": "meta.embedded.block.html",
+              "include": "source.ts#type-arguments"
+            },
+            {
+              "begin": "(\\()",
               "beginCaptures": {
                 "1": {
-                  "name": "string.template.ts"
-                },
-                "2": {
-                  "name": "punctuation.definition.string.template.begin.ts"
+                  "name": "meta.brace.round.ts"
                 }
               },
-              "end": "((`|'|\"))",
+              "end": "(\\))",
               "endCaptures": {
                 "1": {
-                  "name": "string.template.ts"
-                },
-                "2": {
-                  "name": "punctuation.definition.string.template.end.ts"
+                  "name": "meta.brace.round.ts"
                 }
               },
               "patterns": [
                 {
-                  "include": "#glimmer-escaped-expression"
+                  "begin": "((`|'|\"))",
+                  "contentName": "meta.embedded.block.html",
+                  "beginCaptures": {
+                    "1": {
+                      "name": "string.template.ts"
+                    },
+                    "2": {
+                      "name": "punctuation.definition.string.template.begin.ts"
+                    }
+                  },
+                  "end": "((`|'|\"))",
+                  "endCaptures": {
+                    "1": {
+                      "name": "string.template.ts"
+                    },
+                    "2": {
+                      "name": "punctuation.definition.string.template.end.ts"
+                    }
+                  },
+                  "patterns": [
+                    {
+                      "include": "#glimmer-escaped-expression"
+                    },
+                    {
+                      "include": "#style"
+                    },
+                    {
+                      "include": "#script"
+                    },
+                    {
+                      "include": "#glimmer-else-block"
+                    },
+                    {
+                      "include": "#glimmer-bools"
+                    },
+                    {
+                      "include": "#glimmer-literal-expression"
+                    },
+                    {
+                      "include": "#glimmer-special-block"
+                    },
+                    {
+                      "include": "#glimmer-unescaped-expression"
+                    },
+                    {
+                      "include": "#glimmer-comment-block"
+                    },
+                    {
+                      "include": "#glimmer-comment-inline"
+                    },
+                    {
+                      "include": "#glimmer-expression-property"
+                    },
+                    {
+                      "include": "#glimmer-control-expression"
+                    },
+                    {
+                      "include": "#glimmer-expression"
+                    },
+                    {
+                      "include": "#glimmer-block"
+                    },
+                    {
+                      "include": "#html-tag"
+                    },
+                    {
+                      "include": "#component-tag"
+                    },
+                    {
+                      "include": "#html-comment"
+                    },
+                    {
+                      "include": "#entities"
+                    }
+                  ]
                 },
                 {
-                  "include": "#style"
+                  "include": "source.ts#object-literal"
                 },
                 {
-                  "include": "#script"
-                },
-                {
-                  "include": "#glimmer-else-block"
-                },
-                {
-                  "include": "#glimmer-bools"
-                },
-                {
-                  "include": "#glimmer-literal-expression"
-                },
-                {
-                  "include": "#glimmer-special-block"
-                },
-                {
-                  "include": "#glimmer-unescaped-expression"
-                },
-                {
-                  "include": "#glimmer-comment-block"
-                },
-                {
-                  "include": "#glimmer-comment-inline"
-                },
-                {
-                  "include": "#glimmer-expression-property"
-                },
-                {
-                  "include": "#glimmer-control-expression"
-                },
-                {
-                  "include": "#glimmer-expression"
-                },
-                {
-                  "include": "#glimmer-block"
-                },
-                {
-                  "include": "#html-tag"
-                },
-                {
-                  "include": "#component-tag"
-                },
-                {
-                  "include": "#html-comment"
-                },
-                {
-                  "include": "#entities"
+                  "include": "source.ts"
                 }
               ]
-            },
-            {
-              "include": "source.ts#object-literal"
-            },
-            {
-              "include": "source.ts"
             }
           ]
         }
