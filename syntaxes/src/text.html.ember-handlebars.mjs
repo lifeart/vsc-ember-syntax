@@ -1017,7 +1017,8 @@ export default {
           ],
         },
       },
-      end: '(\\/?)(>)',
+      // A `<` ends a tag that is still being typed, such as `<Demo @na`.
+      end: '(\\/?)(>)|(?=<)',
       endCaptures: {
         1: {
           name: 'punctuation.definition.tag',
@@ -1111,7 +1112,8 @@ export default {
           name: 'entity.name.tag.html.ember-handlebars',
         },
       },
-      end: '(\\/?)(>)',
+      // A `<` ends a tag that is still being typed, such as `<Demo @na`.
+      end: '(\\/?)(>)|(?=<)',
       endCaptures: {
         1: {
           name: 'punctuation.definition.tag',

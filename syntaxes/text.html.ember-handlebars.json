@@ -1010,7 +1010,7 @@
           ]
         }
       },
-      "end": "(\\/?)(>)",
+      "end": "(\\/?)(>)|(?=<)",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
@@ -1097,7 +1097,7 @@
           "name": "entity.name.tag.html.ember-handlebars"
         }
       },
-      "end": "(\\/?)(>)",
+      "end": "(\\/?)(>)|(?=<)",
       "endCaptures": {
         "1": {
           "name": "punctuation.definition.tag"
