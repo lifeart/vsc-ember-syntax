@@ -1,0 +1,254 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^^^^^^^^^ meta.import.js variable.other.readwrite.alias.js
+                  ^^^^ meta.import.js keyword.control.from.js
+                       ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                        ^^^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                          ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                           ^ punctuation.terminator.statement.js
+>import { tracked } from '@glimmer/tracking';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^^^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                  ^ meta.import.js meta.block.js punctuation.definition.block.js
+                    ^^^^ meta.import.js keyword.control.from.js
+                         ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                          ^^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                           ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                            ^ punctuation.terminator.statement.js
+>import { action } from '@ember/object';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                 ^ meta.import.js meta.block.js punctuation.definition.block.js
+                   ^^^^ meta.import.js keyword.control.from.js
+                        ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                         ^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                      ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                       ^ punctuation.terminator.statement.js
+>import { on } from '@ember/modifier';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+             ^ meta.import.js meta.block.js punctuation.definition.block.js
+               ^^^^ meta.import.js keyword.control.from.js
+                    ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                     ^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                    ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                     ^ punctuation.terminator.statement.js
+>import { fn } from '@ember/helper';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+             ^ meta.import.js meta.block.js punctuation.definition.block.js
+               ^^^^ meta.import.js keyword.control.from.js
+                    ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                     ^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                  ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                   ^ punctuation.terminator.statement.js
+>
+>export default class TodoList extends Component {
+ ^^^^^^ meta.export.default.js keyword.control.export.js
+        ^^^^^^^ meta.export.default.js keyword.control.default.js
+                ^^^^^ meta.export.default.js meta.class.js storage.type.class.js
+                      ^^^^^^^^ meta.export.default.js meta.class.js entity.name.type.class.js
+                               ^^^^^^^ meta.export.default.js meta.class.js storage.modifier.js
+                                       ^^^^^^^^^ meta.export.default.js meta.class.js entity.other.inherited-class.js
+                                                 ^ meta.export.default.js meta.class.js punctuation.definition.block.js
+>  @tracked items = [];
+   ^ meta.export.default.js meta.class.js meta.decorator.js punctuation.decorator.js
+    ^^^^^^^ meta.export.default.js meta.class.js meta.decorator.js variable.other.readwrite.js
+            ^^^^^ meta.export.default.js meta.class.js meta.field.declaration.js meta.definition.property.js variable.object.property.js
+                  ^ meta.export.default.js meta.class.js meta.field.declaration.js keyword.operator.assignment.js
+                    ^ meta.export.default.js meta.class.js meta.field.declaration.js meta.array.literal.js meta.brace.square.js
+                     ^ meta.export.default.js meta.class.js meta.field.declaration.js meta.array.literal.js meta.brace.square.js
+                      ^ meta.export.default.js meta.class.js punctuation.terminator.statement.js
+>  @tracked filter = 'all';
+   ^ meta.export.default.js meta.class.js meta.decorator.js punctuation.decorator.js
+    ^^^^^^^ meta.export.default.js meta.class.js meta.decorator.js variable.other.readwrite.js
+            ^^^^^^ meta.export.default.js meta.class.js meta.field.declaration.js meta.definition.property.js variable.object.property.js
+                   ^ meta.export.default.js meta.class.js meta.field.declaration.js keyword.operator.assignment.js
+                     ^ meta.export.default.js meta.class.js meta.field.declaration.js string.quoted.single.js punctuation.definition.string.begin.js
+                      ^^^ meta.export.default.js meta.class.js meta.field.declaration.js string.quoted.single.js
+                         ^ meta.export.default.js meta.class.js meta.field.declaration.js string.quoted.single.js punctuation.definition.string.end.js
+                          ^ meta.export.default.js meta.class.js punctuation.terminator.statement.js
+>
+>  get visibleItems() {
+   ^^^ meta.export.default.js meta.class.js meta.method.declaration.js storage.type.property.js
+       ^^^^^^^^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.definition.method.js entity.name.function.js
+                   ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.begin.js
+                    ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.end.js
+                      ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.definition.block.js
+>    return this.filter === 'all' ? this.items : this.items.filter((item) => item.done);
+     ^^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.control.flow.js
+            ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.language.this.js
+                ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js
+                 ^^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js
+                        ^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.comparison.js
+                            ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js string.quoted.single.js punctuation.definition.string.begin.js
+                             ^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js string.quoted.single.js
+                                ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js string.quoted.single.js punctuation.definition.string.end.js
+                                  ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.ternary.js
+                                    ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.language.this.js
+                                        ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js
+                                         ^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js
+                                               ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.ternary.js
+                                                 ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.language.this.js
+                                                     ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js punctuation.accessor.js
+                                                      ^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.other.object.property.js
+                                                           ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js punctuation.accessor.js
+                                                            ^^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js entity.name.function.js
+                                                                  ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.brace.round.js
+                                                                   ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.begin.js
+                                                                    ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.arrow.js meta.parameters.js variable.parameter.js
+                                                                        ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.end.js
+                                                                          ^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.arrow.js storage.type.function.arrow.js
+                                                                             ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.object.js
+                                                                                 ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js
+                                                                                  ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js
+                                                                                      ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.brace.round.js
+                                                                                       ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.terminator.statement.js
+>  }
+   ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.definition.block.js
+>
+>  @action
+   ^ meta.export.default.js meta.class.js meta.decorator.js punctuation.decorator.js
+    ^^^^^^ meta.export.default.js meta.class.js meta.decorator.js variable.other.readwrite.js
+>  toggle(item) {
+   ^^^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.definition.method.js entity.name.function.js
+         ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.begin.js
+          ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js variable.parameter.js
+              ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.end.js
+                ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.definition.block.js
+>    item.done = !item.done;
+     ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.object.js
+         ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js
+          ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js
+               ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.assignment.js
+                 ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.logical.js
+                  ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.object.js
+                      ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js
+                       ^^^^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js
+                           ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.terminator.statement.js
+>  }
+   ^ meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.definition.block.js
+>
+>  <template>
+   ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+    ^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+            ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>    <ul class="todo-list" ...attributes>
+     ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+         ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+              ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+               ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                ^^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                           ^^^^^^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars markup.bold
+                                        ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>      {{#each this.visibleItems as |item index|}}
+       ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+          ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.control
+               ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                   ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function punctuation.definition.tag
+                    ^^^^^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                                ^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.control
+                                    ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.begin.ember-handlebars
+                                     ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.block-params.ember-handlebars support.function
+                                          ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.block-params.ember-handlebars support.function
+                                               ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.end.ember-handlebars
+                                                ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+>        <li class={{if item.done "done"}}>
+         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+          ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+             ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                  ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                   ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                     ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                        ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                            ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function punctuation.definition.tag
+                             ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                  ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                   ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                       ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                        ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                          ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>          <input type="checkbox" checked={{item.done}} {{on "change" (fn this.toggle item)}} />
+           ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+            ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                  ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                      ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                       ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                        ^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                  ^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                                         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                          ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                            ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function
+                                                ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function punctuation.definition.tag
+                                                 ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function
+                                                     ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                        ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                          ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                                                             ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                                              ^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                                                    ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                                      ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                                                       ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.control
+                                                                          ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function variable.language
+                                                                              ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function punctuation.definition.tag
+                                                                               ^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                                                                      ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                                                                          ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                                                                           ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                                                              ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                                               ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>          {{index}}: {{item.title}}
+           ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+             ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+                  ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                    ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs
+                      ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                        ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+                            ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function punctuation.definition.tag
+                             ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+                                  ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>        </li>
+         ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+           ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+             ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>      {{else}}
+       ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag punctuation.definition.tag
+         ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag keyword.control
+             ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag punctuation.definition.tag
+>        <li class="empty">Nothing to do</li>
+         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+          ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+             ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                  ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                   ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                    ^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                          ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                           ^^^^^^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs
+                                        ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                          ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                            ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>      {{/each}}
+       ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+          ^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.control
+              ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars punctuation.definition.tag
+>    </ul>
+     ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+       ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+         ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>  </template>
+   ^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+     ^^^^^^^^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+             ^ meta.export.default.js meta.class.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>}
+ ^ meta.export.default.js meta.class.js punctuation.definition.block.js
+>

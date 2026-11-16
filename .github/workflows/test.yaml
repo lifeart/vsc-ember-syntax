@@ -1,0 +1,27 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup node and yarn from .prototools
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
+
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: run tests
+        run: yarn test

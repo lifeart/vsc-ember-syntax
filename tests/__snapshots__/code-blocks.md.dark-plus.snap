@@ -1,0 +1,144 @@
+># Glimmer code blocks
+ ^^^^^^^^^^^^^^^^^^^^^ #569cd6 bold
+>
+>A `gjs` block:
+ ^^ #d4d4d4
+   ^^^^^ #ce9178
+        ^^^^^^^ #d4d4d4
+>
+>```gjs
+ ^^^^^^ #d4d4d4
+>import { on } from '@ember/modifier';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #c586c0
+                    ^^^^^^^^^^^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>
+><template>
+ ^ #808080
+  ^^^^^^^^ #569cd6
+          ^ #808080
+>  <button {{on "click" @onClick}}>{{@label}}</button>
+   ^ #808080
+    ^^^^^^ #569cd6
+          ^^^ #d4d4d4
+             ^^ #c586c0
+                ^^^^^^^ #ce9178
+                        ^ #569cd6
+                         ^^^^^^^ #dcdcaa
+                                ^^ #d4d4d4
+                                  ^ #808080
+                                   ^^ #d4d4d4
+                                     ^ #569cd6
+                                      ^^^^^ #dcdcaa
+                                           ^^ #d4d4d4
+                                             ^^ #808080
+                                               ^^^^^^ #569cd6
+                                                     ^ #808080
+></template>
+ ^^ #808080
+   ^^^^^^^^ #569cd6
+           ^ #808080
+>```
+ ^^^ #d4d4d4
+>
+>A `gts` block with a title after the language:
+ ^^ #d4d4d4
+   ^^^^^ #ce9178
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #d4d4d4
+>
+>```gts title="counter.gts"
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^ #d4d4d4
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>
+>export default class Counter extends Component<{ Args: { start: number } }> {
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^ #569cd6
+                      ^^^^^^^ #4ec9b0
+                              ^^^^^^^ #569cd6
+                                      ^^^^^^^^^ #4ec9b0
+                                               ^^^ #d4d4d4
+                                                  ^^^^ #9cdcfe
+                                                      ^^^^ #d4d4d4
+                                                          ^^^^^ #9cdcfe
+                                                               ^^ #d4d4d4
+                                                                 ^^^^^^ #4ec9b0
+                                                                       ^^^^^^^ #d4d4d4
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <output>{{@start}}</output>
+     ^ #808080
+      ^^^^^^ #569cd6
+            ^ #808080
+             ^^ #d4d4d4
+               ^ #569cd6
+                ^^^^^ #dcdcaa
+                     ^^ #d4d4d4
+                       ^^ #808080
+                         ^^^^^^ #569cd6
+                               ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>```
+ ^^^ #d4d4d4
+>
+>A tilde fence:
+ ^^^^^^^^^^^^^^ #d4d4d4
+>
+>~~~gjs
+ ^^^^^^ #d4d4d4
+>const Hello = <template>Hello</template>;
+ ^^^^^ #569cd6
+       ^^^^^ #4fc1ff
+            ^^^ #d4d4d4
+               ^ #808080
+                ^^^^^^^^ #569cd6
+                        ^ #808080
+                         ^^^^^ #d4d4d4
+                              ^^ #808080
+                                ^^^^^^^^ #569cd6
+                                        ^ #808080
+                                         ^ #d4d4d4
+>~~~
+ ^^^ #d4d4d4
+>
+>- A list item with an indented block:
+ ^ #6796e6
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #d4d4d4
+>
+>  ```gjs
+ ^^^^^^^^ #d4d4d4
+>  <template>{{@item}}</template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+             ^^ #d4d4d4
+               ^ #569cd6
+                ^^^^ #dcdcaa
+                    ^^ #d4d4d4
+                      ^^ #808080
+                        ^^^^^^^^ #569cd6
+                                ^ #808080
+>  ```
+ ^^^^^ #d4d4d4
+>
+>Text after the code blocks with `inline code`.
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #d4d4d4
+                                 ^^^^^^^^^^^^^ #ce9178
+                                              ^ #d4d4d4
+>

@@ -1,0 +1,300 @@
+>import { hbs } from 'ember-cli-htmlbars';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+              ^ meta.import.js meta.block.js punctuation.definition.block.js
+                ^^^^ meta.import.js keyword.control.from.js
+                     ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                      ^^^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                        ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                         ^ punctuation.terminator.statement.js
+>import { precompileTemplate } from '@ember/template-compilation';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^^^^^^^^^^^^^^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                             ^ meta.import.js meta.block.js punctuation.definition.block.js
+                               ^^^^ meta.import.js keyword.control.from.js
+                                    ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                                                ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                                                 ^ punctuation.terminator.statement.js
+>import { setComponentTemplate } from '@ember/component';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^ meta.import.js meta.block.js punctuation.definition.block.js
+          ^^^^^^^^^^^^^^^^^^^^ meta.import.js meta.block.js variable.other.readwrite.alias.js
+                               ^ meta.import.js meta.block.js punctuation.definition.block.js
+                                 ^^^^ meta.import.js keyword.control.from.js
+                                      ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                                       ^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                                       ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                                        ^ punctuation.terminator.statement.js
+>import templateOnly from '@ember/component/template-only';
+ ^^^^^^ meta.import.js keyword.control.import.js
+        ^^^^^^^^^^^^ meta.import.js variable.other.readwrite.alias.js
+                     ^^^^ meta.import.js keyword.control.from.js
+                          ^ meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.js string.quoted.single.js
+                                                         ^ meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                                          ^ punctuation.terminator.statement.js
+>
+>const Tagged = hbs`<p class="tagged">{{@message}}</p>`;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+              ^ meta.var.expr.js keyword.operator.assignment.js
+                ^^^ meta.var.expr.js entity.name.function.tagged-template.js
+                   ^ meta.var.expr.js punctuation.definition.string.template.begin.js
+                    ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                     ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                       ^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                            ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                             ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                              ^^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                    ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                     ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                      ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                        ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                                         ^^^^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                                                ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                  ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                    ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                     ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                      ^ meta.var.expr.js string.js punctuation.definition.string.template.end.js
+                                                       ^ punctuation.terminator.statement.js
+>
+>const MultiLine = hbs`
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                 ^ meta.var.expr.js keyword.operator.assignment.js
+                   ^^^ meta.var.expr.js entity.name.function.tagged-template.js
+                      ^ meta.var.expr.js punctuation.definition.string.template.begin.js
+>  {{#if this.show}}
+   ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+     ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+      ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.control
+         ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+             ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function punctuation.definition.tag
+              ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                  ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+>    <MyComponent @value={{this.value}} {{on "click" this.go}} />
+     ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^^^^^^^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.type
+                  ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument markup.italic
+                   ^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument
+                        ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                         ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                           ^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                               ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                ^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                     ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                        ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                          ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                                             ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                              ^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                                   ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                     ^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                                                         ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                                          ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                                            ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                               ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+>  {{/if}}
+   ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+     ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+      ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.control
+        ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars punctuation.definition.tag
+>`;
+ ^ meta.var.expr.js string.js punctuation.definition.string.template.end.js
+  ^ punctuation.terminator.statement.js
+>
+>const WithNamespace = Ember.HTMLBars.hbs`<span>{{this.name}}</span>`;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                     ^ meta.var.expr.js keyword.operator.assignment.js
+                       ^^^^^^^^^^^^^^^^^^ meta.var.expr.js entity.name.function.tagged-template.js
+                                         ^ meta.var.expr.js punctuation.definition.string.template.begin.js
+                                          ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                           ^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                               ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                  ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                                                      ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                                       ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                                                           ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                             ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                               ^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                                   ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                    ^ meta.var.expr.js string.js punctuation.definition.string.template.end.js
+                                                                     ^ punctuation.terminator.statement.js
+>
+>const Called = hbs('<b>{{@bold}}</b>');
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+              ^ meta.var.expr.js keyword.operator.assignment.js
+                ^^^ meta.var.expr.js entity.name.function.ts meta.function-call.ts
+                   ^ meta.var.expr.js meta.brace.round.ts
+                    ^ meta.var.expr.js meta.embedded.block.html string.template.ts punctuation.definition.string.template.begin.ts
+                     ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                      ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                       ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                        ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                          ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                           ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                               ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                 ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                   ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                    ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                     ^ meta.var.expr.js meta.embedded.block.html string.template.ts punctuation.definition.string.template.end.ts
+                                      ^ meta.var.expr.js meta.brace.round.ts
+                                       ^ punctuation.terminator.statement.js
+>
+>const Precompiled = precompileTemplate('<em>{{@text}}</em>', { strictMode: true });
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                   ^ meta.var.expr.js keyword.operator.assignment.js
+                     ^^^^^^^^^^^^^^^^^^ meta.var.expr.js entity.name.function.ts meta.function-call.ts
+                                       ^ meta.var.expr.js meta.brace.round.ts
+                                        ^ meta.var.expr.js string.template.ts punctuation.definition.string.template.begin.ts
+                                         ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                          ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                            ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                             ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                               ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                                                ^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                                                    ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                                      ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                        ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                          ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                           ^ meta.var.expr.js string.template.ts punctuation.definition.string.template.end.ts
+                                                            ^ meta.var.expr.js punctuation.separator.comma.ts
+                                                              ^ meta.var.expr.js meta.objectliteral.ts punctuation.definition.block.ts
+                                                                ^^^^^^^^^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts
+                                                                          ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts punctuation.separator.key-value.ts
+                                                                            ^^^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts constant.language.boolean.true.ts
+                                                                                 ^ meta.var.expr.js meta.objectliteral.ts punctuation.definition.block.ts
+                                                                                  ^ meta.var.expr.js meta.brace.round.ts
+                                                                                   ^ punctuation.terminator.statement.js
+>
+>const PrecompiledBacktick = precompileTemplate(
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^^^^^^^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                           ^ meta.var.expr.js keyword.operator.assignment.js
+                             ^^^^^^^^^^^^^^^^^^ meta.var.expr.js entity.name.function.ts meta.function-call.ts
+                                               ^ meta.var.expr.js meta.brace.round.ts
+>  `<section>
+   ^ meta.var.expr.js string.template.ts punctuation.definition.string.template.begin.ts
+    ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+     ^^^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+            ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+>    {{yield}}
+     ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator keyword.operator
+       ^^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator keyword.control
+            ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator keyword.operator
+>  </section>`,
+   ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+     ^^^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+            ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+             ^ meta.var.expr.js string.template.ts punctuation.definition.string.template.end.ts
+              ^ meta.var.expr.js punctuation.separator.comma.ts
+>  { strictMode: true, scope: () => ({}) },
+   ^ meta.var.expr.js meta.objectliteral.ts punctuation.definition.block.ts
+     ^^^^^^^^^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts
+               ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts punctuation.separator.key-value.ts
+                 ^^^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts constant.language.boolean.true.ts
+                     ^ meta.var.expr.js meta.objectliteral.ts punctuation.separator.comma.ts
+                       ^^^^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts entity.name.function.ts
+                            ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.object-literal.key.ts punctuation.separator.key-value.ts
+                              ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.arrow.ts meta.parameters.ts punctuation.definition.parameters.begin.ts
+                               ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.arrow.ts meta.parameters.ts punctuation.definition.parameters.end.ts
+                                 ^^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.arrow.ts storage.type.function.arrow.ts
+                                    ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.brace.round.ts
+                                     ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.objectliteral.ts punctuation.definition.block.ts
+                                      ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.objectliteral.ts punctuation.definition.block.ts
+                                       ^ meta.var.expr.js meta.objectliteral.ts meta.object.member.ts meta.brace.round.ts
+                                         ^ meta.var.expr.js meta.objectliteral.ts punctuation.definition.block.ts
+                                          ^ meta.var.expr.js punctuation.separator.comma.ts
+>);
+ ^ meta.var.expr.js meta.brace.round.ts
+  ^ punctuation.terminator.statement.js
+>
+>const Created = createTemplate("<i>{{@italic}}</i>");
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+               ^ meta.var.expr.js keyword.operator.assignment.js
+                 ^^^^^^^^^^^^^^ meta.var.expr.js entity.name.function.ts meta.function-call.ts
+                               ^ meta.var.expr.js meta.brace.round.ts
+                                ^ meta.var.expr.js meta.embedded.block.html string.template.ts punctuation.definition.string.template.begin.ts
+                                 ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                  ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                   ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                    ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                      ^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function variable.language
+                                       ^^^^^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars support.function
+                                             ^^ meta.var.expr.js meta.embedded.block.html entity.expression.ember-handlebars keyword.operator
+                                               ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                 ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                  ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                   ^ meta.var.expr.js meta.embedded.block.html string.template.ts punctuation.definition.string.template.end.ts
+                                                    ^ meta.var.expr.js meta.brace.round.ts
+                                                     ^ punctuation.terminator.statement.js
+>
+>const Html = html`<div class="lit-style">${'not handlebars'}</div>`;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+            ^ meta.var.expr.js keyword.operator.assignment.js
+              ^^^^ meta.var.expr.js entity.name.function.tagged-template.js
+                  ^ meta.var.expr.js punctuation.definition.string.template.begin.js
+                   ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                    ^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                        ^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                             ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                              ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                               ^^^^^^^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                        ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                         ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                          ^^ meta.var.expr.js meta.embedded.block.html meta.template.expression.ts punctuation.definition.template-expression.begin.ts
+                                            ^ meta.var.expr.js meta.embedded.block.html meta.template.expression.ts meta.embedded.line.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                             ^^^^^^^^^^^^^^ meta.var.expr.js meta.embedded.block.html meta.template.expression.ts meta.embedded.line.ts string.quoted.single.ts
+                                                           ^ meta.var.expr.js meta.embedded.block.html meta.template.expression.ts meta.embedded.line.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                            ^ meta.var.expr.js meta.embedded.block.html meta.template.expression.ts punctuation.definition.template-expression.end.ts
+                                                             ^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                               ^^^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                                  ^ meta.var.expr.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                   ^ meta.var.expr.js string.js punctuation.definition.string.template.end.js
+                                                                    ^ punctuation.terminator.statement.js
+>
+>export default setComponentTemplate(hbs`<Tagged />`, templateOnly());
+ ^^^^^^ meta.export.default.js keyword.control.export.js
+        ^^^^^^^ meta.export.default.js keyword.control.default.js
+                ^^^^^^^^^^^^^^^^^^^^ meta.export.default.js meta.function-call.js entity.name.function.js
+                                    ^ meta.export.default.js meta.brace.round.js
+                                     ^^^ meta.export.default.js entity.name.function.tagged-template.js
+                                        ^ meta.export.default.js punctuation.definition.string.template.begin.js
+                                         ^ meta.export.default.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                          ^^^^^^ meta.export.default.js meta.embedded.block.html meta.tag.any.ember-handlebars entity.name.type
+                                                 ^ meta.export.default.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                  ^ meta.export.default.js meta.embedded.block.html meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                   ^ meta.export.default.js string.js punctuation.definition.string.template.end.js
+                                                    ^ meta.export.default.js punctuation.separator.comma.js
+                                                      ^^^^^^^^^^^^ meta.export.default.js meta.function-call.js entity.name.function.js
+                                                                  ^ meta.export.default.js meta.brace.round.js
+                                                                   ^ meta.export.default.js meta.brace.round.js
+                                                                    ^ meta.export.default.js meta.brace.round.js
+                                                                     ^ punctuation.terminator.statement.js
+>
+>const notATemplate = `{{this}} is a plain string`;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^^^^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+                    ^ meta.var.expr.js keyword.operator.assignment.js
+                      ^ meta.var.expr.js string.template.js punctuation.definition.string.template.begin.js
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.var.expr.js string.template.js
+                                                 ^ meta.var.expr.js string.template.js punctuation.definition.string.template.end.js
+                                                  ^ punctuation.terminator.statement.js
+>const after = 1 < 2;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+             ^ meta.var.expr.js keyword.operator.assignment.js
+               ^ meta.var.expr.js constant.numeric.decimal.js
+                 ^ meta.var.expr.js keyword.operator.relational.js
+                   ^ meta.var.expr.js constant.numeric.decimal.js
+                    ^ punctuation.terminator.statement.js
+>

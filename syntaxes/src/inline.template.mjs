@@ -1,6 +1,9 @@
+// Inside a template, a <template> tag is a plain HTML element, so the injection is left out there.
+const NOT_IN_TEMPLATE = '-meta.js.embeddedTemplateWithoutArgs -meta.js.embeddedTemplateWithArgs';
+
 export default {
   fileTypes: ['gjs', 'gts'],
-  injectionSelector: 'L:source.gjs -comment -(string -meta.embedded), L:source.gts -comment -(string -meta.embedded)',
+  injectionSelector: `L:source.gjs -comment -(string -meta.embedded) ${NOT_IN_TEMPLATE}, L:source.gts -comment -(string -meta.embedded) ${NOT_IN_TEMPLATE}`,
   patterns: [
     {
       name: 'meta.js.embeddedTemplateWithoutArgs',
@@ -28,7 +31,11 @@ export default {
           name: 'punctuation.definition.tag.html',
         },
       },
+      // A nested <template> element comes first, so that its closing tag does not end this block.
       patterns: [
+        {
+          include: 'text.html.ember-handlebars#nested-template-element',
+        },
         {
           include: 'text.html.ember-handlebars',
         },
@@ -77,6 +84,9 @@ export default {
           end: '(?=</template>)',
           contentName: 'meta.html.embedded.block',
           patterns: [
+            {
+              include: 'text.html.ember-handlebars#nested-template-element',
+            },
             {
               include: 'text.html.ember-handlebars',
             },

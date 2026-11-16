@@ -1,0 +1,213 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>import { tracked } from '@glimmer/tracking';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^ #9cdcfe
+                 ^^^ #d4d4d4
+                    ^^^^ #c586c0
+                         ^^^^^^^^^^^^^^^^^^^ #ce9178
+                                            ^ #d4d4d4
+>import { action } from '@ember/object';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^ #9cdcfe
+                ^^^ #d4d4d4
+                   ^^^^ #c586c0
+                        ^^^^^^^^^^^^^^^ #ce9178
+                                       ^ #d4d4d4
+>import { on } from '@ember/modifier';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #c586c0
+                    ^^^^^^^^^^^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>import { fn } from '@ember/helper';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #c586c0
+                    ^^^^^^^^^^^^^^^ #ce9178
+                                   ^ #d4d4d4
+>
+>export default class TodoList extends Component {
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^ #569cd6
+                      ^^^^^^^^ #4ec9b0
+                               ^^^^^^^ #569cd6
+                                       ^^^^^^^^^ #4ec9b0
+                                                ^^ #d4d4d4
+>  @tracked items = [];
+ ^^^ #d4d4d4
+    ^^^^^^^ #9cdcfe
+            ^^^^^ #9cdcfe
+                 ^^^^^^ #d4d4d4
+>  @tracked filter = 'all';
+ ^^^ #d4d4d4
+    ^^^^^^^ #9cdcfe
+            ^^^^^^ #9cdcfe
+                  ^^^ #d4d4d4
+                     ^^^^^ #ce9178
+                          ^ #d4d4d4
+>
+>  get visibleItems() {
+   ^^^ #569cd6
+       ^^^^^^^^^^^^ #dcdcaa
+                   ^^^^ #d4d4d4
+>    return this.filter === 'all' ? this.items : this.items.filter((item) => item.done);
+     ^^^^^^ #c586c0
+            ^^^^ #569cd6
+                ^ #d4d4d4
+                 ^^^^^^ #9cdcfe
+                       ^^^^^ #d4d4d4
+                            ^^^^^ #ce9178
+                                 ^^^ #d4d4d4
+                                    ^^^^ #569cd6
+                                        ^ #d4d4d4
+                                         ^^^^^ #9cdcfe
+                                              ^^^ #d4d4d4
+                                                 ^^^^ #569cd6
+                                                     ^ #d4d4d4
+                                                      ^^^^^ #9cdcfe
+                                                           ^ #d4d4d4
+                                                            ^^^^^^ #dcdcaa
+                                                                  ^^ #d4d4d4
+                                                                    ^^^^ #9cdcfe
+                                                                        ^^ #d4d4d4
+                                                                          ^^ #569cd6
+                                                                             ^^^^ #9cdcfe
+                                                                                 ^ #d4d4d4
+                                                                                  ^^^^ #9cdcfe
+                                                                                      ^^ #d4d4d4
+>  }
+ ^^^ #d4d4d4
+>
+>  @action
+ ^^^ #d4d4d4
+    ^^^^^^ #9cdcfe
+>  toggle(item) {
+   ^^^^^^ #dcdcaa
+         ^ #d4d4d4
+          ^^^^ #9cdcfe
+              ^^^ #d4d4d4
+>    item.done = !item.done;
+     ^^^^ #9cdcfe
+         ^ #d4d4d4
+          ^^^^ #9cdcfe
+              ^^^^ #d4d4d4
+                  ^^^^ #9cdcfe
+                      ^ #d4d4d4
+                       ^^^^ #9cdcfe
+                           ^ #d4d4d4
+>  }
+ ^^^ #d4d4d4
+>
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <ul class="todo-list" ...attributes>
+     ^ #808080
+      ^^ #569cd6
+         ^^^^^ #9cdcfe
+              ^ #d4d4d4
+               ^^^^^^^^^^^ #ce9178
+                           ^^^^^^^^^^^^^ #569cd6 bold
+                                        ^ #808080
+>      {{#each this.visibleItems as |item index|}}
+       ^^^ #808080
+          ^^^^ #c586c0
+               ^^^^ #569cd6
+                   ^ #808080
+                    ^^^^^^^^^^^^ #dcdcaa
+                                ^^^ #c586c0
+                                    ^ #569cd6
+                                     ^^^^ #dcdcaa
+                                          ^^^^^ #dcdcaa
+                                               ^ #569cd6
+                                                ^^ #808080
+>        <li class={{if item.done "done"}}>
+         ^ #808080
+          ^^ #569cd6
+             ^^^^^ #9cdcfe
+                  ^^^ #d4d4d4
+                     ^^ #c586c0
+                        ^^^^ #dcdcaa
+                            ^ #808080
+                             ^^^^ #dcdcaa
+                                  ^^^^^^ #ce9178
+                                        ^^ #d4d4d4
+                                          ^ #808080
+>          <input type="checkbox" checked={{item.done}} {{on "change" (fn this.toggle item)}} />
+           ^ #808080
+            ^^^^^ #569cd6
+                  ^^^^ #9cdcfe
+                      ^ #d4d4d4
+                       ^^^^^^^^^^ #ce9178
+                                  ^^^^^^^ #9cdcfe
+                                         ^^^ #d4d4d4
+                                            ^^^^ #dcdcaa
+                                                ^ #808080
+                                                 ^^^^ #dcdcaa
+                                                     ^^^^^ #d4d4d4
+                                                          ^^ #c586c0
+                                                             ^^^^^^^^ #ce9178
+                                                                      ^ #569cd6
+                                                                       ^^ #c586c0
+                                                                          ^^^^ #569cd6
+                                                                              ^ #808080
+                                                                               ^^^^^^ #dcdcaa
+                                                                                      ^^^^ #dcdcaa
+                                                                                          ^ #569cd6
+                                                                                           ^^^ #d4d4d4
+                                                                                              ^^ #808080
+>          {{index}}: {{item.title}}
+ ^^^^^^^^^^^^ #d4d4d4
+             ^^^^^ #dcdcaa
+                  ^^^^^^ #d4d4d4
+                        ^^^^ #dcdcaa
+                            ^ #808080
+                             ^^^^^ #dcdcaa
+                                  ^^ #d4d4d4
+>        </li>
+         ^^ #808080
+           ^^ #569cd6
+             ^ #808080
+>      {{else}}
+       ^^ #808080
+         ^^^^ #c586c0
+             ^^ #808080
+>        <li class="empty">Nothing to do</li>
+         ^ #808080
+          ^^ #569cd6
+             ^^^^^ #9cdcfe
+                  ^ #d4d4d4
+                   ^^^^^^^ #ce9178
+                          ^ #808080
+                           ^^^^^^^^^^^^^ #d4d4d4
+                                        ^^ #808080
+                                          ^^ #569cd6
+                                            ^ #808080
+>      {{/each}}
+       ^^^ #808080
+          ^^^^ #c586c0
+              ^^ #808080
+>    </ul>
+     ^^ #808080
+       ^^ #569cd6
+         ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>

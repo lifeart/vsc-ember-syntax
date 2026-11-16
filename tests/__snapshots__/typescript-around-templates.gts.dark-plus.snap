@@ -1,0 +1,312 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>import { tracked } from '@glimmer/tracking';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^ #9cdcfe
+                 ^^^ #d4d4d4
+                    ^^^^ #c586c0
+                         ^^^^^^^^^^^^^^^^^^^ #ce9178
+                                            ^ #d4d4d4
+>
+>interface Signature<T> {
+ ^^^^^^^^^ #569cd6
+           ^^^^^^^^^ #4ec9b0
+                    ^ #d4d4d4
+                     ^ #4ec9b0
+                      ^^^ #d4d4d4
+>  Args: { items: T[]; compare?: (a: T, b: T) => number };
+   ^^^^ #9cdcfe
+       ^^^^ #d4d4d4
+           ^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^ #4ec9b0
+                   ^^^^ #d4d4d4
+                       ^^^^^^^ #dcdcaa
+                              ^^^^ #d4d4d4
+                                  ^ #9cdcfe
+                                   ^^ #d4d4d4
+                                     ^ #4ec9b0
+                                      ^^ #d4d4d4
+                                        ^ #9cdcfe
+                                         ^^ #d4d4d4
+                                           ^ #4ec9b0
+                                            ^^ #d4d4d4
+                                              ^^ #569cd6
+                                                 ^^^^^^ #4ec9b0
+                                                       ^^^ #d4d4d4
+>  Blocks: { default: [item: T, index: number]; empty: [] };
+   ^^^^^^ #9cdcfe
+         ^^^^ #d4d4d4
+             ^^^^^^^ #9cdcfe
+                    ^^^ #d4d4d4
+                       ^^^^ #c8c8c8
+                           ^^ #d4d4d4
+                             ^ #4ec9b0
+                              ^^ #d4d4d4
+                                ^^^^^ #c8c8c8
+                                     ^^ #d4d4d4
+                                       ^^^^^^ #4ec9b0
+                                             ^^^ #d4d4d4
+                                                ^^^^^ #9cdcfe
+                                                     ^^^^^^^ #d4d4d4
+>  Element: HTMLUListElement;
+   ^^^^^^^ #9cdcfe
+          ^^ #d4d4d4
+            ^^^^^^^^^^^^^^^^ #4ec9b0
+                            ^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>function first<T>(items: Array<T>): T | undefined {
+ ^^^^^^^^ #569cd6
+          ^^^^^ #dcdcaa
+               ^ #d4d4d4
+                ^ #4ec9b0
+                 ^^ #d4d4d4
+                   ^^^^^ #9cdcfe
+                        ^^ #d4d4d4
+                          ^^^^^ #4ec9b0
+                               ^ #d4d4d4
+                                ^ #4ec9b0
+                                 ^^^^ #d4d4d4
+                                     ^ #4ec9b0
+                                      ^^^ #d4d4d4
+                                         ^^^^^^^^^ #4ec9b0
+                                                  ^^ #d4d4d4
+>  return items.length > 0 ? items[0] : undefined;
+   ^^^^^^ #c586c0
+          ^^^^^ #9cdcfe
+               ^ #d4d4d4
+                ^^^^^^ #9cdcfe
+                      ^^^ #d4d4d4
+                         ^ #b5cea8
+                          ^^^ #d4d4d4
+                             ^^^^^ #9cdcfe
+                                  ^ #d4d4d4
+                                   ^ #b5cea8
+                                    ^^^^ #d4d4d4
+                                        ^^^^^^^^^ #569cd6
+                                                 ^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>const identity = <T,>(value: T): T => value;
+ ^^^^^ #569cd6
+       ^^^^^^^^ #dcdcaa
+               ^^^^ #d4d4d4
+                   ^ #4ec9b0
+                    ^^^ #d4d4d4
+                       ^^^^^ #9cdcfe
+                            ^^ #d4d4d4
+                              ^ #4ec9b0
+                               ^^^ #d4d4d4
+                                  ^ #4ec9b0
+                                    ^^ #569cd6
+                                       ^^^^^ #9cdcfe
+                                            ^ #d4d4d4
+>const isBetween = (n: number, min: number, max: number) => n > min && n < max;
+ ^^^^^ #569cd6
+       ^^^^^^^^^ #dcdcaa
+                ^^^^ #d4d4d4
+                    ^ #9cdcfe
+                     ^^ #d4d4d4
+                       ^^^^^^ #4ec9b0
+                             ^^ #d4d4d4
+                               ^^^ #9cdcfe
+                                  ^^ #d4d4d4
+                                    ^^^^^^ #4ec9b0
+                                          ^^ #d4d4d4
+                                            ^^^ #9cdcfe
+                                               ^^ #d4d4d4
+                                                 ^^^^^^ #4ec9b0
+                                                       ^^ #d4d4d4
+                                                         ^^ #569cd6
+                                                            ^ #9cdcfe
+                                                             ^^^ #d4d4d4
+                                                                ^^^ #9cdcfe
+                                                                   ^^^^ #d4d4d4
+                                                                       ^ #9cdcfe
+                                                                        ^^^ #d4d4d4
+                                                                           ^^^ #9cdcfe
+                                                                              ^ #d4d4d4
+>const shifted = (1 << 4) >> 2 >>> 0;
+ ^^^^^ #569cd6
+       ^^^^^^^ #4fc1ff
+              ^^^^ #d4d4d4
+                  ^ #b5cea8
+                   ^^^^ #d4d4d4
+                       ^ #b5cea8
+                        ^^^^^ #d4d4d4
+                             ^ #b5cea8
+                              ^^^^^ #d4d4d4
+                                   ^ #b5cea8
+                                    ^ #d4d4d4
+>const config = { retries: 3 } satisfies Record<string, number>;
+ ^^^^^ #569cd6
+       ^^^^^^ #4fc1ff
+             ^^^^^ #d4d4d4
+                  ^^^^^^^^ #9cdcfe
+                           ^ #b5cea8
+                            ^^^ #d4d4d4
+                               ^^^^^^^^^ #c586c0
+                                         ^^^^^^ #4ec9b0
+                                               ^ #d4d4d4
+                                                ^^^^^^ #4ec9b0
+                                                      ^^ #d4d4d4
+                                                        ^^^^^^ #4ec9b0
+                                                              ^^ #d4d4d4
+>let legacy = <string>(<unknown>'cast');
+ ^^^ #569cd6
+     ^^^^^^ #9cdcfe
+           ^^^^ #d4d4d4
+               ^^^^^^ #4ec9b0
+                     ^^^ #d4d4d4
+                        ^^^^^^^ #4ec9b0
+                               ^ #d4d4d4
+                                ^^^^^^ #ce9178
+                                      ^^ #d4d4d4
+>
+>export default class SortedList<T> extends Component<Signature<T>> {
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^ #569cd6
+                      ^^^^^^^^^^ #4ec9b0
+                                ^ #d4d4d4
+                                 ^ #4ec9b0
+                                  ^^ #d4d4d4
+                                    ^^^^^^^ #569cd6
+                                            ^^^^^^^^^ #4ec9b0
+                                                     ^ #d4d4d4
+                                                      ^^^^^^^^^ #4ec9b0
+                                                               ^ #d4d4d4
+                                                                ^ #4ec9b0
+                                                                 ^^^^ #d4d4d4
+>  @tracked private descending = false;
+ ^^^ #d4d4d4
+    ^^^^^^^ #9cdcfe
+            ^^^^^^^ #569cd6
+                    ^^^^^^^^^^ #9cdcfe
+                              ^^^ #d4d4d4
+                                 ^^^^^ #569cd6
+                                      ^ #d4d4d4
+>
+>  get sorted(): T[] {
+   ^^^ #569cd6
+       ^^^^^^ #dcdcaa
+             ^^^^ #d4d4d4
+                 ^ #4ec9b0
+                  ^^^^ #d4d4d4
+>    const items = [...this.args.items];
+     ^^^^^ #569cd6
+           ^^^^^ #4fc1ff
+                ^^^^^^^ #d4d4d4
+                       ^^^^ #569cd6
+                           ^ #d4d4d4
+                            ^^^^ #9cdcfe
+                                ^ #d4d4d4
+                                 ^^^^^ #9cdcfe
+                                      ^^ #d4d4d4
+>    return this.args.compare ? items.sort(this.args.compare) : items;
+     ^^^^^^ #c586c0
+            ^^^^ #569cd6
+                ^ #d4d4d4
+                 ^^^^ #9cdcfe
+                     ^ #d4d4d4
+                      ^^^^^^^ #9cdcfe
+                             ^^^ #d4d4d4
+                                ^^^^^ #9cdcfe
+                                     ^ #d4d4d4
+                                      ^^^^ #dcdcaa
+                                          ^ #d4d4d4
+                                           ^^^^ #569cd6
+                                               ^ #d4d4d4
+                                                ^^^^ #9cdcfe
+                                                    ^ #d4d4d4
+                                                     ^^^^^^^ #9cdcfe
+                                                            ^^^^ #d4d4d4
+                                                                ^^^^^ #9cdcfe
+                                                                     ^ #d4d4d4
+>  }
+ ^^^ #d4d4d4
+>
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <ul ...attributes>
+     ^ #808080
+      ^^ #569cd6
+         ^^^^^^^^^^^^^ #569cd6 bold
+                      ^ #808080
+>      {{#each this.sorted as |item index|}}
+       ^^^ #808080
+          ^^^^ #c586c0
+               ^^^^ #569cd6
+                   ^ #808080
+                    ^^^^^^ #dcdcaa
+                          ^^^ #c586c0
+                              ^ #569cd6
+                               ^^^^ #dcdcaa
+                                    ^^^^^ #dcdcaa
+                                         ^ #569cd6
+                                          ^^ #808080
+>        <li>{{yield item index}}</li>
+         ^ #808080
+          ^^ #569cd6
+            ^ #808080
+             ^^ #d4d4d4
+               ^^^^^ #c586c0
+                     ^^^^ #dcdcaa
+                          ^^^^^ #dcdcaa
+                               ^^ #d4d4d4
+                                 ^^ #808080
+                                   ^^ #569cd6
+                                     ^ #808080
+>      {{else}}
+       ^^ #808080
+         ^^^^ #c586c0
+             ^^ #808080
+>        {{yield to="empty"}}
+ ^^^^^^^^^^ #d4d4d4
+           ^^^^^ #c586c0
+                 ^^ #9cdcfe
+                   ^ #d4d4d4
+                    ^^^^^^^ #ce9178
+                           ^^ #d4d4d4
+>      {{/each}}
+       ^^^ #808080
+          ^^^^ #c586c0
+              ^^ #808080
+>    </ul>
+     ^^ #808080
+       ^^ #569cd6
+         ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>
+>export const after: Map<string, Set<number>> = new Map();
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^ #4fc1ff
+                   ^^ #d4d4d4
+                     ^^^ #4ec9b0
+                        ^ #d4d4d4
+                         ^^^^^^ #4ec9b0
+                               ^^ #d4d4d4
+                                 ^^^ #4ec9b0
+                                    ^ #d4d4d4
+                                     ^^^^^^ #4ec9b0
+                                           ^^^^^ #d4d4d4
+                                                ^^^ #569cd6
+                                                    ^^^ #dcdcaa
+                                                       ^^^ #d4d4d4
+>

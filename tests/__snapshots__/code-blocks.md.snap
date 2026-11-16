@@ -1,0 +1,167 @@
+># Glimmer code blocks
+ ^ markup.heading.markdown heading.1.markdown punctuation.definition.heading.markdown
+   ^^^^^^^^^^^^^^^^^^^ markup.heading.markdown heading.1.markdown entity.name.section.markdown
+>
+>A `gjs` block:
+ ^^ meta.paragraph.markdown
+   ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+    ^^^ meta.paragraph.markdown markup.inline.raw.string.markdown
+       ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+        ^^^^^^^ meta.paragraph.markdown
+>
+>```gjs
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+    ^^^ markup.fenced_code.block.markdown fenced_code.block.language.markdown
+>import { on } from '@ember/modifier';
+ ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js keyword.control.import.js
+        ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js meta.block.js punctuation.definition.block.js
+          ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js meta.block.js variable.other.readwrite.alias.js
+             ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js meta.block.js punctuation.definition.block.js
+               ^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js keyword.control.from.js
+                    ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js string.quoted.single.js punctuation.definition.string.begin.js
+                     ^^^^^^^^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js string.quoted.single.js
+                                    ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.import.js string.quoted.single.js punctuation.definition.string.end.js
+                                     ^ markup.fenced_code.block.markdown meta.embedded.block.gjs punctuation.terminator.statement.js
+>
+><template>
+ ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  <button {{on "click" @onClick}}>{{@label}}</button>
+   ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+           ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+             ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                 ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                      ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                        ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                         ^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                  ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                   ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                     ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                                      ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                                           ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                             ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                               ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                     ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+></template>
+ ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>```
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+>
+>A `gts` block with a title after the language:
+ ^^ meta.paragraph.markdown
+   ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+    ^^^ meta.paragraph.markdown markup.inline.raw.string.markdown
+       ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.paragraph.markdown
+>
+>```gts title="counter.gts"
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+    ^^^ markup.fenced_code.block.markdown fenced_code.block.language.markdown
+       ^^^^^^^^^^^^^^^^^^^^ markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown
+>import Component from '@glimmer/component';
+ ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts keyword.control.import.ts
+        ^^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts variable.other.readwrite.alias.ts
+                  ^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts keyword.control.from.ts
+                       ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                        ^^^^^^^^^^^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts string.quoted.single.ts
+                                          ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                           ^ markup.fenced_code.block.markdown meta.embedded.block.gts punctuation.terminator.statement.ts
+>
+>export default class Counter extends Component<{ Args: { start: number } }> {
+ ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts keyword.control.export.ts
+        ^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts keyword.control.default.ts
+                ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts storage.type.class.ts
+                      ^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts entity.name.type.class.ts
+                              ^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts storage.modifier.ts
+                                      ^^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts entity.other.inherited-class.ts
+                                               ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts punctuation.definition.typeparameters.begin.ts
+                                                ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts punctuation.definition.block.ts
+                                                  ^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.definition.property.ts variable.object.property.ts
+                                                      ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+                                                        ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts meta.object.type.ts punctuation.definition.block.ts
+                                                          ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts meta.object.type.ts meta.field.declaration.ts meta.definition.property.ts variable.object.property.ts
+                                                               ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts keyword.operator.type.annotation.ts
+                                                                 ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts support.type.primitive.ts
+                                                                        ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts meta.field.declaration.ts meta.type.annotation.ts meta.object.type.ts punctuation.definition.block.ts
+                                                                          ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts meta.object.type.ts punctuation.definition.block.ts
+                                                                           ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.type.parameters.ts punctuation.definition.typeparameters.end.ts
+                                                                             ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts punctuation.definition.block.ts
+>  <template>
+   ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+    ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+            ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>    <output>{{@start}}</output>
+     ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+            ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+             ^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+               ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                     ^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                       ^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                         ^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                               ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>  </template>
+   ^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+     ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+             ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>}
+ ^ markup.fenced_code.block.markdown meta.embedded.block.gts meta.export.default.ts meta.class.ts punctuation.definition.block.ts
+>```
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+>
+>A tilde fence:
+ ^^^^^^^^^^^^^^ meta.paragraph.markdown
+>
+>~~~gjs
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+    ^^^ markup.fenced_code.block.markdown fenced_code.block.language.markdown
+>const Hello = <template>Hello</template>;
+ ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js storage.type.js
+       ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+             ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js keyword.operator.assignment.js
+               ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                        ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                         ^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs
+                              ^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                                ^^^^^^^^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                                        ^ markup.fenced_code.block.markdown meta.embedded.block.gjs meta.var.expr.js meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                                         ^ markup.fenced_code.block.markdown meta.embedded.block.gjs punctuation.terminator.statement.js
+>~~~
+ ^^^ markup.fenced_code.block.markdown punctuation.definition.markdown
+>
+>- A list item with an indented block:
+ ^ markup.list.unnumbered.markdown punctuation.definition.list.begin.markdown
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ markup.list.unnumbered.markdown meta.paragraph.markdown
+>
+>  ```gjs
+   ^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown punctuation.definition.markdown
+      ^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown fenced_code.block.language.markdown
+>  <template>{{@item}}</template>
+   ^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+    ^^^^^^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+            ^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+             ^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+               ^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                ^^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                    ^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                      ^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                        ^^^^^^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                                ^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown meta.embedded.block.gjs meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  ```
+   ^^^ markup.list.unnumbered.markdown markup.fenced_code.block.markdown punctuation.definition.markdown
+>
+>Text after the code blocks with `inline code`.
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.paragraph.markdown
+                                 ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+                                  ^^^^^^^^^^^ meta.paragraph.markdown markup.inline.raw.string.markdown
+                                             ^ meta.paragraph.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown
+                                              ^ meta.paragraph.markdown
+>

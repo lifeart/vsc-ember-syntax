@@ -1,0 +1,289 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>import { on } from '@ember/modifier';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #c586c0
+                    ^^^^^^^^^^^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                                     ^ #d4d4d4
+>import autoFocus from './auto-focus';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>import track_clicks from './track-clicks';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^^^^ #9cdcfe
+                     ^^^^ #c586c0
+                          ^^^^^^^^^^^^^^^^ #ce9178
+                                          ^ #d4d4d4
+>import Ui from './ui';
+ ^^^^^^ #c586c0
+        ^^ #9cdcfe
+           ^^^^ #c586c0
+                ^^^^^^ #ce9178
+                      ^ #d4d4d4
+>
+>export default class Dashboard extends Component {
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^ #569cd6
+                      ^^^^^^^^^ #4ec9b0
+                                ^^^^^^^ #569cd6
+                                        ^^^^^^^^^ #4ec9b0
+                                                 ^^ #d4d4d4
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <Ui::Panel::Header @title="Dashboard" @collapsed={{this.collapsed}} class="header" ...attributes />
+     ^ #808080
+      ^^ #4ec9b0
+        ^^ #808080
+          ^^^^^ #4ec9b0
+               ^^ #808080
+                 ^^^^^^ #4ec9b0
+                        ^ #9cdcfe italic
+                         ^^^^^ #9cdcfe
+                              ^ #d4d4d4
+                               ^^^^^^^^^^^ #ce9178
+                                           ^ #9cdcfe italic
+                                            ^^^^^^^^^ #9cdcfe
+                                                     ^^^ #d4d4d4
+                                                        ^^^^ #569cd6
+                                                            ^ #808080
+                                                             ^^^^^^^^^ #dcdcaa
+                                                                      ^^^ #d4d4d4
+                                                                         ^^^^^ #9cdcfe
+                                                                              ^ #d4d4d4
+                                                                               ^^^^^^^^ #ce9178
+                                                                                        ^^^^^^^^^^^^^ #569cd6 bold
+                                                                                                      ^^ #808080
+>    <this.WidgetComponent @config={{this.config}} />
+     ^ #808080
+      ^^^^ #569cd6
+          ^ #808080
+           ^^^^^^^^^^^^^^^ #4ec9b0
+                           ^ #9cdcfe italic
+                            ^^^^^^ #9cdcfe
+                                  ^^^ #d4d4d4
+                                     ^^^^ #569cd6
+                                         ^ #808080
+                                          ^^^^^^ #dcdcaa
+                                                ^^^ #d4d4d4
+                                                   ^^ #808080
+>    <@itemComponent @item={{@item}} />
+     ^ #808080
+      ^ #569cd6
+       ^^^^^^^^^^^^^ #4ec9b0
+                     ^ #9cdcfe italic
+                      ^^^^ #9cdcfe
+                          ^^^ #d4d4d4
+                             ^ #569cd6
+                              ^^^^ #dcdcaa
+                                  ^^^ #d4d4d4
+                                     ^^ #808080
+>    <Ui.Button @kind="primary" disabled {{on "click" this.save}}>Save</Ui.Button>
+     ^ #808080
+      ^^ #4ec9b0
+        ^ #808080
+         ^^^^^^ #4ec9b0
+                ^ #9cdcfe italic
+                 ^^^^ #9cdcfe
+                     ^ #d4d4d4
+                      ^^^^^^^^^ #ce9178
+                                ^^^^^^^^ #9cdcfe
+                                        ^^^ #d4d4d4
+                                           ^^ #c586c0
+                                              ^^^^^^^ #ce9178
+                                                      ^^^^ #569cd6
+                                                          ^ #808080
+                                                           ^^^^ #dcdcaa
+                                                               ^^ #d4d4d4
+                                                                 ^ #808080
+                                                                  ^^^^ #d4d4d4
+                                                                      ^^ #808080
+                                                                        ^^ #4ec9b0
+                                                                          ^ #808080
+                                                                           ^^^^^^ #4ec9b0
+                                                                                 ^ #808080
+>
+>    <Ui::Card as |card index|>
+     ^ #808080
+      ^^ #4ec9b0
+        ^^ #808080
+          ^^^^ #4ec9b0
+              ^^^ #c586c0
+                  ^ #569cd6
+                   ^^^^ #dcdcaa
+                        ^^^^^ #dcdcaa
+                             ^ #569cd6
+                              ^ #808080
+>      <card.Title>Item {{index}}</card.Title>
+       ^ #808080
+        ^^^^ #4ec9b0
+            ^ #808080
+             ^^^^^ #4ec9b0
+                  ^ #808080
+                   ^^^^^^^ #d4d4d4
+                          ^^^^^ #dcdcaa
+                               ^^ #d4d4d4
+                                 ^^ #808080
+                                   ^^^^ #4ec9b0
+                                       ^ #808080
+                                        ^^^^^ #4ec9b0
+                                             ^ #808080
+>    </Ui::Card>
+     ^^ #808080
+       ^^ #4ec9b0
+         ^^ #808080
+           ^^^^ #4ec9b0
+               ^ #808080
+>
+>    <Ui::Layout>
+     ^ #808080
+      ^^ #4ec9b0
+        ^^ #808080
+          ^^^^^^ #4ec9b0
+                ^ #808080
+>      <:header as |h|>
+       ^ #808080
+        ^ #569cd6 bold
+         ^^^^^^ #4ec9b0
+               ^^^ #c586c0
+                   ^ #569cd6
+                    ^ #dcdcaa
+                     ^ #569cd6
+                      ^ #808080
+>        <h.Title>Header</h.Title>
+         ^ #808080
+          ^ #4ec9b0
+           ^ #808080
+            ^^^^^ #4ec9b0
+                 ^ #808080
+                  ^^^^^^ #d4d4d4
+                        ^^ #808080
+                          ^ #4ec9b0
+                           ^ #808080
+                            ^^^^^ #4ec9b0
+                                 ^ #808080
+>      </:header>
+       ^^ #808080
+         ^ #569cd6 bold
+          ^^^^^^ #4ec9b0
+                ^ #808080
+>      <:body>
+       ^ #808080
+        ^ #569cd6 bold
+         ^^^^ #4ec9b0
+             ^ #808080
+>        <input
+         ^ #808080
+          ^^^^^ #569cd6
+>          type="text"
+           ^^^^ #9cdcfe
+               ^ #d4d4d4
+                ^^^^^^ #ce9178
+>          value={{this.query}}
+           ^^^^^ #9cdcfe
+                ^^^ #d4d4d4
+                   ^^^^ #569cd6
+                       ^ #808080
+                        ^^^^^ #dcdcaa
+                             ^^ #d4d4d4
+>          {{autoFocus}}
+ ^^^^^^^^^^^^ #d4d4d4
+             ^^^^^^^^^ #dcdcaa
+                      ^^ #d4d4d4
+>          {{track_clicks "search"}}
+ ^^^^^^^^^^^^ #d4d4d4
+             ^^^^^^^^^^^^ #c586c0
+                          ^^^^^^^^ #ce9178
+                                  ^^ #d4d4d4
+>          {{didInsert this.setup}}
+ ^^^^^^^^^^^^ #d4d4d4
+             ^^^^^^^^^ #c586c0
+                       ^^^^ #569cd6
+                           ^ #808080
+                            ^^^^^ #dcdcaa
+                                 ^^ #d4d4d4
+>          {{on "input" this.updateQuery}}
+ ^^^^^^^^^^^^ #d4d4d4
+             ^^ #c586c0
+                ^^^^^^^ #ce9178
+                        ^^^^ #569cd6
+                            ^ #808080
+                             ^^^^^^^^^^^ #dcdcaa
+                                        ^^ #d4d4d4
+>        />
+         ^^ #808080
+>      </:body>
+       ^^ #808080
+         ^ #569cd6 bold
+          ^^^^ #4ec9b0
+              ^ #808080
+>    </Ui::Layout>
+     ^^ #808080
+       ^^ #4ec9b0
+         ^^ #808080
+           ^^^^^^ #4ec9b0
+                 ^ #808080
+>
+>    <div class="wrapper {{if @wide 'wide'}}" data-test-id={{@id}} aria-hidden="true"></div>
+     ^ #808080
+      ^^^ #569cd6
+          ^^^^^ #9cdcfe
+               ^ #d4d4d4
+                ^^^^^^^^^ #ce9178
+                         ^^ #d4d4d4
+                           ^^ #c586c0
+                              ^ #569cd6
+                               ^^^^ #dcdcaa
+                                   ^^^^^^^ #ce9178
+                                          ^^ #d4d4d4
+                                            ^ #ce9178
+                                              ^^^^^^^^^^^^ #9cdcfe
+                                                          ^^^ #d4d4d4
+                                                             ^ #569cd6
+                                                              ^^ #dcdcaa
+                                                                ^^^ #d4d4d4
+                                                                   ^^^^^^^^^^^ #9cdcfe
+                                                                              ^ #d4d4d4
+                                                                               ^^^^^^ #ce9178
+                                                                                     ^^^ #808080
+                                                                                        ^^^ #569cd6
+                                                                                           ^ #808080
+>    <br />
+     ^ #808080
+      ^^ #569cd6
+         ^^ #808080
+>    <img src="a.png" alt="">
+     ^ #808080
+      ^^^ #569cd6
+          ^^^ #9cdcfe
+             ^ #d4d4d4
+              ^^^^^^^ #ce9178
+                      ^^^ #9cdcfe
+                         ^ #d4d4d4
+                          ^^ #ce9178
+                            ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>

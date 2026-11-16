@@ -39,11 +39,16 @@ jobs:
           echo "MajorMinorPatch: ${{ steps.gitversion.outputs.majorMinorPatch }}"
           echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
 
-      - name: setup node
-        uses: volta-cli/action@v1
+      - name: setup node and yarn from .prototools
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          auto-install: true
 
       - name: install dependencies
         run: yarn install --frozen-lockfile
+
+      - name: run tests
+        run: yarn test
 
       - name: build grammars
         run: yarn build:grammars

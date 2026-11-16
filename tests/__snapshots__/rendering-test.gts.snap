@@ -1,0 +1,215 @@
+>import { module, test } from 'qunit';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                ^ meta.import.ts meta.block.ts punctuation.separator.comma.ts
+                  ^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                       ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                         ^^^^ meta.import.ts keyword.control.from.ts
+                              ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                               ^^^^^ meta.import.ts string.quoted.single.ts
+                                    ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                     ^ punctuation.terminator.statement.ts
+>import { setupRenderingTest } from 'ember-qunit';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^^^^^^^^^^^^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                             ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                               ^^^^ meta.import.ts keyword.control.from.ts
+                                    ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                     ^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                                ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                 ^ punctuation.terminator.statement.ts
+>import { render, click } from '@ember/test-helpers';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+          ^^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                ^ meta.import.ts meta.block.ts punctuation.separator.comma.ts
+                  ^^^^^ meta.import.ts meta.block.ts variable.other.readwrite.alias.ts
+                        ^ meta.import.ts meta.block.ts punctuation.definition.block.ts
+                          ^^^^ meta.import.ts keyword.control.from.ts
+                               ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                ^^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                                   ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                    ^ punctuation.terminator.statement.ts
+>import Counter from 'my-app/components/counter';
+ ^^^^^^ meta.import.ts keyword.control.import.ts
+        ^^^^^^^ meta.import.ts variable.other.readwrite.alias.ts
+                ^^^^ meta.import.ts keyword.control.from.ts
+                     ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.import.ts string.quoted.single.ts
+                                               ^ meta.import.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                ^ punctuation.terminator.statement.ts
+>
+>module('Integration | Component | counter', function (hooks) {
+ ^^^^^^ meta.function-call.ts support.type.object.module.ts
+       ^ meta.brace.round.ts
+        ^ string.quoted.single.ts punctuation.definition.string.begin.ts
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.single.ts
+                                          ^ string.quoted.single.ts punctuation.definition.string.end.ts
+                                           ^ punctuation.separator.comma.ts
+                                             ^^^^^^^^ meta.function.expression.ts storage.type.function.ts
+                                                      ^ meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.begin.ts
+                                                       ^^^^^ meta.function.expression.ts meta.parameters.ts variable.parameter.ts
+                                                            ^ meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.end.ts
+                                                              ^ meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+>  setupRenderingTest(hooks);
+   ^^^^^^^^^^^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                     ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                      ^^^^^ meta.function.expression.ts meta.block.ts variable.other.readwrite.ts
+                           ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                            ^ meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>
+>  test('it increments', async function (assert) {
+   ^^^^ meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+       ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+        ^ meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+         ^^^^^^^^^^^^^ meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                      ^ meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                       ^ meta.function.expression.ts meta.block.ts punctuation.separator.comma.ts
+                         ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts storage.modifier.async.ts
+                               ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts storage.type.function.ts
+                                        ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.begin.ts
+                                         ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts variable.parameter.ts
+                                               ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.end.ts
+                                                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+>    const start = 2;
+     ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.var.expr.ts storage.type.ts
+           ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.var.expr.ts meta.var-single-variable.expr.ts meta.definition.variable.ts variable.other.constant.ts
+                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.var.expr.ts keyword.operator.assignment.ts
+                   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.var.expr.ts constant.numeric.decimal.ts
+                    ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>
+>    await render(<template><Counter @start={{start}} /></template>);
+     ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts keyword.control.flow.ts
+           ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                   ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                            ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                             ^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.type
+                                     ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument markup.italic
+                                      ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument
+                                           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                            ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                              ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function
+                                                   ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                      ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                       ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                        ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                                                          ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                                                                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                                                                   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                                                    ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>    await click('button');
+     ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts keyword.control.flow.ts
+           ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                  ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                        ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                         ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                          ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>
+>    assert.dom('output').hasText('3');
+     ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts variable.other.object.ts
+           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts punctuation.accessor.ts
+            ^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+               ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                 ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                       ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                        ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                         ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts punctuation.accessor.ts
+                          ^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                                    ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                     ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                      ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>  });
+   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+    ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+     ^ meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>
+>  test('it yields the count', async function (assert) {
+   ^^^^ meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+       ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+        ^ meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+         ^^^^^^^^^^^^^^^^^^^ meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                            ^ meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                             ^ meta.function.expression.ts meta.block.ts punctuation.separator.comma.ts
+                               ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts storage.modifier.async.ts
+                                     ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts storage.type.function.ts
+                                              ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.begin.ts
+                                               ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts variable.parameter.ts
+                                                     ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.parameters.ts punctuation.definition.parameters.end.ts
+                                                       ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+>    await render(
+     ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts keyword.control.flow.ts
+           ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+>      <template>
+       ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+        ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>        <Counter as |count|>
+         ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+          ^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.type
+                 ^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars keyword.control
+                     ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.begin.ember-handlebars
+                      ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars support.function
+                           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.end.ember-handlebars
+                            ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>          <span data-test-count>{{count}}</span>
+           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+            ^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                 ^^^^^^^^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                 ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                   ^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+                                        ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                          ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                            ^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>        </Counter>
+         ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+           ^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.type
+                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+>      </template>,
+       ^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+         ^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.separator.comma.ts
+>    );
+     ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+      ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>
+>    assert.dom('[data-test-count]').hasText('0');
+     ^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts variable.other.object.ts
+           ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts punctuation.accessor.ts
+            ^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+               ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                 ^^^^^^^^^^^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                                  ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                    ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts punctuation.accessor.ts
+                                     ^^^^^^^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.function-call.ts entity.name.function.ts
+                                            ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                             ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.begin.ts
+                                              ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts
+                                               ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts string.quoted.single.ts punctuation.definition.string.end.ts
+                                                ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts meta.brace.round.ts
+                                                 ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>  });
+   ^ meta.function.expression.ts meta.block.ts meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+    ^ meta.function.expression.ts meta.block.ts meta.brace.round.ts
+     ^ meta.function.expression.ts meta.block.ts punctuation.terminator.statement.ts
+>});
+ ^ meta.function.expression.ts meta.block.ts punctuation.definition.block.ts
+  ^ meta.brace.round.ts
+   ^ punctuation.terminator.statement.ts
+>

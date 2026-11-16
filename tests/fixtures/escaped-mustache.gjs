@@ -1,0 +1,8 @@
+<template>
+  \{{not a mustache}}
+  before \{{name}} after
+  \{{{raw}}}
+  \{{#if x}}
+  \\{{real}}
+  <p>After the escaped mustache {{@after}}</p>
+</template>

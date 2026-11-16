@@ -1,0 +1,32 @@
+>\{{not a mustache}}
+ ^ constant.character.escape.ember-handlebars
+  ^^^^^^^^^^^^^^^^^^
+>before \{{name}} after
+ ^^^^^^^
+        ^ constant.character.escape.ember-handlebars
+         ^^^^^^^^
+                 ^^^^^^
+>\{{{raw}}}
+ ^ constant.character.escape.ember-handlebars
+  ^^^^^^^^^
+>\{{#if x}}
+ ^ constant.character.escape.ember-handlebars
+  ^^^^^^^^^
+>\\{{real}}
+ ^^
+   ^^ entity.expression.ember-handlebars keyword.operator
+     ^^^^ entity.expression.ember-handlebars support.function support.function
+         ^^ entity.expression.ember-handlebars keyword.operator
+><p>After the escaped mustache {{@after}}</p>
+ ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+  ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+   ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               ^^ entity.expression.ember-handlebars keyword.operator
+                                 ^ entity.expression.ember-handlebars support.function variable.language
+                                  ^^^^^ entity.expression.ember-handlebars support.function
+                                       ^^ entity.expression.ember-handlebars keyword.operator
+                                         ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                           ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                            ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>

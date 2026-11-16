@@ -1,0 +1,40 @@
+><template>
+ ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  \{{not a mustache}}
+   ^ meta.js.embeddedTemplateWithoutArgs constant.character.escape.ember-handlebars
+    ^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+>  before \{{name}} after
+ ^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+          ^ meta.js.embeddedTemplateWithoutArgs constant.character.escape.ember-handlebars
+           ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+                   ^^^^^^ meta.js.embeddedTemplateWithoutArgs
+>  \{{{raw}}}
+   ^ meta.js.embeddedTemplateWithoutArgs constant.character.escape.ember-handlebars
+    ^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+>  \{{#if x}}
+   ^ meta.js.embeddedTemplateWithoutArgs constant.character.escape.ember-handlebars
+    ^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+>  \\{{real}}
+ ^^^^ meta.js.embeddedTemplateWithoutArgs
+     ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+       ^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function support.function
+           ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+>  <p>After the escaped mustache {{@after}}</p>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs
+                                 ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                   ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                                    ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                                         ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                           ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                             ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                              ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+></template>
+ ^^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>

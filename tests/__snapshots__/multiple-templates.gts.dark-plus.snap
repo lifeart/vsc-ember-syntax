@@ -1,0 +1,237 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>import type { TOC } from '@ember/component/template-only';
+ ^^^^^^ #c586c0
+        ^^^^ #c586c0
+            ^^^ #d4d4d4
+               ^^^ #9cdcfe
+                  ^^^ #d4d4d4
+                     ^^^^ #c586c0
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                          ^ #d4d4d4
+>
+>interface RowSignature {
+ ^^^^^^^^^ #569cd6
+           ^^^^^^^^^^^^ #4ec9b0
+                       ^^ #d4d4d4
+>  Args: { label: string; value: number };
+   ^^^^ #9cdcfe
+       ^^^^ #d4d4d4
+           ^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^^^^^^ #4ec9b0
+                        ^^ #d4d4d4
+                          ^^^^^ #9cdcfe
+                               ^^ #d4d4d4
+                                 ^^^^^^ #4ec9b0
+                                       ^^^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>const Row: TOC<RowSignature> = <template>
+ ^^^^^ #569cd6
+       ^^^ #4fc1ff
+          ^^ #d4d4d4
+            ^^^ #4ec9b0
+               ^ #d4d4d4
+                ^^^^^^^^^^^^ #4ec9b0
+                            ^^^^ #d4d4d4
+                                ^ #808080
+                                 ^^^^^^^^ #569cd6
+                                         ^ #808080
+>  <tr><th>{{@label}}</th><td>{{@value}}</td></tr>
+   ^ #808080
+    ^^ #569cd6
+      ^^ #808080
+        ^^ #569cd6
+          ^ #808080
+           ^^ #d4d4d4
+             ^ #569cd6
+              ^^^^^ #dcdcaa
+                   ^^ #d4d4d4
+                     ^^ #808080
+                       ^^ #569cd6
+                         ^^ #808080
+                           ^^ #569cd6
+                             ^ #808080
+                              ^^ #d4d4d4
+                                ^ #569cd6
+                                 ^^^^^ #dcdcaa
+                                      ^^ #d4d4d4
+                                        ^^ #808080
+                                          ^^ #569cd6
+                                            ^^^ #808080
+                                               ^^ #569cd6
+                                                 ^ #808080
+></template>;
+ ^^ #808080
+   ^^^^^^^^ #569cd6
+           ^ #808080
+            ^ #d4d4d4
+>
+>const components = {
+ ^^^^^ #569cd6
+       ^^^^^^^^^^ #4fc1ff
+                 ^^^^ #d4d4d4
+>  Empty: <template><p>No rows</p></template>,
+   ^^^^^^ #9cdcfe
+          ^ #808080
+           ^^^^^^^^ #569cd6
+                   ^^ #808080
+                     ^ #569cd6
+                      ^ #808080
+                       ^^^^^^^ #d4d4d4
+                              ^^ #808080
+                                ^ #569cd6
+                                 ^^^ #808080
+                                    ^^^^^^^^ #569cd6
+                                            ^ #808080
+                                             ^ #d4d4d4
+>  Footer: <template><tfoot><tr><td colspan="2">{{yield}}</td></tr></tfoot></template>,
+   ^^^^^^^ #9cdcfe
+           ^ #808080
+            ^^^^^^^^ #569cd6
+                    ^^ #808080
+                      ^^^^^ #569cd6
+                           ^^ #808080
+                             ^^ #569cd6
+                               ^^ #808080
+                                 ^^ #569cd6
+                                    ^^^^^^^ #9cdcfe
+                                           ^ #d4d4d4
+                                            ^^^ #ce9178
+                                               ^ #808080
+                                                ^^ #d4d4d4
+                                                  ^^^^^ #c586c0
+                                                       ^^ #d4d4d4
+                                                         ^^ #808080
+                                                           ^^ #569cd6
+                                                             ^^^ #808080
+                                                                ^^ #569cd6
+                                                                  ^^^ #808080
+                                                                     ^^^^^ #569cd6
+                                                                          ^^^ #808080
+                                                                             ^^^^^^^^ #569cd6
+                                                                                     ^ #808080
+                                                                                      ^ #d4d4d4
+>};
+ ^^ #d4d4d4
+>
+>export class Table extends Component<{ Args: { rows: RowSignature['Args'][] } }> {
+ ^^^^^^ #c586c0
+        ^^^^^ #569cd6
+              ^^^^^ #4ec9b0
+                    ^^^^^^^ #569cd6
+                            ^^^^^^^^^ #4ec9b0
+                                     ^^^ #d4d4d4
+                                        ^^^^ #9cdcfe
+                                            ^^^^ #d4d4d4
+                                                ^^^^ #9cdcfe
+                                                    ^^ #d4d4d4
+                                                      ^^^^^^^^^^^^ #4ec9b0
+                                                                  ^ #d4d4d4
+                                                                   ^^^^^^ #ce9178
+                                                                         ^^^^^^^^^^ #d4d4d4
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <table>
+     ^ #808080
+      ^^^^^ #569cd6
+           ^ #808080
+>      {{#each @rows as |row|}}
+       ^^^ #808080
+          ^^^^ #c586c0
+               ^ #569cd6
+                ^^^^ #dcdcaa
+                    ^^^ #c586c0
+                        ^ #569cd6
+                         ^^^ #dcdcaa
+                            ^ #569cd6
+                             ^^ #808080
+>        <Row @label={{row.label}} @value={{row.value}} />
+         ^ #808080
+          ^^^ #4ec9b0
+              ^ #9cdcfe italic
+               ^^^^^ #9cdcfe
+                    ^^^ #d4d4d4
+                       ^^^ #dcdcaa
+                          ^ #808080
+                           ^^^^^ #dcdcaa
+                                ^^^ #d4d4d4
+                                   ^ #9cdcfe italic
+                                    ^^^^^ #9cdcfe
+                                         ^^^ #d4d4d4
+                                            ^^^ #dcdcaa
+                                               ^ #808080
+                                                ^^^^^ #dcdcaa
+                                                     ^^^ #d4d4d4
+                                                        ^^ #808080
+>      {{else}}
+       ^^ #808080
+         ^^^^ #c586c0
+             ^^ #808080
+>        <components.Empty />
+         ^ #808080
+          ^^^^^^^^^^ #4ec9b0
+                    ^ #808080
+                     ^^^^^ #4ec9b0
+                           ^^ #808080
+>      {{/each}}
+       ^^^ #808080
+          ^^^^ #c586c0
+              ^^ #808080
+>      <components.Footer>Total: {{@rows.length}}</components.Footer>
+       ^ #808080
+        ^^^^^^^^^^ #4ec9b0
+                  ^ #808080
+                   ^^^^^^ #4ec9b0
+                         ^ #808080
+                          ^^^^^^^^^ #d4d4d4
+                                   ^ #569cd6
+                                    ^^^^ #dcdcaa
+                                        ^ #808080
+                                         ^^^^^^ #dcdcaa
+                                               ^^ #d4d4d4
+                                                 ^^ #808080
+                                                   ^^^^^^^^^^ #4ec9b0
+                                                             ^ #808080
+                                                              ^^^^^^ #4ec9b0
+                                                                    ^ #808080
+>    </table>
+     ^^ #808080
+       ^^^^^ #569cd6
+            ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>
+>export default <template>
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^ #808080
+                 ^^^^^^^^ #569cd6
+                         ^ #808080
+>  <Table @rows={{@rows}} />
+   ^ #808080
+    ^^^^^ #4ec9b0
+          ^ #9cdcfe italic
+           ^^^^ #9cdcfe
+               ^^^ #d4d4d4
+                  ^ #569cd6
+                   ^^^^ #dcdcaa
+                       ^^^ #d4d4d4
+                          ^^ #808080
+></template>
+ ^^ #808080
+   ^^^^^^^^ #569cd6
+           ^ #808080
+>

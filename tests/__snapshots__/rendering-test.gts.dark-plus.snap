@@ -1,0 +1,170 @@
+>import { module, test } from 'qunit';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^^^^ #9cdcfe
+                      ^^^ #d4d4d4
+                         ^^^^ #c586c0
+                              ^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>import { setupRenderingTest } from 'ember-qunit';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^^^^^^^^^^^^^ #9cdcfe
+                            ^^^ #d4d4d4
+                               ^^^^ #c586c0
+                                    ^^^^^^^^^^^^^ #ce9178
+                                                 ^ #d4d4d4
+>import { render, click } from '@ember/test-helpers';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^^^^^ #9cdcfe
+                       ^^^ #d4d4d4
+                          ^^^^ #c586c0
+                               ^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                    ^ #d4d4d4
+>import Counter from 'my-app/components/counter';
+ ^^^^^^ #c586c0
+        ^^^^^^^ #9cdcfe
+                ^^^^ #c586c0
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                                ^ #d4d4d4
+>
+>module('Integration | Component | counter', function (hooks) {
+ ^^^^^^ #4ec9b0
+       ^ #d4d4d4
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^^ #d4d4d4
+                                             ^^^^^^^^ #569cd6
+                                                     ^^ #d4d4d4
+                                                       ^^^^^ #9cdcfe
+                                                            ^^^ #d4d4d4
+>  setupRenderingTest(hooks);
+   ^^^^^^^^^^^^^^^^^^ #dcdcaa
+                     ^ #d4d4d4
+                      ^^^^^ #9cdcfe
+                           ^^ #d4d4d4
+>
+>  test('it increments', async function (assert) {
+   ^^^^ #dcdcaa
+       ^ #d4d4d4
+        ^^^^^^^^^^^^^^^ #ce9178
+                       ^^ #d4d4d4
+                         ^^^^^ #569cd6
+                               ^^^^^^^^ #569cd6
+                                       ^^ #d4d4d4
+                                         ^^^^^^ #9cdcfe
+                                               ^^^ #d4d4d4
+>    const start = 2;
+     ^^^^^ #569cd6
+           ^^^^^ #4fc1ff
+                ^^^ #d4d4d4
+                   ^ #b5cea8
+                    ^ #d4d4d4
+>
+>    await render(<template><Counter @start={{start}} /></template>);
+     ^^^^^ #c586c0
+           ^^^^^^ #dcdcaa
+                 ^ #d4d4d4
+                  ^ #808080
+                   ^^^^^^^^ #569cd6
+                           ^^ #808080
+                             ^^^^^^^ #4ec9b0
+                                     ^ #9cdcfe italic
+                                      ^^^^^ #9cdcfe
+                                           ^^^ #d4d4d4
+                                              ^^^^^ #dcdcaa
+                                                   ^^^ #d4d4d4
+                                                      ^^^^ #808080
+                                                          ^^^^^^^^ #569cd6
+                                                                  ^ #808080
+                                                                   ^^ #d4d4d4
+>    await click('button');
+     ^^^^^ #c586c0
+           ^^^^^ #dcdcaa
+                ^ #d4d4d4
+                 ^^^^^^^^ #ce9178
+                         ^^ #d4d4d4
+>
+>    assert.dom('output').hasText('3');
+     ^^^^^^ #9cdcfe
+           ^ #d4d4d4
+            ^^^ #dcdcaa
+               ^ #d4d4d4
+                ^^^^^^^^ #ce9178
+                        ^^ #d4d4d4
+                          ^^^^^^^ #dcdcaa
+                                 ^ #d4d4d4
+                                  ^^^ #ce9178
+                                     ^^ #d4d4d4
+>  });
+ ^^^^^ #d4d4d4
+>
+>  test('it yields the count', async function (assert) {
+   ^^^^ #dcdcaa
+       ^ #d4d4d4
+        ^^^^^^^^^^^^^^^^^^^^^ #ce9178
+                             ^^ #d4d4d4
+                               ^^^^^ #569cd6
+                                     ^^^^^^^^ #569cd6
+                                             ^^ #d4d4d4
+                                               ^^^^^^ #9cdcfe
+                                                     ^^^ #d4d4d4
+>    await render(
+     ^^^^^ #c586c0
+           ^^^^^^ #dcdcaa
+                 ^ #d4d4d4
+>      <template>
+       ^ #808080
+        ^^^^^^^^ #569cd6
+                ^ #808080
+>        <Counter as |count|>
+         ^ #808080
+          ^^^^^^^ #4ec9b0
+                 ^^^ #c586c0
+                     ^ #569cd6
+                      ^^^^^ #dcdcaa
+                           ^ #569cd6
+                            ^ #808080
+>          <span data-test-count>{{count}}</span>
+           ^ #808080
+            ^^^^ #569cd6
+                 ^^^^^^^^^^^^^^^ #9cdcfe
+                                ^ #808080
+                                 ^^ #d4d4d4
+                                   ^^^^^ #dcdcaa
+                                        ^^ #d4d4d4
+                                          ^^ #808080
+                                            ^^^^ #569cd6
+                                                ^ #808080
+>        </Counter>
+         ^^ #808080
+           ^^^^^^^ #4ec9b0
+                  ^ #808080
+>      </template>,
+       ^^ #808080
+         ^^^^^^^^ #569cd6
+                 ^ #808080
+                  ^ #d4d4d4
+>    );
+ ^^^^^^ #d4d4d4
+>
+>    assert.dom('[data-test-count]').hasText('0');
+     ^^^^^^ #9cdcfe
+           ^ #d4d4d4
+            ^^^ #dcdcaa
+               ^ #d4d4d4
+                ^^^^^^^^^^^^^^^^^^^ #ce9178
+                                   ^^ #d4d4d4
+                                     ^^^^^^^ #dcdcaa
+                                            ^ #d4d4d4
+                                             ^^^ #ce9178
+                                                ^^ #d4d4d4
+>  });
+ ^^^^^ #d4d4d4
+>});
+ ^^^ #d4d4d4
+>

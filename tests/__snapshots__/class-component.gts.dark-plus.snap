@@ -1,0 +1,92 @@
+>import Component from '@glimmer/component';
+ ^^^^^^ #c586c0
+        ^^^^^^^^^ #9cdcfe
+                  ^^^^ #c586c0
+                       ^^^^^^^^^^^^^^^^^^^^ #ce9178
+                                           ^ #d4d4d4
+>import { on } from '@ember/modifier';
+ ^^^^^^ #c586c0
+       ^^^ #d4d4d4
+          ^^ #9cdcfe
+            ^^^ #d4d4d4
+               ^^^^ #c586c0
+                    ^^^^^^^^^^^^^^^^^ #ce9178
+                                     ^ #d4d4d4
+>
+>interface Signature {
+ ^^^^^^^^^ #569cd6
+           ^^^^^^^^^ #4ec9b0
+                    ^^ #d4d4d4
+>  Args: { title: string };
+   ^^^^ #9cdcfe
+       ^^^^ #d4d4d4
+           ^^^^^ #9cdcfe
+                ^^ #d4d4d4
+                  ^^^^^^ #4ec9b0
+                        ^^^ #d4d4d4
+>}
+ ^ #d4d4d4
+>
+>export default class Greeting extends Component<Signature> {
+ ^^^^^^ #c586c0
+        ^^^^^^^ #c586c0
+                ^^^^^ #569cd6
+                      ^^^^^^^^ #4ec9b0
+                               ^^^^^^^ #569cd6
+                                       ^^^^^^^^^ #4ec9b0
+                                                ^ #d4d4d4
+                                                 ^^^^^^^^^ #4ec9b0
+                                                          ^^^ #d4d4d4
+>  count = 0;
+   ^^^^^ #9cdcfe
+        ^^^ #d4d4d4
+           ^ #b5cea8
+            ^ #d4d4d4
+>
+>  <template>
+   ^ #808080
+    ^^^^^^^^ #569cd6
+            ^ #808080
+>    <h1 class="title">{{@title}}</h1>
+     ^ #808080
+      ^^ #569cd6
+         ^^^^^ #9cdcfe
+              ^ #d4d4d4
+               ^^^^^^^ #ce9178
+                      ^ #808080
+                       ^^ #d4d4d4
+                         ^ #569cd6
+                          ^^^^^ #dcdcaa
+                               ^^ #d4d4d4
+                                 ^^ #808080
+                                   ^^ #569cd6
+                                     ^ #808080
+>    <button type="button" {{on "click" this.increment}}>{{this.count}}</button>
+     ^ #808080
+      ^^^^^^ #569cd6
+             ^^^^ #9cdcfe
+                 ^ #d4d4d4
+                  ^^^^^^^^ #ce9178
+                          ^^^ #d4d4d4
+                             ^^ #c586c0
+                                ^^^^^^^ #ce9178
+                                        ^^^^ #569cd6
+                                            ^ #808080
+                                             ^^^^^^^^^ #dcdcaa
+                                                      ^^ #d4d4d4
+                                                        ^ #808080
+                                                         ^^ #d4d4d4
+                                                           ^^^^ #569cd6
+                                                               ^ #808080
+                                                                ^^^^^ #dcdcaa
+                                                                     ^^ #d4d4d4
+                                                                       ^^ #808080
+                                                                         ^^^^^^ #569cd6
+                                                                               ^ #808080
+>  </template>
+   ^^ #808080
+     ^^^^^^^^ #569cd6
+             ^ #808080
+>}
+ ^ #d4d4d4
+>

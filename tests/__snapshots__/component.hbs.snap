@@ -1,0 +1,220 @@
+>{{! A classic component template }}
+ ^^^ comment.inline.glimmer punctuation.definition.block.comment.glimmer
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.inline.glimmer
+                                  ^^ comment.inline.glimmer punctuation.definition.block.comment.glimmer
+><div class="profile {{if @isActive 'active'}}" ...attributes>
+ ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+  ^^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+      ^^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+           ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+            ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+             ^^^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                     ^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                       ^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                          ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                           ^^^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars support.function
+                                    ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars string.quoted.single.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                     ^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars string.quoted.single.ember-handlebars
+                                           ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars string.quoted.single.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                            ^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                              ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                ^^^^^^^^^^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars markup.bold
+                                                             ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>  <h2>{{@user.name}}</h2>
+   ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+      ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+       ^^ entity.expression.ember-handlebars keyword.operator
+         ^ entity.expression.ember-handlebars support.function variable.language
+          ^^^^ entity.expression.ember-handlebars support.function
+              ^ entity.expression.ember-handlebars support.function punctuation.definition.tag
+               ^^^^ entity.expression.ember-handlebars support.function
+                   ^^ entity.expression.ember-handlebars keyword.operator
+                     ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                       ^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                         ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>
+>  {{#if @user.bio}}
+   ^^ entity.expression.ember-handlebars punctuation.definition.tag
+     ^ entity.expression.ember-handlebars punctuation.definition.tag
+      ^^ entity.expression.ember-handlebars keyword.control
+         ^ entity.expression.ember-handlebars support.function variable.language
+          ^^^^ entity.expression.ember-handlebars support.function
+              ^ entity.expression.ember-handlebars support.function punctuation.definition.tag
+               ^^^ entity.expression.ember-handlebars support.function
+                  ^^ entity.expression.ember-handlebars punctuation.definition.tag
+>    <p>{{@user.bio}}</p>
+     ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+       ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+        ^^ entity.expression.ember-handlebars keyword.operator
+          ^ entity.expression.ember-handlebars support.function variable.language
+           ^^^^ entity.expression.ember-handlebars support.function
+               ^ entity.expression.ember-handlebars support.function punctuation.definition.tag
+                ^^^ entity.expression.ember-handlebars support.function
+                   ^^ entity.expression.ember-handlebars keyword.operator
+                     ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                       ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                        ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>  {{else}}
+   ^^ entity.expression.ember-handlebars punctuation.definition.tag punctuation.definition.tag
+     ^^^^ entity.expression.ember-handlebars punctuation.definition.tag keyword.control
+         ^^ entity.expression.ember-handlebars punctuation.definition.tag punctuation.definition.tag
+>    <p class="muted">No bio yet</p>
+     ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+        ^^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+             ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+              ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+               ^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                    ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                     ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                      ^^^^^^^^^^
+                                ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                  ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                   ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>  {{/if}}
+   ^^ entity.expression.ember-handlebars punctuation.definition.tag
+     ^ entity.expression.ember-handlebars punctuation.definition.tag
+      ^^ entity.expression.ember-handlebars keyword.control
+        ^^ entity.expression.ember-handlebars punctuation.definition.tag
+>
+>  {{#each @user.links as |link|}}
+   ^^ entity.expression.ember-handlebars punctuation.definition.tag
+     ^ entity.expression.ember-handlebars punctuation.definition.tag
+      ^^^^ entity.expression.ember-handlebars keyword.control
+           ^ entity.expression.ember-handlebars support.function variable.language
+            ^^^^ entity.expression.ember-handlebars support.function
+                ^ entity.expression.ember-handlebars support.function punctuation.definition.tag
+                 ^^^^^ entity.expression.ember-handlebars support.function
+                      ^^^ entity.expression.ember-handlebars keyword.control
+                          ^ entity.expression.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.begin.ember-handlebars
+                           ^^^^ entity.expression.ember-handlebars keyword.block-params.ember-handlebars support.function
+                               ^ entity.expression.ember-handlebars keyword.block-params.ember-handlebars constant.other.symbol.end.ember-handlebars
+                                ^^ entity.expression.ember-handlebars punctuation.definition.tag
+>    <a href={{link.url}} target="_blank" rel="noopener">{{link.label}}</a>
+     ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+      ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+        ^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+            ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+             ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+               ^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function
+                   ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function punctuation.definition.tag
+                    ^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function support.function
+                       ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                          ^^^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                                ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                 ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                  ^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                        ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                          ^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                                             ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                              ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                               ^^^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                                       ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                        ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                         ^^ entity.expression.ember-handlebars keyword.operator
+                                                           ^^^^ entity.expression.ember-handlebars support.function support.function
+                                                               ^ entity.expression.ember-handlebars support.function support.function punctuation.definition.tag
+                                                                ^^^^^ entity.expression.ember-handlebars support.function support.function
+                                                                     ^^ entity.expression.ember-handlebars keyword.operator
+                                                                       ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                         ^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                                          ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>  {{/each}}
+   ^^ entity.expression.ember-handlebars punctuation.definition.tag
+     ^ entity.expression.ember-handlebars punctuation.definition.tag
+      ^^^^ entity.expression.ember-handlebars keyword.control
+          ^^ entity.expression.ember-handlebars punctuation.definition.tag
+>
+>  <Profile::Avatar @src={{@user.avatar}} @size="large" />
+   ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^^^^^ meta.tag.any.ember-handlebars entity.name.type
+           ^^ meta.tag.any.ember-handlebars entity.name.type punctuation.definition.tag
+             ^^^^^^ meta.tag.any.ember-handlebars entity.name.type
+                    ^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument markup.italic
+                     ^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument
+                        ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                         ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                           ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function variable.language
+                            ^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function punctuation.definition.tag
+                                 ^^^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars support.function
+                                       ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                          ^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument markup.italic
+                                           ^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars.argument
+                                               ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                                                ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                                 ^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                                      ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                        ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                         ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>  <button type="button" {{on "click" (fn this.follow @user)}}>Follow</button>
+   ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^^^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+           ^^^^ meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+               ^ meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                 ^^^^^^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                       ^ meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                         ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                           ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator keyword.control
+                              ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                               ^^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars
+                                    ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                      ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                       ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.control
+                                          ^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function variable.language
+                                              ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function punctuation.definition.tag
+                                               ^^^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                                      ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function variable.language
+                                                       ^^^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                                           ^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                                            ^^ meta.tag.any.ember-handlebars entity.expression.ember-handlebars keyword.operator
+                                                              ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                               ^^^^^^
+                                                                     ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                                       ^^^^^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                                             ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>
+>  {{yield (hash title=(component "profile/title" user=@user))}}
+   ^^ entity.expression.ember-handlebars keyword.operator
+     ^^^^^ entity.expression.ember-handlebars keyword.operator keyword.control
+           ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+            ^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.control
+                 ^^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars variable.parameter.name.ember-handlebars
+                      ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars punctuation.definition.expression.ember-handlebars
+                       ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                        ^^^^^^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars keyword.control
+                                  ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                                   ^^^^^^^^^^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars
+                                                ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars string.quoted.double.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                                  ^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars variable.parameter.name.ember-handlebars
+                                                      ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars punctuation.definition.expression.ember-handlebars
+                                                       ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars support.function variable.language
+                                                        ^^^^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars support.function
+                                                            ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                                             ^ entity.expression.ember-handlebars entity.subexpression.ember-handlebars keyword.other
+                                                              ^^ entity.expression.ember-handlebars keyword.operator
+>  {{{@user.signatureHtml}}}
+   ^^^ entity.unescaped.expression.ember-handlebars keyword.operator
+      ^ entity.unescaped.expression.ember-handlebars support.function variable.language
+       ^^^^ entity.unescaped.expression.ember-handlebars support.function
+           ^ entity.unescaped.expression.ember-handlebars support.function punctuation.definition.tag
+            ^^^^^^^^^^^^^ entity.unescaped.expression.ember-handlebars support.function
+                         ^^^ entity.unescaped.expression.ember-handlebars keyword.operator
+>  {{!-- A long
+   ^^^^^ comment.block.glimmer punctuation.definition.block.comment.glimmer
+        ^^^^^^^ comment.block.glimmer
+>    comment --}}
+ ^^^^^^^^^^^^ comment.block.glimmer
+             ^^^^ comment.block.glimmer punctuation.definition.block.comment.glimmer
+>  <!-- html comment -->
+   ^^^^ comment.block.html.ember-handlebars punctuation.definition.comment.html.ember-handlebars
+       ^^^^^^^^^^^^^^ comment.block.html.ember-handlebars
+                     ^^^ comment.block.html.ember-handlebars punctuation.definition.comment.html.ember-handlebars
+></div>
+ ^^ meta.tag.any.ember-handlebars punctuation.definition.tag
+   ^^^ meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+      ^ meta.tag.any.ember-handlebars punctuation.definition.tag
+>

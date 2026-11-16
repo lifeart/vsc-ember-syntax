@@ -90,7 +90,11 @@ export default {
       ],
     },
     {
-      begin: '((precompileTemplate)\\s*)(\\()',
+      // precompileTemplate(...), with optional type arguments as in precompileTemplate<Signature>(...).
+      // The type arguments use the TypeScript grammar's own rule, so they can be nested to any depth
+      // and span several lines. The rule ends after the call's closing parenthesis, or as soon as
+      // something other than type arguments or the call follows the name.
+      begin: '((precompileTemplate)\\s*)(?=[<(])',
       beginCaptures: {
         1: {
           name: 'entity.name.function.ts',
@@ -98,48 +102,59 @@ export default {
         2: {
           name: 'meta.function-call.ts',
         },
-        3: {
-          name: 'meta.brace.round.ts',
-        },
       },
-      end: '(\\))',
-      endCaptures: {
-        1: {
-          name: 'meta.brace.round.ts',
-        },
-      },
+      end: '(?<=\\))|(?=[^\\s<(])',
       patterns: [
         {
-          begin: '((`|\'|"))',
-          contentName: 'meta.embedded.block.html',
+          include: 'source.ts#type-arguments',
+        },
+        {
+          begin: '(\\()',
           beginCaptures: {
             1: {
-              name: 'string.template.ts',
-            },
-            2: {
-              name: 'punctuation.definition.string.template.begin.ts',
+              name: 'meta.brace.round.ts',
             },
           },
-          end: '((`|\'|"))',
+          end: '(\\))',
           endCaptures: {
             1: {
-              name: 'string.template.ts',
-            },
-            2: {
-              name: 'punctuation.definition.string.template.end.ts',
+              name: 'meta.brace.round.ts',
             },
           },
           patterns: [
             {
-              include: 'text.html.ember-handlebars',
+              begin: '((`|\'|"))',
+              contentName: 'meta.embedded.block.html',
+              beginCaptures: {
+                1: {
+                  name: 'string.template.ts',
+                },
+                2: {
+                  name: 'punctuation.definition.string.template.begin.ts',
+                },
+              },
+              end: '((`|\'|"))',
+              endCaptures: {
+                1: {
+                  name: 'string.template.ts',
+                },
+                2: {
+                  name: 'punctuation.definition.string.template.end.ts',
+                },
+              },
+              patterns: [
+                {
+                  include: 'text.html.ember-handlebars',
+                },
+              ],
+            },
+            {
+              include: 'source.ts#object-literal',
+            },
+            {
+              include: 'source.ts',
             },
           ],
-        },
-        {
-          include: 'source.ts#object-literal',
-        },
-        {
-          include: 'source.ts',
         },
       ],
     },

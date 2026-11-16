@@ -1,0 +1,150 @@
+><template>
+ ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+  ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+          ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>  <style>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html punctuation.definition.tag.begin.html
+    ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html entity.name.tag.html
+         ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html punctuation.definition.tag.end.html
+>    .card { color: red; }
+     ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
+      ^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css
+           ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+             ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-name.css support.type.property-name.css
+                  ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.separator.key-value.css
+                    ^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-value.css support.constant.color.w3c-standard-color-name.css
+                       ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.terminator.rule.css
+                         ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+>    .card:hover > .title::after { content: "{{not-handlebars}}"; }
+     ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
+      ^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css
+          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.pseudo-class.css punctuation.definition.entity.css
+           ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.pseudo-class.css
+                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css keyword.operator.combinator.css
+                   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
+                    ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.class.css
+                         ^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.pseudo-element.css punctuation.definition.entity.css
+                           ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.other.attribute-name.pseudo-element.css
+                                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+                                   ^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-name.css support.type.property-name.css
+                                          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.separator.key-value.css
+                                            ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-value.css string.quoted.double.css punctuation.definition.string.begin.css
+                                             ^^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-value.css string.quoted.double.css
+                                                               ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-value.css string.quoted.double.css punctuation.definition.string.end.css
+                                                                ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.terminator.rule.css
+                                                                  ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+>    @media (min-width: 600px) { .card { padding: 1rem; } }
+     ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css keyword.control.at-rule.media.css punctuation.definition.keyword.css
+      ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css keyword.control.at-rule.media.css
+            ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css punctuation.definition.parameters.begin.bracket.round.css
+             ^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css support.type.property-name.media.css
+                      ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css punctuation.separator.key-value.css
+                        ^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css constant.numeric.css
+                           ^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css constant.numeric.css keyword.other.unit.px.css
+                             ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.header.css punctuation.definition.parameters.end.bracket.round.css
+                               ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css punctuation.section.media.begin.bracket.curly.css
+                                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.selector.css entity.other.attribute-name.class.css punctuation.definition.entity.css
+                                  ^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.selector.css entity.other.attribute-name.class.css
+                                       ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+                                         ^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css meta.property-name.css support.type.property-name.css
+                                                ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css punctuation.separator.key-value.css
+                                                  ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css meta.property-value.css constant.numeric.css
+                                                   ^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css meta.property-value.css constant.numeric.css keyword.other.unit.rem.css
+                                                      ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css punctuation.terminator.rule.css
+                                                        ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+                                                          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.at-rule.media.body.css punctuation.section.media.end.bracket.curly.css
+>  </style>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.begin.html source.css-ignored-vscode
+    ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.begin.html
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html entity.name.tag.html
+          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.end.html
+>  <style scoped>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html punctuation.definition.tag.begin.html
+    ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html entity.name.tag.html
+          ^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html entity.other.attribute-name.ember-handlebars
+                ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.start.html punctuation.definition.tag.end.html
+>    p { margin: 0 }
+     ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.selector.css entity.name.tag.css
+       ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.begin.bracket.curly.css
+         ^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-name.css support.type.property-name.css
+               ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.separator.key-value.css
+                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css meta.property-value.css constant.numeric.css
+                   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.css meta.property-list.css punctuation.section.property-list.end.bracket.curly.css
+>  </style>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.begin.html source.css-ignored-vscode
+    ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.begin.html
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html entity.name.tag.html
+          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.style.end.html punctuation.definition.tag.end.html
+>  <script>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.start.html punctuation.definition.tag.begin.html
+    ^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.start.html entity.name.tag.html
+          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.start.html punctuation.definition.tag.end.html
+>    const x = 1 < 2 && 3 > 2;
+     ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js storage.type.js
+           ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+             ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js keyword.operator.assignment.js
+               ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js constant.numeric.decimal.js
+                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js keyword.operator.relational.js
+                   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js constant.numeric.decimal.js
+                     ^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js keyword.operator.logical.js
+                        ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js constant.numeric.decimal.js
+                          ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js keyword.operator.relational.js
+                            ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.var.expr.js constant.numeric.decimal.js
+                             ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js punctuation.terminator.statement.js
+>    console.log(`template literal ${x}`);
+     ^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.function-call.js variable.other.object.js
+            ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.function-call.js punctuation.accessor.js
+             ^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.function-call.js entity.name.function.js
+                ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.brace.round.js
+                 ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js punctuation.definition.string.template.begin.js
+                  ^^^^^^^^^^^^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js
+                                   ^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js meta.template.expression.js punctuation.definition.template-expression.begin.js
+                                     ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js meta.template.expression.js meta.embedded.line.js variable.other.readwrite.js
+                                      ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js meta.template.expression.js punctuation.definition.template-expression.end.js
+                                       ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js string.template.js punctuation.definition.string.template.end.js
+                                        ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js meta.brace.round.js
+                                         ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html source.js punctuation.terminator.statement.js
+>  </script>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.begin.html source.js-ignored-vscode
+    ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.begin.html
+     ^^^^^^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.end.html entity.name.tag.html
+           ^ meta.js.embeddedTemplateWithoutArgs meta.embedded.block.html meta.tag.metadata.script.end.html punctuation.definition.tag.end.html
+>  <div class="card"><p class="title">{{@title}}</p></div>
+   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+    ^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+        ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+             ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+              ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+               ^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                    ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                      ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                        ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.other.attribute-name.ember-handlebars
+                             ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.separator.key-value.html.ember-handlebars
+                              ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.begin.ember-handlebars
+                               ^^^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars
+                                    ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars string.quoted.double.html.ember-handlebars punctuation.definition.string.end.ember-handlebars
+                                     ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                      ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                        ^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function variable.language
+                                         ^^^^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars support.function
+                                              ^^ meta.js.embeddedTemplateWithoutArgs entity.expression.ember-handlebars keyword.operator
+                                                ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                  ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                   ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                    ^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+                                                      ^^^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars entity.name.tag.html.ember-handlebars
+                                                         ^ meta.js.embeddedTemplateWithoutArgs meta.tag.any.ember-handlebars punctuation.definition.tag
+></template>
+ ^^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+   ^^^^^^^^ meta.js.embeddedTemplateWithoutArgs entity.name.tag.other.html
+           ^ meta.js.embeddedTemplateWithoutArgs punctuation.definition.tag.html
+>
+>const after = 1;
+ ^^^^^ meta.var.expr.js storage.type.js
+       ^^^^^ meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js
+             ^ meta.var.expr.js keyword.operator.assignment.js
+               ^ meta.var.expr.js constant.numeric.decimal.js
+                ^ punctuation.terminator.statement.js
+>
