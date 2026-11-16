@@ -47,7 +47,7 @@
     "web:package": "webpack --mode production",
     "prettier": "prettier --write \"**/*.{js,ts,json,yaml}\"",
     "prettier:package": "prettier --write \"package.json\"",
-    "chrome": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=.",
+    "chrome": "vscode-test-web --browser=chromium --extensionDevelopmentPath=.",
     "build:grammars": "node ./syntaxes/src/index.mjs",
     "test": "vitest run",
     "test:update": "vitest run -u",
@@ -195,7 +195,7 @@
   "devDependencies": {
     "@types/node": "^12.7.5",
     "@types/vscode": "^1.31.0",
-    "@vscode/test-web": "^0.0.15",
+    "@vscode/test-web": "^0.0.81",
     "@vscode/vsce": "^4.1.1",
     "ovsx": "^1.4.0",
     "path-browserify": "^1.0.1",
