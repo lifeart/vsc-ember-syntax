@@ -82,4 +82,4 @@ If you are using VS Code 1.30 or older and are using a workspace version of type
 How to publish: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
 
 
-[LICENSE](LICENSE)
+ [LICENSE](LICENSE)
