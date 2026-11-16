@@ -80,3 +80,6 @@ If you are using VS Code 1.30 or older and are using a workspace version of type
 - [Grammar](https://macromates.com/manual/en/language_grammars)
 
 How to publish: https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+
+
+[LICENSE](LICENSE)
