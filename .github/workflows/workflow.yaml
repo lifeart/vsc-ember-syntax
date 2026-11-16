@@ -1,3 +1,5 @@
+name: cicd
+
 on:
   push:
     branches:
@@ -6,30 +8,44 @@ on:
     paths-ignore: # dont run when changes made to these folders
       - '.vscode/**'
 
+# never run two releases of the same branch at once, they would race on the version tag
+concurrency:
+  group: cicd-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   cicd:
     name: cicd
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
+    permissions:
+      contents: write # push the version commit, tag and release
+    env:
+      # feature/** branches only build the vsix; tagging and publishing happen on master only
+      RELEASE: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - name: checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # all history and tags for gitversion
 
-      - name: fetch all history and tags from all branches for gitversion
-        run: git fetch --prune --unshallow
+      - name: check that the commit is still the tip of the branch
+        if: env.RELEASE == 'true'
+        run: |
+          tip=$(git ls-remote origin "$GITHUB_REF" | cut -f1)
+          if [ "$tip" != "$GITHUB_SHA" ]; then
+            echo "::error::$GITHUB_SHA is no longer the tip of $GITHUB_REF_NAME (now $tip). Re-running an outdated release can't push its version tag, push a new commit to release instead."
+            exit 1
+          fi
 
       - name: install gitversion tool
-        uses: gittools/actions/gitversion/setup@v0.9
+        uses: gittools/actions/gitversion/setup@v4.7.0
         with:
-          versionSpec: '6.0.0-beta.3'
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+          versionSpec: '6.8.x'
 
       - name: execute gitversion
         id: gitversion # step id used as reference for output values
-        uses: gittools/actions/gitversion/execute@v0.9.3
-        env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+        uses: gittools/actions/gitversion/execute@v4.7.0
 
       - name: print gitversion
         run: |
@@ -38,6 +54,7 @@ jobs:
           echo "Patch: ${{ steps.gitversion.outputs.patch }}"
           echo "MajorMinorPatch: ${{ steps.gitversion.outputs.majorMinorPatch }}"
           echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
+          echo "VERSION=${{ steps.gitversion.outputs.majorMinorPatch }}" >> "$GITHUB_ENV"
 
       - name: setup node and yarn from .prototools
         uses: moonrepo/setup-toolchain@v0
@@ -53,30 +70,11 @@ jobs:
       - name: build grammars
         run: yarn build:grammars
 
-      - name: add and commit grammars
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'syntaxes'
-          default_author: github_actions
-          message: 'chore: build grammar json files for ${{ steps.gitversion.outputs.majorMinorPatch }}'
-
-      - name: update metadata in package.json
-        uses: onlyutkarsh/patch-files-action@v1.0.1
-        with:
-          files: '${{github.workspace}}/package.json'
-          patch-syntax: |
-            = /version => "${{ steps.gitversion.outputs.majorMinorPatch }}"
+      - name: update version in package.json
+        run: npm pkg set version="$VERSION"
 
       - name: run prettier
         run: yarn prettier:package
-
-      - name: add and commit package.json
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'package.json'
-          default_author: github_actions
-          message: 'chore: update package.json version to ${{ steps.gitversion.outputs.majorMinorPatch }}'
-          tag: 'v${{ steps.gitversion.outputs.majorMinorPatch }}'
 
       - name: compile for node
         run: yarn node:package
@@ -88,28 +86,45 @@ jobs:
         run: yarn vs:package
 
       - name: upload vsix as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: vscode-glimmer-syntax-${{steps.gitversion.outputs.majorMinorPatch}}.vsix
-          path: ${{github.workspace}}/vscode-glimmer-syntax-${{steps.gitversion.outputs.majorMinorPatch}}.vsix
+          path: ${{ github.workspace }}/vscode-glimmer-syntax-${{ env.VERSION }}.vsix
+          archive: false # upload the .vsix itself instead of a zip around it
+
+      # Release steps: commit and tag locally, publish, and only then push.
+      # If publishing fails nothing is pushed, so the run can simply be re-run.
+
+      - name: commit grammars and package.json, tag version
+        if: env.RELEASE == 'true'
+        run: |
+          git config user.name 'github-actions'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add syntaxes
+          git diff --cached --quiet || git commit -m "chore: build grammar json files for $VERSION"
+          git add package.json
+          git diff --cached --quiet || git commit -m "chore: update package.json version to $VERSION"
+          git tag "v$VERSION"
 
       - name: publish to marketplace VSCODE
-        if: github.ref == 'refs/heads/master'
+        if: env.RELEASE == 'true'
         env:
-          VSCODE_STORE_TOKEN: ${{ secrets.VSCODE_STORE_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        run: yarn vs:publish:ci
+          # Azure DevOps PAT with Marketplace (Manage) scope, it expires and has to be rotated in the repo secrets
+          VSCODE_STORE_TOKEN: ${{ secrets.VSCODE_STORE_TOKEN }}
+        run: yarn vs:publish:ci --packagePath "vscode-glimmer-syntax-$VERSION.vsix" --skip-duplicate
 
       - name: publish to marketplace OPEN VSX
-        if: github.ref == 'refs/heads/master'
+        if: env.RELEASE == 'true'
         env:
-          OPEN_VSX_STORE_TOKEN: ${{ secrets.OPEN_VSX_STORE_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        run: yarn ov:publish:ci
+          # open-vsx.org access token
+          OPEN_VSX_STORE_TOKEN: ${{ secrets.OPEN_VSX_STORE_TOKEN }}
+        run: yarn ov:publish:ci --packagePath "vscode-glimmer-syntax-$VERSION.vsix" --skip-duplicate
+
+      - name: push version commit and tag
+        if: env.RELEASE == 'true'
+        run: git push --atomic origin "HEAD:$GITHUB_REF" "refs/tags/v$VERSION"
 
       - name: create a release
-        if: github.ref == 'refs/heads/master'
-        uses: actions/create-release@v1
+        if: env.RELEASE == 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: v${{ steps.gitversion.outputs.majorMinorPatch }}
-          release_name: v${{ steps.gitversion.outputs.majorMinorPatch }}
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "v$VERSION" --title "v$VERSION" --verify-tag --generate-notes
