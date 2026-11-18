@@ -253,7 +253,9 @@ export default {
     'glimmer-unescaped-expression': {
       name: 'entity.unescaped.expression.ember-handlebars',
       begin: '{{{',
-      end: '}}}',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '}}}|(?=<|/?>)',
       captures: {
         0: {
           name: 'keyword.operator',
@@ -336,7 +338,9 @@ export default {
     'glimmer-literal-expression': {
       name: 'entity.expression.ember-handlebars',
       begin: '({{~?)(?=["\'])',
-      end: '(~?}})',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '(~?}})|(?=<|/?>)',
       captures: {
         1: {
           name: 'keyword.operator',
@@ -426,7 +430,9 @@ export default {
     'glimmer-block': {
       name: 'entity.expression.ember-handlebars',
       begin: '({{~?)(#|/)(([@\\$a-zA-Z0-9_/.-]+))',
-      end: '(~?}})',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '(~?}})|(?=<|/?>)',
       captures: {
         1: {
           name: 'punctuation.definition.tag',
@@ -463,7 +469,9 @@ export default {
     'glimmer-expression-property': {
       name: 'entity.expression.ember-handlebars',
       begin: '({{~?)((@|this.)([a-zA-Z0-9_.-]+))',
-      end: '(~?}})',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '(~?}})|(?=<|/?>)',
       captures: {
         1: {
           name: 'keyword.operator',
@@ -503,7 +511,9 @@ export default {
     'glimmer-expression': {
       name: 'entity.expression.ember-handlebars',
       begin: '({{~?)(([()\\s@a-zA-Z0-9_.-]+))',
-      end: '(~?}})',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '(~?}})|(?=<|/?>)',
       captures: {
         1: {
           name: 'keyword.operator',
@@ -569,7 +579,9 @@ export default {
     'glimmer-control-expression': {
       name: 'entity.expression.ember-handlebars',
       begin: '({{~?)(([-a-zA-Z_0-9/]+)\\s)',
-      end: '(~?}})',
+      // A mustache that is still being typed, such as `{{this.na`, ends before
+      // a `<`, or before a `>` or `/>` that ends the tag it is in.
+      end: '(~?}})|(?=<|/?>)',
       captures: {
         1: {
           name: 'keyword.operator',

@@ -248,7 +248,7 @@
     "glimmer-unescaped-expression": {
       "name": "entity.unescaped.expression.ember-handlebars",
       "begin": "{{{",
-      "end": "}}}",
+      "end": "}}}|(?=<|/?>)",
       "captures": {
         "0": {
           "name": "keyword.operator"
@@ -330,7 +330,7 @@
     "glimmer-literal-expression": {
       "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(?=[\"'])",
-      "end": "(~?}})",
+      "end": "(~?}})|(?=<|/?>)",
       "captures": {
         "1": {
           "name": "keyword.operator"
@@ -420,7 +420,7 @@
     "glimmer-block": {
       "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(#|/)(([@\\$a-zA-Z0-9_/.-]+))",
-      "end": "(~?}})",
+      "end": "(~?}})|(?=<|/?>)",
       "captures": {
         "1": {
           "name": "punctuation.definition.tag"
@@ -457,7 +457,7 @@
     "glimmer-expression-property": {
       "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)((@|this.)([a-zA-Z0-9_.-]+))",
-      "end": "(~?}})",
+      "end": "(~?}})|(?=<|/?>)",
       "captures": {
         "1": {
           "name": "keyword.operator"
@@ -497,7 +497,7 @@
     "glimmer-expression": {
       "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(([()\\s@a-zA-Z0-9_.-]+))",
-      "end": "(~?}})",
+      "end": "(~?}})|(?=<|/?>)",
       "captures": {
         "1": {
           "name": "keyword.operator"
@@ -563,7 +563,7 @@
     "glimmer-control-expression": {
       "name": "entity.expression.ember-handlebars",
       "begin": "({{~?)(([-a-zA-Z_0-9/]+)\\s)",
-      "end": "(~?}})",
+      "end": "(~?}})|(?=<|/?>)",
       "captures": {
         "1": {
           "name": "keyword.operator"
