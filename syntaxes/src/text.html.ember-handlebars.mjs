@@ -1017,7 +1017,7 @@ export default {
           ],
         },
         3: {
-          name: 'entity.name.type',
+          name: 'entity.name.tag.html',
           patterns: [
             {
               include: '#glimmer-component-path',
